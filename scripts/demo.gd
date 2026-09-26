@@ -126,14 +126,14 @@ func promo() -> void:
 	await main.go("catch", true)
 	var scoop = main.current
 	scoop.start_auto(0.95)
-	var hook := _big_text(["光る玉を", "そっと すくう。"], [Color.WHITE, Color("ffe27a")], 0.35, 200)
+	var hook := _big_text([UI.t("光る玉を"), UI.t("そっと すくう。")], [Color.WHITE, Color("ffe27a")], 0.35, 200)
 	await _wait(1.2)
 	scoop.demo_rainbow()
 	await _wait(1.2)
 	hook.queue_free()
-	caption("働いた日は、ポイが増える。")
+	caption(UI.t("働いた日は、ポイが増える。"))
 	await _wait(4.4)
-	caption("そっと、真ん中で。コンボ！")
+	caption(UI.t("そっと、真ん中で。コンボ！"))
 	await _wait(4.4)
 	caption_off()
 	await _wait(0.8)
@@ -144,25 +144,25 @@ func promo() -> void:
 	GameState.orbs = GameState.orbs.slice(0, 1)
 	GameState.rare_pending = ["tsukimi"]
 	await main.go("sleep")
-	caption("よく寝た朝は、玉がよくかえる。", 470)
+	caption(UI.t("よく寝た朝は、玉がよくかえる。"), 470)
 	await _wait(1.6)
 	main.current._sleep()
 	await _wait(2.6)
 	var hatch = main.current
-	caption("よく寝た朝は、玉がよくかえる。", 130)
+	caption(UI.t("よく寝た朝は、玉がよくかえる。"), 130)
 	for i in 2:
 		if hatch.has_method("_next"):
 			hatch._next()
 		await _wait(4.0)
 	# 3) 休憩室がにぎやかに（24〜29秒）
 	await main.go("room")
-	caption("かえったおばけが、休憩室に。", 250)
+	caption(UI.t("かえったおばけが、休憩室に。"), 250)
 	await _wait(1.0)
 	main.current._close_report()
 	await _wait(3.0)
 	# 4) 図鑑はトロフィー部屋（29〜34秒）
 	await main.go("zukan")
-	caption("レア30体。図鑑をうめよう。", 520)
+	caption(UI.t("レア30体。図鑑をうめよう。"), 520)
 	var z = main.current
 	await _wait(0.6)
 	var sc: ScrollContainer = z.get_child(2) if z.get_child(2) is ScrollContainer else null
@@ -182,10 +182,10 @@ func promo() -> void:
 	await main.go("catch")
 	main.current.selected = "double"
 	main.current.start_auto(1.0)
-	caption("土曜の夜は、大すくい祭り。", 250)
+	caption(UI.t("土曜の夜は、大すくい祭り。"), 250)
 	await _wait(7.0)
 	caption_off()
-	_big_text(["Paw Time", "働いた日は、ポイが増える。", "よく寝た朝は、玉がよくかえる。"], [Color.WHITE, Color("ffe27a"), Color("ffe27a")], 0.9, 230)
+	_big_text(["Paw Time", UI.t("働いた日は、ポイが増える。"), UI.t("よく寝た朝は、玉がよくかえる。")], [Color.WHITE, Color("ffe27a"), Color("ffe27a")], 0.9, 230)
 	await _wait(3.6)
 
 
@@ -223,7 +223,7 @@ func autoplay(days: int) -> void:
 			if full_ui and frames == 60 * 6:
 				_snap("d%02d_a2_scoop" % (d + 1))
 		if not scoop.ended:
-			print("  自動すくいが時間切れ: busy=%s pressed=%s in_hand=%s sel=%s state=%s supply=%d vis=%d pois=%s tele=%.1f" % [scoop.busy, scoop.pressed, scoop.in_hand, scoop.selected, scoop.auto_state, scoop.supply, scoop._visible_count(), str(GameState.pois), scoop.telegraph_left])
+			print(UI.t("  自動すくいが時間切れ: busy=%s pressed=%s in_hand=%s sel=%s state=%s supply=%d vis=%d pois=%s tele=%.1f") % [scoop.busy, scoop.pressed, scoop.in_hand, scoop.selected, scoop.auto_state, scoop.supply, scoop._visible_count(), str(GameState.pois), scoop.telegraph_left])
 		var t: Dictionary = GameState.tonight
 		total += t.get("count", 0)
 		var h: int = pattern[d % pattern.size()]
@@ -244,9 +244,9 @@ func autoplay(days: int) -> void:
 			await _wait(0.2)
 			await main.go("workshop")
 			await _wait(0.2)
-			print("D%02d 画面を一巡: %s" % [d + 1, main.current_name])
+			print(UI.t("D%02d 画面を一巡: %s") % [d + 1, main.current_name])
 			continue
-		print("D%02d %s曜 %s %s%s | ポイ%2d 使%2d | すくい%2d コンボ%2d ていねい%2d 虹%d | %4.0f秒 | 寝%d" % [d + 1, s.day, s.weather, s.moon if s.moon != "" else "--", " 祭" if mods.festival else "", pois_before, pois_before - GameState.total_pois(), t.get("count", 0), t.get("best_combo", 0), t.get("clean", 0), t.get("rainbow", 0), frames / 60.0, h])
+		print(UI.t("D%02d %s曜 %s %s%s | ポイ%2d 使%2d | すくい%2d コンボ%2d ていねい%2d 虹%d | %4.0f秒 | 寝%d") % [d + 1, s.day, s.weather, s.moon if s.moon != "" else "--", UI.t(" 祭") if mods.festival else "", pois_before, pois_before - GameState.total_pois(), t.get("count", 0), t.get("best_combo", 0), t.get("clean", 0), t.get("rainbow", 0), frames / 60.0, h])
 		var kinds := {}
 		for o in GameState.orbs:
 			kinds[o.kind] = kinds.get(o.kind, 0) + 1
@@ -255,7 +255,7 @@ func autoplay(days: int) -> void:
 			var hs := {}
 			for x in GameState.hatched:
 				hs[x.id] = hs.get(x.id, 0) + 1
-			print("      玉 ", kinds, " → ", hs)
+			print(UI.t("      玉 "), kinds, " → ", hs)
 		var lv := []
 		for id in GameState.NORMAL_IDS:
 			lv.append(GameState.level_of(id))
@@ -269,7 +269,7 @@ func autoplay(days: int) -> void:
 			GameState.claim(key)
 		for u in ["fuchi", "wa", "kami"]:
 			if GameState.upgrade(u):
-				print("      工房: %s Lv%d（%d日目）" % [u, GameState.upgrades[u], d + 1])
+				print(UI.t("      工房: %s Lv%d（%d日目）") % [u, GameState.upgrades[u], d + 1])
 		if d % 7 == 6:
-			print("   -- 週末: 図鑑 %d/%d  Lv %s  かけら %s  累計すくい %d" % [GameState.seen.size(), GameState.ALL.size(), str(lv), str(GameState.shards), total])
-	print("== 終了: 図鑑 %d/%d 最高コンボ %d 累計 %d" % [GameState.seen.size(), GameState.ALL.size(), GameState.records.best_combo, total])
+			print(UI.t("   -- 週末: 図鑑 %d/%d  Lv %s  かけら %s  累計すくい %d") % [GameState.seen.size(), GameState.ALL.size(), str(lv), str(GameState.shards), total])
+	print(UI.t("== 終了: 図鑑 %d/%d 最高コンボ %d 累計 %d") % [GameState.seen.size(), GameState.ALL.size(), GameState.records.best_combo, total])

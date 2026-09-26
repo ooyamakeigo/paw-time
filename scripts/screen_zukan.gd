@@ -31,13 +31,13 @@ func _ready() -> void:
 	for r in Rares.LIST:
 		if GameState.seen.has(r.id):
 			rare_have += 1
-	head.add_child(_text("図鑑", 26, Color("2a2233"), font_black))
+	head.add_child(_text(UI.t("図鑑"), 26, Color("2a2233"), font_black))
 	var sp := Control.new()
 	sp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	head.add_child(sp)
 	head.add_child(_text("%d / %d" % [GameState.seen.size(), GameState.ALL.size()], 16, Color("8a5bd6"), font_black))
 	var back := Button.new()
-	back.text = "もどる"
+	back.text = UI.t("もどる")
 	back.add_theme_font_override("font", font_bold)
 	back.add_theme_font_size_override("font_size", 14)
 	for k in ["normal", "hover", "pressed"]:
@@ -62,10 +62,10 @@ func _ready() -> void:
 	for key in GameState.claimable():
 		col.add_child(_claim_row(key))
 	col.add_child(_next_milestone())
-	col.add_child(_group_head("ふつう", "ふつうのおばけ"))
+	col.add_child(_group_head("ふつう", UI.t("ふつうのおばけ")))
 	col.add_child(_shelf())
 	for g in GROUPS:
-		col.add_child(_group_head(g, "レア ・ " + g))
+		col.add_child(_group_head(g, UI.t("レア ・ ") + UI.t(g)))
 		var grid := GridContainer.new()
 		grid.columns = 3
 		grid.add_theme_constant_override("h_separation", 8)
@@ -80,7 +80,7 @@ func _ready() -> void:
 				grid.add_child(_card(r))
 	# 目立たない場所に：診断のやりなおし
 	var redo := Button.new()
-	redo.text = "診断をやりなおす"
+	redo.text = UI.t("診断をやりなおす")
 	redo.flat = true
 	redo.focus_mode = Control.FOCUS_NONE
 	redo.add_theme_font_override("font", font_bold)
@@ -184,7 +184,7 @@ func _shelf() -> Control:
 	names.alignment = BoxContainer.ALIGNMENT_CENTER
 	names.add_theme_constant_override("separation", 0)
 	for id in NORMAL:
-		var l := _text(("%s\nLv%d" % [GameState.info(id).name, GameState.level_of(id)]) if GameState.seen.has(id) else "？？？", 11, Color("6a5f70"))
+		var l := _text(("%s\nLv%d" % [GameState.info(id).name, GameState.level_of(id)]) if GameState.seen.has(id) else UI.t("？？？"), 11, Color("6a5f70"))
 		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		l.custom_minimum_size = Vector2(66, 18)
 		if GameState.seen.has(id):
@@ -194,7 +194,7 @@ func _shelf() -> Control:
 					_show_normal(id))
 		names.add_child(l)
 	v.add_child(names)
-	var tip := _text("名前をタップで くわしく", 11, Color("9a8e98"))
+	var tip := _text(UI.t("名前をタップで くわしく"), 11, Color("9a8e98"))
 	tip.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(tip)
 	return v
@@ -266,21 +266,21 @@ func _show_normal(id: String) -> void:
 	v.add_child(n)
 	var lines: Array = []
 	if own.level < GameState.MAX_LEVEL:
-		lines.append("次のLvまで あと %d（ていねいな玉ほど育つ）" % (GameState.xp_to_next(own.level) - own.xp))
+		lines.append(UI.t("次のLvまで あと %d（ていねいな玉ほど育つ）") % (GameState.xp_to_next(own.level) - own.xp))
 	else:
-		lines.append("Lv5（王冠）。かぶると、かけらになる")
-	lines.append("これまでに %d 体" % own.count)
+		lines.append(UI.t("Lv5（王冠）。かぶると、かけらになる"))
+	lines.append(UI.t("これまでに %d 体") % own.count)
 	if GameState.met_text(id) != "":
 		lines.append(GameState.met_text(id))
-	lines.append("相棒にすると：" + GameState.PARTNER_SKILL[id])
+	lines.append(UI.t("相棒にすると：") + UI.t(GameState.PARTNER_SKILL[id]))
 	for t in lines:
 		var l := _text(t, 13, Color("6a5f70"))
 		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		l.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+		l.autowrap_mode = UI.wrap_mode()
 		v.add_child(l)
 	var d := _text(info.desc, 14, Color("4a3f52"))
 	d.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	d.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	d.autowrap_mode = UI.wrap_mode()
 	v.add_child(d)
 
 
@@ -296,7 +296,7 @@ func _records() -> Control:
 	h.alignment = BoxContainer.ALIGNMENT_CENTER
 	h.add_theme_constant_override("separation", 14)
 	p.add_child(h)
-	for pair in [["すくった玉", r.total], ["最高コンボ", r.best_combo], ["虹の玉", r.rainbow], ["夜", r.nights]]:
+	for pair in [[UI.t("すくった玉"), r.total], [UI.t("最高コンボ"), r.best_combo], [UI.t("虹の玉"), r.rainbow], ["夜", r.nights]]:
 		var v := VBoxContainer.new()
 		v.add_theme_constant_override("separation", -2)
 		var n := _text(str(pair[1]), 20, Color("ffe27a"), font_black)
@@ -308,7 +308,7 @@ func _records() -> Control:
 		h.add_child(v)
 	var outer := VBoxContainer.new()
 	outer.add_theme_constant_override("separation", 2)
-	var tl := _text("称号：" + GameState.title_name(), 15, Color("e8603c"), font_black)
+	var tl := _text(UI.t("称号：") + GameState.title_name(), 15, Color("e8603c"), font_black)
 	tl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	outer.add_child(tl)
 	outer.add_child(p)
@@ -347,7 +347,7 @@ func _medals() -> Control:
 			star.set_anchors_preset(Control.PRESET_FULL_RECT)
 			m.add_child(star)
 		v.add_child(m)
-		var l := _text(g.left(3), 10, Color("2a2233") if done else Color("9a8e98"))
+		var l := _text(UI.t(g) if UI.is_en() else g.left(3), 10, Color("2a2233") if done else Color("9a8e98"))
 		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		l.custom_minimum_size = Vector2(42, 0)
 		v.add_child(l)
@@ -356,7 +356,7 @@ func _medals() -> Control:
 
 
 func _claim_row(key: String) -> Control:
-	var label: String = ("「%s」をそろえた" % key.substr(2)) if key.begins_with("g:") else ("%s種類に出会った" % key.substr(2))
+	var label: String = (UI.t("「%s」をそろえた") % key.substr(2)) if key.begins_with("g:") else (UI.t("%s種類に出会った") % key.substr(2))
 	var rw: Dictionary = GameState.GROUP_REWARD[key.substr(2)] if key.begins_with("g:") else GameState.milestone_reward(int(key.substr(2)))
 	var p := PanelContainer.new()
 	var st := _pill(Color("fff3c4"), 18)
@@ -370,11 +370,11 @@ func _claim_row(key: String) -> Control:
 	v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	v.add_child(_text(label, 14, Color("2a2233"), font_black))
 	var d := _text(GameState.reward_text(rw), 11, Color("6a5f70"))
-	d.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	d.autowrap_mode = UI.wrap_mode()
 	v.add_child(d)
 	h.add_child(v)
 	var b := Button.new()
-	b.text = "受け取る"
+	b.text = UI.t("受け取る")
 	b.focus_mode = Control.FOCUS_NONE
 	b.custom_minimum_size = Vector2(84, 40)
 	b.add_theme_font_override("font", font_black)
@@ -389,7 +389,7 @@ func _claim_row(key: String) -> Control:
 		if got.is_empty():
 			return
 		_play("fanfare")
-		b.text = "受け取った"
+		b.text = UI.t("受け取った")
 		b.disabled = true
 		var tw := create_tween()
 		tw.tween_property(p, "modulate", Color(1.2, 1.2, 1.0), 0.15)
@@ -409,7 +409,7 @@ func _next_milestone() -> Control:
 		if n < mlt:
 			next = mlt
 			break
-	var t := "つぎのごほうびまで あと %d 種類" % (next - n) if next > 0 else "すべての節目のごほうびを受け取った"
+	var t := UI.t("つぎのごほうびまで あと %d 種類") % (next - n) if next > 0 else UI.t("すべての節目のごほうびを受け取った")
 	var m := MarginContainer.new()
 	m.add_theme_constant_override("margin_left", 18)
 	m.add_child(_text(t, 12, Color("b07a3a")))
@@ -517,13 +517,13 @@ func _card(r: Dictionary) -> Control:
 	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	center.add_child(art)
 	v.add_child(center)
-	var name_l := _text(r.name if found else "？？？", 13, Color("2a2233") if found else Color("9a8e98"), font_black)
+	var name_l := _text(UI.t(r.name) if found else UI.t("？？？"), 13, Color("2a2233") if found else Color("9a8e98"), font_black)
 	name_l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(name_l)
-	var hint := _text("" if found else r.hint, 11, Color("5a4f5c"))
+	var hint := _text("" if found else UI.t(r.hint), 11, Color("5a4f5c"))
 	hint.visible = not found
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	hint.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	hint.autowrap_mode = UI.wrap_mode()
 	hint.custom_minimum_size = Vector2(84, 0)
 	v.add_child(hint)
 	p.gui_input.connect(func(e):
@@ -569,15 +569,15 @@ func _show_detail(r: Dictionary) -> void:
 		if not found:
 			tr.modulate = Color(0.15, 0.12, 0.2, 0.35)
 		v.add_child(tr)
-	var n := _text(r.name if found else "？？？", 26, Color("2a2233"), font_black)
+	var n := _text(UI.t(r.name) if found else UI.t("？？？"), 26, Color("2a2233"), font_black)
 	n.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(n)
-	var g := _text("レア ・ " + r.group, 13, Color(r.look.c2).darkened(0.2))
+	var g := _text(UI.t("レア ・ ") + UI.t(r.group), 13, Color(r.look.c2).darkened(0.2))
 	g.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	v.add_child(g)
-	var d := _text(r.desc if found else "ヒント：" + r.hint, 15, Color("4a3f52"))
+	var d := _text(UI.t(r.desc) if found else UI.t("ヒント：") + UI.t(r.hint), 15, Color("4a3f52"))
 	d.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	d.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	d.autowrap_mode = UI.wrap_mode()
 	v.add_child(d)
 	if found and GameState.met_text(r.id) != "":
 		var mt := _text(GameState.met_text(r.id), 12, Color("b07a3a"))

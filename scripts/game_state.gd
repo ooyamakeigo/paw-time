@@ -164,10 +164,40 @@ func _ready() -> void:
 		ALL[id] = SPECIES[id]
 	for r in Rares.LIST:
 		ALL[r.id] = {"name": r.name, "type": "rare", "desc": r.desc, "hint": r.hint, "group": r.group}
+	apply_locale()
 	my_obake = QuizResult.load_result() if not _sandboxed() else {}
 	reset()
 	if not _sandboxed():
 		load_game()
+
+
+# ---------- ことば（英語が先。タイトルで日本語に切り替えられる） ----------
+
+const SETTINGS_PATH := "user://settings.json"
+
+
+func saved_locale() -> String:
+	var force := OS.get_environment("OBAKE_LANG")
+	if force != "":
+		return force
+	if FileAccess.file_exists(SETTINGS_PATH):
+		var d = JSON.parse_string(FileAccess.get_file_as_string(SETTINGS_PATH))
+		if typeof(d) == TYPE_DICTIONARY and d.has("locale"):
+			return String(d.locale)
+	return "en"
+
+
+func apply_locale() -> void:
+	TranslationServer.set_locale(saved_locale())
+
+
+func set_locale(loc: String) -> void:
+	TranslationServer.set_locale(loc)
+	if OS.get_environment("OBAKE_LANG") != "":
+		return
+	var f := FileAccess.open(SETTINGS_PATH, FileAccess.WRITE)
+	if f:
+		f.store_string(JSON.stringify({"locale": loc}))
 
 
 ## 確認・デモの起動では、セーブを読まず、書かない
@@ -199,8 +229,13 @@ func unlocked(key: String) -> bool:
 	return records.get("nights", 0) >= UNLOCK_AT.get(key, 0)
 
 
+## 表示用（名前・説明・ヒント・グループを、いまの言語に）
 func info(id: String) -> Dictionary:
-	return ALL.get(id, {"name": id, "type": "", "desc": ""})
+	var d: Dictionary = ALL.get(id, {"name": id, "type": "", "desc": ""}).duplicate()
+	for k in ["name", "desc", "hint", "group"]:
+		if d.has(k):
+			d[k] = UI.t(d[k])
+	return d
 
 
 func reset() -> void:
@@ -353,15 +388,15 @@ func finish_shift() -> Array:
 	var pid: String = ROLE_POI[s.role]
 	var n := work_poi_count(s.hours)
 	pois[pid] += n
-	got.append({"poi": pid, "n": n, "why": "%sの仕事" % ROLE_LABEL[s.role]})
+	got.append({"poi": pid, "n": n, "why": UI.t("%sの仕事") % UI.t(ROLE_LABEL[s.role])})
 	if first_role_today or first_store_today:
 		pois["kira"] += 1
-		got.append({"poi": "kira", "n": 1, "why": "はじめての%s" % ("店" if first_store_today else "仕事")})
+		got.append({"poi": "kira", "n": 1, "why": UI.t("はじめての%s") % (UI.t("店") if first_store_today else UI.t("仕事"))})
 	# なかよしの同僚から、ときどき工房のポイをもらう
 	if old_friend != "" and (day % 3 == 0 or not received):
 		pois["lure"] += 1
 		received = true
-		got.append({"poi": "lure", "n": 1, "why": "%sさんからのおすそわけ" % old_friend})
+		got.append({"poi": "lure", "n": 1, "why": UI.t("%sさんからのおすそわけ") % UI.t(old_friend)})
 	changed.emit()
 	return got
 
@@ -407,7 +442,7 @@ func partner_skill() -> String:
 
 func partner_name() -> String:
 	if partner == "my":
-		return "マイおばけ猫"
+		return UI.t("マイおばけ猫")
 	return info(partner).name
 
 
@@ -498,7 +533,7 @@ func gift(id: String) -> String:
 	shards[bt] += 2
 	changed.emit()
 	save_game()
-	return "%sさんに%sをおすそわけした。お返しに%sのかけら×2" % [gift_target(), info(id).name, SHARD_LABEL[bt]]
+	return UI.t("%sさんに%sをおすそわけした。お返しに%sのかけら×2") % [UI.t(gift_target()), info(id).name, UI.t(SHARD_LABEL[bt])]
 
 
 func set_partner(id: String) -> void:
@@ -552,7 +587,7 @@ func met_text(id: String) -> String:
 	if typeof(v) != TYPE_INT or v <= 0:
 		return ""
 	var d: int = v - 1
-	return "第%d週 %s曜に会った" % [d / 7 + 1, DOW[d % 7]]
+	return UI.t("第%d週 %s曜に会った") % [d / 7 + 1, UI.t(DOW[d % 7])]
 
 
 func level_of(id: String) -> int:
@@ -579,38 +614,38 @@ func night_mods() -> Dictionary:
 			m.drain = 1.2
 			m.supply += 3
 			m.rain = true
-			m.label.append("雨：玉が多い・ぬれやすい")
+			m.label.append(UI.t("雨：玉が多い・ぬれやすい"))
 		"雷":
 			m.scatter = true
 			m.rainbow += 0.2
-			m.label.append("雷：光ると玉が散る")
+			m.label.append(UI.t("雷：光ると玉が散る"))
 		"雪":
 			m.speed = 0.6
 			m.snow = true
-			m.label.append("雪：玉がゆっくり")
+			m.label.append(UI.t("雪：玉がゆっくり"))
 		"曇":
-			m.label.append("くもり：おだやかな夜")
+			m.label.append(UI.t("くもり：おだやかな夜"))
 	match s.moon:
 		"満月":
 			m.rainbow += 0.45
 			m.rainbow_max = 2
-			m.label.append("満月：虹が出やすい")
+			m.label.append(UI.t("満月：虹が出やすい"))
 		"新月":
 			m.dark = true
 			m.supply += 2
-			m.label.append("新月：暗いが玉が多い")
+			m.label.append(UI.t("新月：暗いが玉が多い"))
 	if worked_today and (first_role_today or first_store_today):
 		m.rainbow += 0.3
 	if drought >= DROUGHT_NIGHTS:
 		m.rainbow += 0.45
-		m.label.append("虹の気配：レアが近い")
+		m.label.append(UI.t("虹の気配：レアが近い"))
 	if is_festival():
 		m.festival = true
 		m.supply += 8
 		m.rainbow_max += 1
-		m.label.push_front("祭り：12こで景品")
+		m.label.push_front(UI.t("祭り：12こで景品"))
 	if m.label.is_empty():
-		m.label.append("晴れ：しずかな水面")
+		m.label.append(UI.t("晴れ：しずかな水面"))
 	m.rainbow = minf(m.rainbow, 0.95)
 	return m
 
@@ -644,7 +679,7 @@ const TYPE_LABEL := {"register": "黄", "dish": "青", "hall": "紫", "kitchen":
 
 func night_goal() -> Dictionary:
 	if is_festival():
-		return {"id": "count", "n": 12, "text": "祭り：12こすくう", "reward": {"shards": {"rainbow": 1}}}
+		return {"id": "count", "n": 12, "text": UI.t("祭り：12こすくう"), "reward": {"shards": {"rainbow": 1}}}
 	var rng := RandomNumberGenerator.new()
 	rng.seed = day * 31 + 7
 	var w := mini(week_no(), 4)
@@ -659,15 +694,15 @@ func night_goal() -> Dictionary:
 	var g := {}
 	match pick:
 		0:
-			g = {"id": "count", "n": 3 + w, "text": "%dこすくう" % (3 + w)}
+			g = {"id": "count", "n": 3 + w, "text": UI.t("%dこすくう") % (3 + w)}
 		1:
-			g = {"id": "combo", "n": 2 + w, "text": "%dコンボ" % (2 + w)}
+			g = {"id": "combo", "n": 2 + w, "text": UI.t("%dコンボ") % (2 + w)}
 		2:
-			g = {"id": "clean", "n": 1 + w, "text": "ていねいに%dこ" % (1 + w)}
+			g = {"id": "clean", "n": 1 + w, "text": UI.t("ていねいに%dこ") % (1 + w)}
 		3:
-			g = {"id": "multi", "n": 1, "text": "2こ以上まとめてすくう"}
+			g = {"id": "multi", "n": 1, "text": UI.t("2こ以上まとめてすくう")}
 		_:
-			g = {"id": "type", "type": t, "n": 1 + (w + 1) / 2, "text": "%sの玉を%dこ" % [TYPE_LABEL[t], 1 + (w + 1) / 2]}
+			g = {"id": "type", "type": t, "n": 1 + (w + 1) / 2, "text": UI.t("%sの玉を%dこ") % [UI.t(TYPE_LABEL[t]), 1 + (w + 1) / 2]}
 	var rt: String = types[rng.randi() % types.size()] if g.id != "type" else t
 	g["reward"] = {"shards": {rt: 2}} if rng.randf() < 0.7 else {"poi": {"kira": 1}}
 	return g
@@ -696,10 +731,10 @@ func next_unlock_text() -> String:
 			var miss: int = max(0, cost[k] - shards.get(k, 0))
 			need += miss
 			if miss > 0:
-				parts.append("%s×%d" % [SHARD_LABEL[k], miss])
+				parts.append("%s×%d" % [UI.t(SHARD_LABEL[k]), miss])
 		if need < best_need:
 			best_need = need
-			best = "工房で「%s」が作れる！" % UPGRADES[key].name if need == 0 else "「%s」まで かけら %s" % [UPGRADES[key].name, "・".join(parts)]
+			best = UI.t("工房で「%s」が作れる！") % UI.t(UPGRADES[key].name) if need == 0 else UI.t("「%s」まで かけら %s") % [UI.t(UPGRADES[key].name), UI.t("・").join(parts)]
 	return best
 
 
@@ -743,22 +778,22 @@ func title_index() -> int:
 
 func title_name() -> String:
 	var n: String = TITLES[title_index()].name
-	return n if n == "川の主" else "すくい" + n
+	return UI.t(n if n == "川の主" else "すくい" + n)
 
 
 func next_title_text() -> String:
 	var i := title_index()
 	if i + 1 >= TITLES.size():
-		return "いちばん上の称号"
+		return UI.t("いちばん上の称号")
 	var t: Dictionary = TITLES[i + 1]
 	var parts: Array = []
 	if records.total < t.total:
-		parts.append("すくった玉 あと%d" % (t.total - records.total))
+		parts.append(UI.t("すくった玉 あと%d") % (t.total - records.total))
 	if records.best_combo < t.combo:
-		parts.append("%dコンボ" % t.combo)
+		parts.append(UI.t("%dコンボ") % t.combo)
 	if records.rainbow < t.rainbow:
-		parts.append("虹の玉 あと%d" % (t.rainbow - records.rainbow))
-	return "次は「%s」：%s" % [t.name, "・".join(parts)]
+		parts.append(UI.t("虹の玉 あと%d") % (t.rainbow - records.rainbow))
+	return UI.t("次は「%s」：%s") % [UI.t(t.name if t.name == "川の主" else "すくい" + t.name), UI.t("・").join(parts)]
 
 
 func record_scoop_night(result: Dictionary) -> void:
@@ -895,20 +930,20 @@ func sleep(hours: int) -> void:
 	pois.paper += free
 	phase = "morning"
 	# 朝の報告（短く、3行まで）
-	var head := "%d時間ねた" % hours
+	var head := UI.t("%d時間ねた") % hours
 	if qb > 0:
-		head += "：玉がよく育った"
+		head += UI.t("：玉がよく育った")
 	elif hours <= 5:
-		head += "：ポイが少し弱い"
+		head += UI.t("：ポイが少し弱い")
 	morning_report.append(head)
 	if free > 0:
-		morning_report.append("紙のポイ +%d" % free)
+		morning_report.append(UI.t("紙のポイ +%d") % free)
 	if auto_claimed > 0:
-		morning_report.append("先週のおねがい：ごほうび受け取り")
+		morning_report.append(UI.t("先週のおねがい：ごほうび受け取り"))
 	elif rare_pending.size() > 0:
-		morning_report.append("レアの気配が %d つ…" % rare_pending.size())
+		morning_report.append(UI.t("レアの気配が %d つ…") % rare_pending.size())
 	if day % 7 == 0:
-		morning_report.push_front("第%d週：すくった玉 %d・出会い %d" % [week_no() - 1, records.total - int(week_snap.total), seen.size() - int(week_snap.seen)])
+		morning_report.push_front(UI.t("第%d週：すくった玉 %d・出会い %d") % [week_no() - 1, records.total - int(week_snap.total), seen.size() - int(week_snap.seen)])
 		week_snap = _make_snap()
 		week_best = {"combo": 0, "festival": 0}
 	changed.emit()
@@ -982,13 +1017,13 @@ func week_quests() -> Array:
 	var types: Array = TYPE_LABEL.keys()
 	var t: String = types[rng.randi() % types.size()]
 	var pool := [
-		{"id": "rainbow", "n": 1, "text": "虹の玉を1つすくう"},
-		{"id": "combo", "n": 5 + mini(w, 4), "text": "%dコンボを出す" % (5 + mini(w, 4))},
-		{"id": "clean", "n": 8 + w * 2, "text": "ていねいな玉を%dこ" % (8 + w * 2)},
-		{"id": "type", "type": t, "n": 5, "text": "%sの玉を5こ" % TYPE_LABEL[t]},
-		{"id": "nights", "n": 4, "text": "4つの夜にすくう"},
-		{"id": "festival", "n": 10, "text": "祭りで10こすくう"},
-		{"id": "seen", "n": 2, "text": "新しいおばけに2体会う"},
+		{"id": "rainbow", "n": 1, "text": UI.t("虹の玉を1つすくう")},
+		{"id": "combo", "n": 5 + mini(w, 4), "text": UI.t("%dコンボを出す") % (5 + mini(w, 4))},
+		{"id": "clean", "n": 8 + w * 2, "text": UI.t("ていねいな玉を%dこ") % (8 + w * 2)},
+		{"id": "type", "type": t, "n": 5, "text": UI.t("%sの玉を5こ") % UI.t(TYPE_LABEL[t])},
+		{"id": "nights", "n": 4, "text": UI.t("4つの夜にすくう")},
+		{"id": "festival", "n": 10, "text": UI.t("祭りで10こすくう")},
+		{"id": "seen", "n": 2, "text": UI.t("新しいおばけに2体会う")},
 	]
 	# 図鑑がほぼ埋まっていたら「新しい出会い」は出さない
 	if ALL.size() - int(week_snap.get("seen", seen.size())) < 3:
@@ -1063,22 +1098,22 @@ func partner_line() -> String:
 	var s := today()
 	var lines: Array = []
 	if phase == "scooped":
-		lines = ["今夜はもう寝よう。玉は逃げない", "すくった玉、あったかい", "明日の朝が、ちょっとたのしみ"]
+		lines = [UI.t("今夜はもう寝よう。玉は逃げない"), UI.t("すくった玉、あったかい"), UI.t("明日の朝が、ちょっとたのしみ")]
 	elif is_festival():
-		lines = ["今夜は祭り。はっぴを探している", "金の玉は、すこし重い", "太鼓の音で、泡が出た"]
+		lines = [UI.t("今夜は祭り。はっぴを探している"), UI.t("金の玉は、すこし重い"), UI.t("太鼓の音で、泡が出た")]
 	elif last_sleep <= 5:
-		lines = ["ねむそうだね。ぼくもだけど", "今日のポイは、すこし弱い。そっとね", "寝不足は、紙にでる"]
+		lines = [UI.t("ねむそうだね。ぼくもだけど"), UI.t("今日のポイは、すこし弱い。そっとね"), UI.t("寝不足は、紙にでる")]
 	elif s.weather == "雨":
-		lines = ["雨の夜は、玉がふえる。ぬれるけど", "かさ、ないの"]
+		lines = [UI.t("雨の夜は、玉がふえる。ぬれるけど"), UI.t("かさ、ないの")]
 	elif s.weather == "雪":
-		lines = ["雪の日の玉は、ゆっくりだよ", "しっぽが冷たい"]
+		lines = [UI.t("雪の日の玉は、ゆっくりだよ"), UI.t("しっぽが冷たい")]
 	elif s.moon == "満月":
-		lines = ["今夜は満月。虹が出る気がする", "月がまるい。ぼくもまるい"]
+		lines = [UI.t("今夜は満月。虹が出る気がする"), UI.t("月がまるい。ぼくもまるい")]
 	elif s.role != "" and not worked_today:
-		lines = ["今日は%sのシフトだって" % ROLE_LABEL[s.role], "働くと、色のポイがもらえる。2本まで"]
+		lines = [UI.t("今日は%sのシフトだって") % UI.t(ROLE_LABEL[s.role]), UI.t("働くと、色のポイがもらえる。2本まで")]
 	else:
-		lines = ["ここは休憩室。休むところ", "きのうのコンボ、見てた", "今日も、そっといこう", "玉は、真ん中ですくうといい", "新しい子が、隅でじっとしている"]
-	return partner_name() + "「" + String(lines[day % lines.size()]) + "」"
+		lines = [UI.t("ここは休憩室。休むところ"), UI.t("きのうのコンボ、見てた"), UI.t("今日も、そっといこう"), UI.t("玉は、真ん中ですくうといい"), UI.t("新しい子が、隅でじっとしている")]
+	return UI.t("%s「%s」") % [partner_name(), String(lines[day % lines.size()])]
 
 
 # ---------- 図鑑のごほうび ----------
@@ -1133,9 +1168,9 @@ func claim(key: String) -> Dictionary:
 func reward_text(rw: Dictionary) -> String:
 	var parts: Array = []
 	for p in rw.get("poi", {}):
-		parts.append("%s×%d" % [POI[p].name, rw.poi[p]])
+		parts.append("%s×%d" % [UI.t(POI[p].name), rw.poi[p]])
 	for k in rw.get("shards", {}):
-		parts.append("%sのかけら×%d" % [SHARD_LABEL[k], rw.shards[k]])
+		parts.append(UI.t("%sのかけら×%d") % [UI.t(SHARD_LABEL[k]), rw.shards[k]])
 	return "、".join(parts)
 
 
@@ -1154,12 +1189,12 @@ func save_game() -> void:
 	var tmp := SAVE_PATH + ".tmp"
 	var f := FileAccess.open(tmp, FileAccess.WRITE)
 	if f == null:
-		push_warning("セーブを書けなかった: %s" % FileAccess.get_open_error())
+		push_warning(UI.t("セーブを書けなかった: %s") % FileAccess.get_open_error())
 		return
 	f.store_string(JSON.stringify(d))
 	f.close()
 	if typeof(_read_save(tmp)) != TYPE_DICTIONARY:
-		push_warning("セーブの書き込みを確かめられなかった")
+		push_warning(UI.t("セーブの書き込みを確かめられなかった"))
 		return
 	var dir := DirAccess.open("user://")
 	if FileAccess.file_exists(SAVE_PATH):

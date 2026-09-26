@@ -164,7 +164,7 @@ func _ready() -> void:
 	night_gift = gift
 	_night_title()
 	if gift > 0 and not GameState.unlocked("weather"):
-		_toast("祭りのふるまい：紙のポイ+%d" % gift)
+		_toast(UI.t("祭りのふるまい：紙のポイ+%d") % gift)
 
 
 # ---------- 世界 ----------
@@ -669,7 +669,7 @@ func _start_rainbow() -> void:
 	telegraph.emitting = true
 	telegraph_left = 2.0
 	_play("bubble", 1.0)
-	_banner_small("泡が…？", Color("dff4ff"))
+	_banner_small(UI.t("泡が…？"), Color("dff4ff"))
 
 
 func _surface_rainbow() -> void:
@@ -680,9 +680,9 @@ func _surface_rainbow() -> void:
 	create_tween().tween_property(o, "position:y", 0.0, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	_ripple(telegraph_pos)
 	_play("sparkle")
-	_banner("虹の玉！", Color("fff2a8"))
+	_banner(UI.t("虹の玉！"), Color("fff2a8"))
 	if pool.get("kira", 0) > 0 and selected != "kira" and not auto:
-		_toast("きらきらポイなら逃げない")
+		_toast(UI.t("きらきらポイなら逃げない"))
 
 
 # ---------- UI ----------
@@ -733,7 +733,7 @@ func _build_ui() -> void:
 	jp.add_child(jv)
 	top.add_child(jp)
 	var home := Button.new()
-	home.text = "帰る"
+	home.text = UI.t("帰る")
 	home.add_theme_font_override("font", font_bold)
 	home.add_theme_font_size_override("font_size", 14)
 	for k in ["normal", "hover", "pressed"]:
@@ -742,7 +742,7 @@ func _build_ui() -> void:
 	home.add_theme_color_override("font_hover_color", Color("1a1f3a"))
 	home.pressed.connect(_ask_home)
 	var help := Button.new()
-	help.text = "？"
+	help.text = UI.t("？")
 	help.focus_mode = Control.FOCUS_NONE
 	help.custom_minimum_size = Vector2(40, 0)
 	help.add_theme_font_override("font", font_black)
@@ -774,7 +774,7 @@ func _build_ui() -> void:
 	tip_pill.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	tip_pill.modulate.a = 0.0
 	tip_label = _text("", 14, Color("2a2233"))
-	tip_label.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	tip_label.autowrap_mode = UI.wrap_mode()
 	tip_pill.add_child(tip_label)
 	add_child(tip_pill)
 
@@ -807,11 +807,11 @@ func _build_ui() -> void:
 		cv.add_child(l)
 	var boost := ""
 	if GameState.worked_today:
-		boost = "働いた日：色のポイ+%d" % GameState.WORK_POI_CAP
+		boost = UI.t("働いた日：色のポイ+%d") % GameState.WORK_POI_CAP
 	elif GameState.strength > 1.0:
-		boost = "よく寝た：ポイ×%.2f" % GameState.strength
+		boost = UI.t("よく寝た：ポイ×%.2f") % GameState.strength
 	elif GameState.strength < 1.0:
-		boost = "寝不足：ポイ×%.2f" % GameState.strength
+		boost = UI.t("寝不足：ポイ×%.2f") % GameState.strength
 	if boost != "" and GameState.unlocked("poi_hud") and not practice:
 		var bl := _text(boost, 13, Color("b8ffcf") if GameState.strength >= 1.0 else Color("ffb3a8"))
 		bl.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
@@ -840,7 +840,7 @@ func _build_ui() -> void:
 	dura_bar.size = Vector2(280, 12)
 	dura_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(dura_bar)
-	var dl := _text("ポイの丈夫さ", 11, Color(1, 1, 1, 0.7))
+	var dl := _text(UI.t("ポイの丈夫さ"), 11, Color(1, 1, 1, 0.7))
 	dl.position = Vector2(0, -15)
 	dl.size = Vector2(120, 14)
 	dl.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
@@ -875,7 +875,7 @@ func _build_ui() -> void:
 	banner.add_theme_constant_override("outline_size", 10)
 	banner.position = Vector2(10, 190)
 	banner.size = Vector2(340, 120)
-	banner.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	banner.autowrap_mode = UI.wrap_mode()
 	banner.pivot_offset = Vector2(170, 60)
 	banner.modulate.a = 0.0
 	add_child(banner)
@@ -970,12 +970,12 @@ func _refresh_ui() -> void:
 		dot.add_theme_stylebox_override("panel", sb)
 		dot.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		jar_row.add_child(dot)
-	count_label.text = "すくった %d" % count
+	count_label.text = UI.t("すくった %d") % count
 	if goal_label:
 		_update_goal()
 	combo_label.text = ("%d" % combo) if combo >= 2 and show_combo else ""
 	if combo >= 2 and show_combo:
-		combo_sub.text = "コンボ（5で虹）" if combo < 5 and not rainbow_done_combo else "コンボ"
+		combo_sub.text = UI.t("コンボ（5で虹）") if combo < 5 and not rainbow_done_combo else UI.t("コンボ")
 	else:
 		combo_sub.text = ""
 	# ポイの丈夫さ
@@ -1017,8 +1017,8 @@ func _chip(pid: String, n: int, sel: bool) -> Control:
 	b.add_theme_color_override("font_color", fg)
 	b.add_theme_color_override("font_hover_color", fg)
 	b.add_theme_color_override("font_pressed_color", fg)
-	var hand := "\n手に" if (in_hand and pid == selected) else ("\n使いかけ" if parked.has(pid) else "")
-	b.text = "%s\n×%d%s" % [GameState.POI[pid].short, n, hand] if not practice else "紙\n練習"
+	var hand := UI.t("\n手に") if (in_hand and pid == selected) else (UI.t("\n使いかけ") if parked.has(pid) else "")
+	b.text = "%s\n×%d%s" % [UI.t(GameState.POI[pid].short), n, hand] if not practice else UI.t("紙\n練習")
 	b.pressed.connect(_select_poi.bind(pid))
 	return b
 
@@ -1040,17 +1040,17 @@ func _goal_progress() -> int:
 
 func _update_goal() -> void:
 	if goal.is_empty():
-		goal_label.text = "練習（持ち帰れない）"
+		goal_label.text = UI.t("練習（持ち帰れない）")
 		goal_pill.visible = practice
 		return
 	var p := mini(_goal_progress(), goal.n)
-	goal_label.text = "おだい：%s  %d/%d%s" % [goal.text, p, goal.n, "  達成！" if goal_done else ""]
+	goal_label.text = UI.t("おだい：%s  %d/%d%s") % [goal.text, p, goal.n, UI.t("  達成！") if goal_done else ""]
 	if not goal_done and p >= goal.n:
 		goal_done = true
 		GameState.grant(goal.reward)
-		goal_label.text = "おだい：%s  達成！" % goal.text
+		goal_label.text = UI.t("おだい：%s  達成！") % goal.text
 		_play("fanfare", 1.1, -3)
-		_float_text("おだい達成！ " + GameState.reward_text(goal.reward), Vector2(180, 400), Color("ffe27a"), 16)
+		_float_text(UI.t("おだい達成！ ") + GameState.reward_text(goal.reward), Vector2(180, 400), Color("ffe27a"), 16)
 
 
 func _tip(kind: String) -> void:
@@ -1058,7 +1058,7 @@ func _tip(kind: String) -> void:
 	if GameState.tut.has(key) or auto:
 		return
 	GameState.tut[key] = true
-	tip_queue.append(KIND_TIPS[kind])
+	tip_queue.append(UI.t(KIND_TIPS[kind]))
 
 
 func _pick_default_poi() -> void:
@@ -1081,7 +1081,7 @@ func _select_poi(pid: String) -> void:
 	if in_hand and used:
 		# 使いかけは、丈夫さを持ち越したまま脇に置く（持ち替えで回復はしない）
 		parked[selected] = durability
-		_toast("使いかけは脇に置いた")
+		_toast(UI.t("使いかけは脇に置いた"))
 	elif in_hand:
 		pool[selected] += 1
 	in_hand = false
@@ -1095,7 +1095,7 @@ func _select_poi(pid: String) -> void:
 func _show_poi_desc() -> void:
 	if selected == "":
 		return
-	hint.text = GameState.POI[selected].desc
+	hint.text = UI.t(GameState.POI[selected].desc)
 
 
 func _take_poi() -> bool:
@@ -1178,8 +1178,8 @@ func _gui_input(event: InputEvent) -> void:
 
 func _press(g: Vector3) -> void:
 	if not _take_poi():
-		_banner("ポイがない", Color("ffb3a8"))
-		_end_night("ポイを使い切った")
+		_banner(UI.t("ポイがない"), Color("ffb3a8"))
+		_end_night(UI.t("ポイを使い切った"))
 		return
 	pressed = true
 	used = true
@@ -1213,7 +1213,7 @@ func _release() -> void:
 		# 入れてすぐ離しても、すくえない
 		poi_target.y = 0.45
 		durability -= 0.03
-		_toast("はやすぎ")
+		_toast(UI.t("はやすぎ"))
 		_refresh_ui()
 		return
 	_lift()
@@ -1271,7 +1271,7 @@ func _lift() -> void:
 		drops.emitting = true
 		await tw.finished
 		durability -= 0.04 * mods.drain
-		_toast("からぶり")
+		_toast(UI.t("からぶり"))
 		if durability <= 0:
 			_tear([])
 			return
@@ -1344,14 +1344,14 @@ func _lift() -> void:
 			gold_count += 1
 		caught.append({"type": o.data.type, "kind": o.kind, "quality": q})
 	if combo >= 5:
-		tags.append("コンボ★")
+		tags.append(UI.t("コンボ★"))
 	if gentle:
-		tags.append("そっと")
+		tags.append(UI.t("そっと"))
 	if not centered_ids.is_empty():
-		tags.append("ど真ん中")
+		tags.append(UI.t("ど真ん中"))
 	if n >= 2:
 		multi_count += 1
-		tags.push_front("%dつまとめて！" % n)
+		tags.push_front(UI.t("%dつまとめて！") % n)
 	_flash(0.1 if not special else 0.3)
 	_play("chime", 1.0 + minf(combo, 12) * 0.04)
 	if combo >= 3:
@@ -1364,15 +1364,15 @@ func _lift() -> void:
 	stars.restart()
 	stars.emitting = true
 	Engine.time_scale = 1.0
-	var title := "すくった！"
+	var title := UI.t("すくった！")
 	if list.any(func(o): return o.kind == "rainbow"):
-		title = "虹の玉！"
+		title = UI.t("虹の玉！")
 	elif list.any(func(o): return o.kind == "gold"):
-		title = "金の玉！"
+		title = UI.t("金の玉！")
 	# ひとつの知らせにまとめる（題＋よかったところ）
 	var detail: String = tags[0] if tags.size() > 0 else "" # 一番大事なひとつだけ
 	if special or combo in [3, 5, 8, 10, 15, 20]:
-		var head := title if special else "%dコンボ！" % combo
+		var head := title if special else UI.t("%dコンボ！") % combo
 		_banner(head + ("\n" + detail if detail != "" else ""), Color("fff2a8"))
 	else:
 		var at := pos2d + Vector2(0, -50)
@@ -1382,7 +1382,7 @@ func _lift() -> void:
 	_partner_react(true)
 	if not practice and not record_announced and combo > GameState.records.best_combo and combo >= 3 and GameState.records.nights > 0:
 		record_announced = true
-		_float_text("最高コンボ更新！", Vector2(180, 215), Color("ffd23f"), 20)
+		_float_text(UI.t("最高コンボ更新！"), Vector2(180, 215), Color("ffd23f"), 20)
 	var tw2 := create_tween().set_parallel()
 	var back_t := 0.45 if special else 0.3
 	tw2.tween_property(cam, "transform", cam_base, back_t).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -1400,7 +1400,7 @@ func _lift() -> void:
 	create_tween().tween_property(jar, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	if last_gasp:
 		_refresh_ui() # おだいのごほうびを先に受け取ってから、次のポイを選ぶ
-		_toast("ぎりぎりセーフ！でも紙が…")
+		_toast(UI.t("ぎりぎりセーフ！でも紙が…"))
 		await get_tree().create_timer(0.35).timeout
 		_tear_after_catch()
 		return
@@ -1423,7 +1423,7 @@ func _tear_after_catch() -> void:
 	busy = false
 	if selected == "":
 		_check_pond_clear()
-		_end_night("ポイを使い切った")
+		_end_night(UI.t("ポイを使い切った"))
 	else:
 		_after_catch()
 
@@ -1437,27 +1437,27 @@ func _after_catch() -> void:
 		if goal_pill:
 			goal_pill.visible = not goal.is_empty()
 		GameState.tut["scoop"] = true
-		hint.text = "できた！そっと動かすと長持ち"
+		hint.text = UI.t("できた！そっと動かすと長持ち")
 	else:
 		hint.text = ""
 	# コンボのごほうび
 	if combo >= 5 and not rainbow_done_combo:
 		rainbow_done_combo = true
-		_float_text("5コンボ！虹の気配", Vector2(180, 230), Color("fff2a8"))
+		_float_text(UI.t("5コンボ！虹の気配"), Vector2(180, 230), Color("fff2a8"))
 		await get_tree().create_timer(0.8).timeout
 		_start_rainbow()
 	if combo == 8 or combo == 9:
-		_float_text("名人！", Vector2(180, 245), Color("ffd23f"))
+		_float_text(UI.t("名人！"), Vector2(180, 245), Color("ffd23f"))
 	if mods.festival and count >= 12 and count - 1 < 12:
 		_play("fanfare")
-		_banner("祭り達成！", Color("ffb35c"))
+		_banner(UI.t("祭り達成！"), Color("ffb35c"))
 	if mods.festival and count >= 20 and count - 1 < 20:
 		_play("fanfare")
-		_banner("特賞！", Color("ffd23f"))
+		_banner(UI.t("特賞！"), Color("ffd23f"))
 	if _pond_empty():
 		_check_pond_clear()
 		await get_tree().create_timer(1.2).timeout
-		_end_night("今夜の玉は、ぜんぶすくった" if pond_cleared else "今夜の玉は、もうおしまい")
+		_end_night(UI.t("今夜の玉は、ぜんぶすくった") if pond_cleared else UI.t("今夜の玉は、もうおしまい"))
 
 
 func _pond_empty() -> bool:
@@ -1471,7 +1471,7 @@ func _check_pond_clear() -> void:
 	pond_cleared = true
 	GameState.grant({"shards": {"rainbow": 1}})
 	_play("fanfare")
-	_banner("池をすくいきった！", Color("b8ffcf"))
+	_banner(UI.t("池をすくいきった！"), Color("b8ffcf"))
 
 
 func _partner_react(happy: bool) -> void:
@@ -1506,8 +1506,8 @@ func _tear(list: Array) -> void:
 		kept = int(combo * (0.3 + 0.1 * GameState.partner_level()))
 	var lost := combo - kept
 	var left_n: int = pool.get(selected, 0)
-	var left_txt := "%s あと%d本" % [GameState.POI[selected].name, left_n] if selected != "" and GameState.POI.has(selected) and not practice else ""
-	_banner("やぶれた…" if lost < 3 else "やぶれた…\n%dコンボ" % combo, Color("ffb3a8"))
+	var left_txt := UI.t("%s あと%d本") % [UI.t(GameState.POI[selected].name), left_n] if selected != "" and GameState.POI.has(selected) and not practice else ""
+	_banner(UI.t("やぶれた…") if lost < 3 else UI.t("やぶれた…\n%dコンボ") % combo, Color("ffb3a8"))
 	if left_txt != "":
 		_toast(left_txt) # 大きな知らせと重ならない、下の位置に
 	combo = kept
@@ -1529,9 +1529,9 @@ func _tear(list: Array) -> void:
 	_refresh_ui()
 	busy = false
 	if selected == "":
-		_end_night("ポイを使い切った")
+		_end_night(UI.t("ポイを使い切った"))
 	else:
-		hint.text = "あたらしいポイ"
+		hint.text = UI.t("あたらしいポイ")
 
 
 # ---------- 毎フレーム ----------
@@ -1611,11 +1611,11 @@ func _update_poi(delta: float) -> void:
 		var gasp := danger and over_list.size() == 1 and durability >= dura_max * 0.5
 		dura_cost.color = Color(1, 0.2, 0.2, 0.55 + 0.4 * absf(sin(Time.get_ticks_msec() * 0.012))) if danger else Color(1, 0.85, 0.4, 0.75)
 		if gasp and not auto:
-			hint.text = "ぎりぎり！すくうと破れる"
+			hint.text = UI.t("ぎりぎり！すくうと破れる")
 		elif danger and not auto:
-			hint.text = "重すぎる！やぶれそう"
+			hint.text = UI.t("重すぎる！やぶれそう")
 		elif over_list.size() > 0 and tut_step < 0 and not auto:
-			hint.text = "いま離せば、すくえる" if over_list.size() == 1 else "%dつ重なっている！" % over_list.size()
+			hint.text = UI.t("いま離せば、すくえる") if over_list.size() == 1 else UI.t("%dつ重なっている！") % over_list.size()
 		elif tut_step < 0 and not auto and count >= 3:
 			hint.text = ""
 		dura_fill.size.x = 280.0 * frac
@@ -1724,7 +1724,7 @@ func _sink(o: Orb3D) -> void:
 	tw.tween_callback(func():
 		orbs.erase(o)
 		o.queue_free())
-	_toast("虹の玉が沈んだ…")
+	_toast(UI.t("虹の玉が沈んだ…"))
 	# 一度だけ、もう一度浮かんでくる
 	if rainbow_left > 0:
 		rainbow_t = randf_range(8.0, 14.0)
@@ -1775,9 +1775,9 @@ func _update_events(delta: float) -> void:
 					var away: Vector3 = o.position - Vector3(0, 0, -0.3)
 					away.y = 0
 					o.vel += away.normalized() * 0.8
-			_toast("ピカッ！玉が散った")
+			_toast(UI.t("ピカッ！玉が散った"))
 	if not busy and not in_hand and selected == "" and not ended:
-		_end_night("ポイを使い切った")
+		_end_night(UI.t("ポイを使い切った"))
 
 
 func _update_water_uniforms() -> void:
@@ -1880,7 +1880,7 @@ func _night_title() -> void:
 	if OS.get_environment("OBAKE_DEMO") != "":
 		return # 広告動画では字幕と重なるので出さない
 	var s := GameState.today()
-	var t := "練習" if practice else ("大すくい祭り" if mods.festival else "%s曜の夜" % s.day)
+	var t := UI.t("練習") if practice else (UI.t("大すくい祭り") if mods.festival else UI.t("%s曜の夜") % UI.t(s.day))
 	var l := _text(t, 34, Color("fff6e8"), font_black)
 	l.set_meta("keep", true)
 	l.add_theme_color_override("font_outline_color", Color("0b1026"))
@@ -1889,7 +1889,7 @@ func _night_title() -> void:
 	l.size = Vector2(360, 50)
 	l.modulate.a = 0.0
 	float_layer.add_child(l)
-	var sub := _text("%s%s%s" % [s.weather, ("・" + s.moon) if s.moon != "" else "", ("・紙のポイ+%d" % night_gift) if night_gift > 0 else ""], 16, Color("ffe7a8"))
+	var sub := _text("%s%s%s" % [s.weather, (UI.t("・") + s.moon) if s.moon != "" else "", (UI.t("・紙のポイ+%d") % night_gift) if night_gift > 0 else ""], 16, Color("ffe7a8"))
 	sub.set_meta("keep", true)
 	sub.position = Vector2(0, 298)
 	sub.size = Vector2(360, 24)
@@ -1911,7 +1911,7 @@ func _ask_home() -> void:
 	for k in pool:
 		left += pool[k]
 	if practice or left == 0:
-		_end_night("帰り道")
+		_end_night(UI.t("帰り道"))
 		return
 	var layer := Control.new()
 	layer.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -1935,10 +1935,10 @@ func _ask_home() -> void:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 10)
 	card.add_child(v)
-	v.add_child(_text("今夜はここまでにする？", 19, Color("2a2233"), font_black))
-	var sub := _text("残りのポイ %d 本は、明日も使える" % left, 14, Color("6a5f70"))
+	v.add_child(_text(UI.t("今夜はここまでにする？"), 19, Color("2a2233"), font_black))
+	var sub := _text(UI.t("残りのポイ %d 本は、明日も使える") % left, 14, Color("6a5f70"))
 	v.add_child(sub)
-	for pair in [["帰って寝る", Color("8b7bff"), Color.WHITE, func(): layer.queue_free(); _end_night("帰り道")], ["もう少しすくう", Color(1, 1, 1), Color("5b6fc2"), func(): layer.queue_free()]]:
+	for pair in [[UI.t("帰って寝る"), Color("8b7bff"), Color.WHITE, func(): layer.queue_free(); _end_night(UI.t("帰り道"))], [UI.t("もう少しすくう"), Color(1, 1, 1), Color("5b6fc2"), func(): layer.queue_free()]]:
 		var b := Button.new()
 		b.text = pair[0]
 		b.custom_minimum_size = Vector2(0, 46)
@@ -1979,14 +1979,14 @@ func _show_help() -> void:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 7)
 	card.add_child(v)
-	v.add_child(_text("すくいのコツ", 20, Color("2a2233"), font_black))
-	for t in ["押すと水に入る。離すとすくう", "そっと動かすほど、ポイは長持ち", "玉の真上ではなく、少し手前から入れる", "内側の輪が金色のとき離すと★", "ゲージの黄色は乗った玉の重さ。赤は危ない", "同じ色のポイは、その色の玉を寄せて軽くする", "破らずに続けるとコンボ。5コンボで虹の玉、そこからの玉は★がひとつ多い"]:
-		var l := _text("・" + t, 14, Color("4a3f52"))
+	v.add_child(_text(UI.t("すくいのコツ"), 20, Color("2a2233"), font_black))
+	for t in [UI.t("押すと水に入る。離すとすくう"), UI.t("そっと動かすほど、ポイは長持ち"), UI.t("玉の真上ではなく、少し手前から入れる"), UI.t("内側の輪が金色のとき離すと★"), UI.t("ゲージの黄色は乗った玉の重さ。赤は危ない"), UI.t("同じ色のポイは、その色の玉を寄せて軽くする"), UI.t("破らずに続けるとコンボ。5コンボで虹の玉、そこからの玉は★がひとつ多い")]:
+		var l := _text(UI.t("・") + t, 14, Color("4a3f52"))
 		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-		l.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+		l.autowrap_mode = UI.wrap_mode()
 		l.custom_minimum_size = Vector2(280, 0)
 		v.add_child(l)
-	v.add_child(_text("タップで閉じる", 12, Color("9a8e98")))
+	v.add_child(_text(UI.t("タップで閉じる"), 12, Color("9a8e98")))
 	dim.gui_input.connect(func(e):
 		if (e is InputEventMouseButton or e is InputEventScreenTouch) and e.pressed:
 			layer.queue_free())
@@ -2004,7 +2004,7 @@ func _tut_show() -> void:
 		tut_label.add_theme_constant_override("outline_size", 6)
 		tut_label.size = Vector2(200, 26)
 		add_child(tut_label)
-	tut_label.text = ["玉の手前を、押したまま", "そっと玉の下へ", "いま離す！"][clampi(tut_step, 0, 2)]
+	tut_label.text = [UI.t("玉の手前を、押したまま"), UI.t("そっと玉の下へ"), UI.t("いま離す！")][clampi(tut_step, 0, 2)]
 	tut_label.visible = true
 	hint.text = "" # 説明は輪のそばの一言だけ
 	match tut_step:
@@ -2064,7 +2064,7 @@ func _end_night(reason: String) -> void:
 		GameState.records["practice_best"] = max(GameState.records.get("practice_best", 0), best_combo)
 		GameState.save_game()
 		await get_tree().create_timer(0.4).timeout
-		_show_result("練習おしまい", false)
+		_show_result(UI.t("練習おしまい"), false)
 		return
 	var was_best: bool = best_combo > GameState.records.best_combo and best_combo >= 3
 	title_before = GameState.title_index()
@@ -2096,8 +2096,8 @@ func _show_result(reason: String, was_best: bool) -> void:
 	v.add_theme_constant_override("separation", 8)
 	card.add_child(v)
 	v.add_child(_text(reason, 13, Color("8a7a88")))
-	v.add_child(_text("今夜のすくい", 22, Color("2a2233"), font_black))
-	var big := _text("%d こ" % count, 44, Color("5b6fc2"), font_black)
+	v.add_child(_text(UI.t("今夜のすくい"), 22, Color("2a2233"), font_black))
+	var big := _text(UI.t("%d こ") % count, 44, Color("5b6fc2"), font_black)
 	v.add_child(big)
 	var row := HFlowContainer.new()
 	row.alignment = FlowContainer.ALIGNMENT_CENTER
@@ -2118,35 +2118,35 @@ func _show_result(reason: String, was_best: bool) -> void:
 	# 結果は3行まで。はじめの夜は1行だけ
 	var lines: Array = []
 	if practice:
-		lines.append("練習の最高コンボ %d" % GameState.records.get("practice_best", 0))
+		lines.append(UI.t("練習の最高コンボ %d") % GameState.records.get("practice_best", 0))
 	elif GameState.records.nights <= 1:
-		lines.append("朝、おばけにかえる")
+		lines.append(UI.t("朝、おばけにかえる"))
 	else:
 		var n_hatch := _hatch_count()
 		if n_hatch > 0:
-			lines.append("朝、%d体がかえる" % n_hatch)
+			lines.append(UI.t("朝、%d体がかえる") % n_hatch)
 		var extra: Array = []
 		if GameState.title_index() > title_before:
-			extra.append("称号「%s」！" % GameState.title_name())
+			extra.append(UI.t("称号「%s」！") % GameState.title_name())
 		if mods.festival and GameState.tonight.has("prize"):
-			extra.append("祭りの%s！" % ["特賞" if count >= 20 else "景品"])
+			extra.append(UI.t("祭りの%s！") % [UI.t("特賞") if count >= 20 else UI.t("景品")])
 		if pond_cleared:
-			extra.append("池をすくいきった！")
+			extra.append(UI.t("池をすくいきった！"))
 		if goal_done:
-			extra.append("おだい達成！")
+			extra.append(UI.t("おだい達成！"))
 		if was_best:
-			extra.append("最高コンボ %d 新記録！" % best_combo)
+			extra.append(UI.t("最高コンボ %d 新記録！") % best_combo)
 		if rainbow_count > 0:
-			extra.append("虹の玉 %d" % rainbow_count)
+			extra.append(UI.t("虹の玉 %d") % rainbow_count)
 		for e in extra.slice(0, 2):
 			lines.append(e)
 	for line in lines:
 		var ll := _text(line, 16, Color("4a3f52"))
-		ll.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+		ll.autowrap_mode = UI.wrap_mode()
 		ll.custom_minimum_size = Vector2(268, 0)
 		v.add_child(ll)
 	var b := Button.new()
-	b.text = "寝る"
+	b.text = UI.t("寝る")
 	b.custom_minimum_size = Vector2(0, 50)
 	b.add_theme_font_override("font", font_black)
 	b.add_theme_font_size_override("font_size", 18)
@@ -2159,7 +2159,7 @@ func _show_result(reason: String, was_best: bool) -> void:
 	# ポイを使い切ったあとも、もう少しすくいたい人へ
 	var pr := Button.new()
 	pr.visible = GameState.unlocked("practice") and not practice
-	pr.text = "練習ですくう"
+	pr.text = UI.t("練習ですくう")
 	pr.custom_minimum_size = Vector2(0, 40)
 	pr.add_theme_font_override("font", font_bold)
 	pr.add_theme_font_size_override("font_size", 14)
@@ -2180,7 +2180,7 @@ func _show_result(reason: String, was_best: bool) -> void:
 	# 長すぎるときは、ランクと称号の行をしまう
 	if card.size.y > 620:
 		for c in v.get_children():
-			if c is Label and c.text.begins_with("虹の玉"):
+			if c is Label and c.text.begins_with(UI.t("虹の玉").left(3)):
 				c.visible = false
 		await get_tree().process_frame
 		if not is_inside_tree():
@@ -2223,16 +2223,16 @@ func _hatch_preview() -> String:
 	for sid in per:
 		parts.append("%s×%d" % [GameState.info(sid).name, per[sid]])
 	if mystery > 0:
-		parts.append("？×%d" % mystery)
-	var t := "朝かえる：" + "・".join(parts)
+		parts.append(UI.t("？×%d") % mystery)
+	var t := UI.t("朝かえる：") + UI.t("・").join(parts)
 	if school >= 2:
-		t += "（青の群れは2つでひとり）"
+		t += UI.t("（青の群れは2つでひとり）")
 	for sid in xp:
 		var own: Dictionary = GameState.owned.get(sid, {})
 		if own.is_empty() or own.level >= GameState.MAX_LEVEL:
 			continue
 		if xp[sid] >= GameState.xp_to_next(own.level) - own.xp:
-			t += "\n%sがLv%dになりそう" % [GameState.info(sid).name, own.level + 1]
+			t += UI.t("\n%sがLv%dになりそう") % [GameState.info(sid).name, own.level + 1]
 			break
 	return t
 
@@ -2252,14 +2252,14 @@ func _hatch_count() -> int:
 
 func _rank_text() -> String:
 	if count == 0:
-		return "今夜は見るだけ。明日はきっと"
+		return UI.t("今夜は見るだけ。明日はきっと")
 	if best_combo >= 8:
-		return "すくい名人の手つき"
+		return UI.t("すくい名人の手つき")
 	if best_combo >= 5:
-		return "水面が、あなたを覚えはじめた"
+		return UI.t("水面が、あなたを覚えはじめた")
 	if count >= 4:
-		return "いい夜だった"
-	return "はじめの一歩"
+		return UI.t("いい夜だった")
+	return UI.t("はじめの一歩")
 
 
 # ---------- 自動ですくう ----------
@@ -2302,7 +2302,7 @@ func _auto(delta: float) -> void:
 			if auto_target == null:
 				auto_t = 0.5
 				if supply <= 0 and telegraph_left <= 0.0:
-					_end_night("今夜の玉は、もうおしまい")
+					_end_night(UI.t("今夜の玉は、もうおしまい"))
 				return
 			var entry := auto_target.position + Vector3(randf_range(-0.3, 0.3), 0, 1.0).normalized() * radius * 1.9
 			var e := Vector2(entry.x / WATER_RX, entry.z / WATER_RZ)
@@ -2404,7 +2404,7 @@ func demo_rainbow() -> void:
 
 
 func demo_end() -> void:
-	_end_night("帰り道")
+	_end_night(UI.t("帰り道"))
 
 
 func demo_fill() -> void:

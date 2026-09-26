@@ -14,6 +14,20 @@ const SKY := Color8(150, 206, 240)
 const GRAY := Color8(112, 104, 118)
 
 
+## 表示する文字を、いまの言語に（i18n/strings.csv）。static 関数からも使える
+static func t(s: String) -> String:
+	return String(TranslationServer.translate(s))
+
+
+## 折り返し：日本語は文字の途中でも、英語は単語で
+static func wrap_mode() -> TextServer.AutowrapMode:
+	return TextServer.AUTOWRAP_WORD_SMART if is_en() else TextServer.AUTOWRAP_ARBITRARY
+
+
+static func is_en() -> bool:
+	return TranslationServer.get_locale().begins_with("en")
+
+
 ## 3D の画面のアンチエイリアス。Web（とくにスマホ）では軽くするため切る。
 ## OBAKE_MSAA=0/2/4 で強制できる（確認用）
 static func msaa() -> Viewport.MSAA:

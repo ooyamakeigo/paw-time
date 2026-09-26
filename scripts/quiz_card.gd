@@ -35,7 +35,7 @@ static func render(host: Node, result: Dictionary) -> Image:
 	logo.size = Vector2(W, 80)
 	logo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vp.add_child(logo)
-	var kicker := _label("マイおばけ猫 診断", bold, 32, col.darkened(0.45))
+	var kicker := _label(UI.t("マイおばけ猫 診断"), bold, 32, col.darkened(0.45))
 	kicker.position = Vector2(0, 136)
 	kicker.size = Vector2(W, 44)
 	kicker.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -63,28 +63,29 @@ static func render(host: Node, result: Dictionary) -> Image:
 	box.add_child(vp3)
 	var ob := _stage3d(vp3, t.look)
 	# 舞台の中の小さなタグ（向いてる仕事）
-	var job := _chip("向いてる仕事  " + QuizData.JOBS[t.job].ja, bold, 30, Color.WHITE, col.darkened(0.35))
+	var job := _chip(UI.t("向いてる仕事  ") + QuizData.JOBS[t.job].ja, bold, 30, Color.WHITE, col.darkened(0.35))
 	job.position = Vector2(126, 238)
 	vp.add_child(job)
 
 	# タイプ名と一言
-	var pre := _label("わたしのマイおばけ猫は", bold, 34, SUB)
+	var pre := _label(UI.t("わたしのマイおばけ猫は"), bold, 34, SUB)
 	pre.position = Vector2(0, 790)
 	pre.size = Vector2(W, 48)
 	pre.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vp.add_child(pre)
-	var name_l := _label(t.name, black, 84 if t.name.length() <= 9 else 72, INK)
+	var shown_name: String = t.en_name if UI.is_en() else t.name
+	var name_l := _label(shown_name, black, (84 if shown_name.length() <= 9 else 72) if not UI.is_en() else (72 if shown_name.length() <= 18 else 58), INK)
 	name_l.position = Vector2(0, 836)
 	name_l.size = Vector2(W, 112)
 	name_l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	name_l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	vp.add_child(name_l)
-	var en := _label(t.en_name, bold, 30, col.darkened(0.4))
+	var en := _label(t.name if UI.is_en() else t.en_name, bold, 30, col.darkened(0.4))
 	en.position = Vector2(0, 946)
 	en.size = Vector2(W, 42)
 	en.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vp.add_child(en)
-	var line := _label(t.line, bold, 42, INK)
+	var line := _label(t.en_line if UI.is_en() else t.line, bold, 42 if not UI.is_en() else 36, INK)
 	line.position = Vector2(0, 1000)
 	line.size = Vector2(W, 60)
 	line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -194,8 +195,8 @@ static func _axis_bar(axis: int, ratio: float, col: Color, font: FontFile, size:
 	v.add_theme_constant_override("separation", int(size * 0.2))
 	var row := HBoxContainer.new()
 	var lean_a := ratio >= 0.5
-	var la := _label(ax.a, font, size, INK if lean_a else SUB.lightened(0.3))
-	var lb := _label(ax.b, font, size, INK if not lean_a else SUB.lightened(0.3))
+	var la := _label(ax.a_en if UI.is_en() else ax.a, font, size, INK if lean_a else SUB.lightened(0.3))
+	var lb := _label(ax.b_en if UI.is_en() else ax.b, font, size, INK if not lean_a else SUB.lightened(0.3))
 	var pct := _label("%d%%" % roundi((ratio if lean_a else 1.0 - ratio) * 100), font, size, col.darkened(0.35))
 	pct.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	pct.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -229,9 +230,9 @@ static func deliver(img: Image, type_id: String) -> String:
 	var file := "paw_time_my_obake_%s.png" % type_id
 	if OS.has_feature("web"):
 		JavaScriptBridge.download_buffer(img.save_png_to_buffer(), file, "image/png")
-		return "画像をダウンロードしました"
+		return UI.t("画像をダウンロードしました")
 	var path := "user://" + file
 	var err := img.save_png(path)
 	if err != OK:
-		return "保存できませんでした（%s）" % error_string(err)
-	return "保存しました：" + ProjectSettings.globalize_path(path)
+		return UI.t("保存できませんでした（%s）") % error_string(err)
+	return UI.t("保存しました：") + ProjectSettings.globalize_path(path)

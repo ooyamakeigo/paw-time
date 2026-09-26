@@ -45,11 +45,11 @@ func _ready() -> void:
 	moon.size = Vector2(80, 80)
 	add_child(moon)
 
-	var title := _text("おやすみの前に", 24, Color("f3eeff"), font_black)
+	var title := _text(UI.t("おやすみの前に"), 24, Color("f3eeff"), font_black)
 	title.position = Vector2(0, 112)
 	title.size = Vector2(360, 36)
 	add_child(title)
-	var note := _text("選ぶと、すぐ朝になる", 12, Color(1, 1, 1, 0.55))
+	var note := _text(UI.t("選ぶと、すぐ朝になる"), 12, Color(1, 1, 1, 0.55))
 	note.position = Vector2(0, 148)
 	note.size = Vector2(360, 20)
 	add_child(note)
@@ -64,7 +64,7 @@ func _ready() -> void:
 	big = _text("", 64, Color.WHITE, font_black)
 	big.custom_minimum_size = Vector2(150, 100)
 	row.add_child(big)
-	row.add_child(_round("＋", func(): _set_hours(hours + 1)))
+	row.add_child(_round(UI.t("＋"), func(): _set_hours(hours + 1)))
 
 	var card := PanelContainer.new()
 	card.add_theme_stylebox_override("panel", _pill(Color(1, 1, 1, 0.1), 22))
@@ -76,7 +76,7 @@ func _ready() -> void:
 	card.add_child(preview)
 
 	var go := Button.new()
-	go.text = "眠って朝へ"
+	go.text = UI.t("眠って朝へ")
 	go.position = Vector2(70, 568)
 	go.size = Vector2(220, 54)
 	go.add_theme_font_override("font", font_black)
@@ -144,7 +144,7 @@ func _set_hours(h: int) -> void:
 		add_child(p)
 		p.play()
 		p.finished.connect(p.queue_free)
-	big.text = "%d時間" % hours
+	big.text = UI.t("%d時間") % hours
 	big.pivot_offset = big.size / 2
 	big.scale = Vector2(1.12, 1.12)
 	create_tween().tween_property(big, "scale", Vector2.ONE, 0.18)
@@ -154,16 +154,16 @@ func _set_hours(h: int) -> void:
 	var strength := GameState.sleep_strength(hours)
 	var lines := []
 	if hours >= 7:
-		lines.append(["玉が★ひとつ育ってかえる", Color("b8ffcf")])
+		lines.append([UI.t("玉が★ひとつ育ってかえる"), Color("b8ffcf")])
 	elif hours <= 5:
-		lines.append(["寝不足：ポイが弱くなる", Color("ffb3a8")])
+		lines.append([UI.t("寝不足：ポイが弱くなる"), Color("ffb3a8")])
 	else:
-		lines.append(["玉は、ふつうにかえる", Color("e8e2ff")])
-	lines.append(["明日のポイ ×%.2f" % strength, Color("ffe27a") if strength > 1.0 else Color("e8e2ff")])
+		lines.append([UI.t("玉は、ふつうにかえる"), Color("e8e2ff")])
+	lines.append([UI.t("明日のポイ ×%.2f") % strength, Color("ffe27a") if strength > 1.0 else Color("e8e2ff")])
 	if GameState.unlocked("forecast"):
 		var tm: Dictionary = GameState.shift_for(GameState.day + 1)
 		var fest := GameState.is_festival(GameState.day + 1)
-		var fc := "明日：%s%s" % ["大すくい祭り" if fest else tm.weather, ("・%sのシフト" % GameState.ROLE_LABEL[tm.role]) if tm.role != "" else "・お休み"]
+		var fc := UI.t("明日：%s%s") % [UI.t("大すくい祭り") if fest else UI.t(tm.weather), (UI.t("・%sのシフト") % UI.t(GameState.ROLE_LABEL[tm.role])) if tm.role != "" else UI.t("・お休み")]
 		lines.append([fc, Color("9fe0ff")])
 	if GameState.unlocked("sleep_bars"):
 		# 何時間でポイがどれだけ強くなるかを、小さな棒で見せる

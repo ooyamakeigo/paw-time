@@ -28,11 +28,11 @@ func _ready() -> void:
 	head.position = Vector2(16, 14)
 	head.size = Vector2(328, 44)
 	add_child(head)
-	head.add_child(_text("ポイ工房", 26, Color("2a2233"), font_black))
+	head.add_child(_text(UI.t("ポイ工房"), 26, Color("2a2233"), font_black))
 	var sp := Control.new()
 	sp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	head.add_child(sp)
-	var back := _button("もどる", Color.WHITE, func(): main.go("room"), Color("2a2233"))
+	var back := _button(UI.t("もどる"), Color.WHITE, func(): main.go("room"), Color("2a2233"))
 	back.custom_minimum_size = Vector2(80, 40)
 	head.add_child(back)
 	scroll = ScrollContainer.new()
@@ -44,7 +44,7 @@ func _ready() -> void:
 	add_child(sfx)
 	toast = _text("", 15, Color.WHITE, font_black)
 	toast.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	toast.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	toast.autowrap_mode = UI.wrap_mode()
 	var tp := PanelContainer.new()
 	tp.add_theme_stylebox_override("panel", _pill(Color(0.16, 0.13, 0.22, 0.92), 18))
 	tp.position = Vector2(20, 560)
@@ -66,7 +66,7 @@ func _build() -> void:
 	col.add_theme_constant_override("separation", 10)
 	scroll.add_child(col)
 	# かけら
-	col.add_child(_section("かけら（かぶったおばけから出る）"))
+	col.add_child(_section(UI.t("かけら（かぶったおばけから出る）")))
 	var sh := HFlowContainer.new()
 	sh.add_theme_constant_override("h_separation", 6)
 	sh.add_theme_constant_override("v_separation", 6)
@@ -74,41 +74,41 @@ func _build() -> void:
 	for k in ["register", "dish", "hall", "kitchen", "stock", "rainbow"]:
 		sh.add_child(_shard_chip(k, GameState.shards.get(k, 0)))
 	# 改良
-	col.add_child(_section("ポイの改良（ずっと効く）"))
+	col.add_child(_section(UI.t("ポイの改良（ずっと効く）")))
 	var ukeys := ["fuchi", "wa", "kami"]
 	ukeys.sort_custom(func(a, b): return _afford_up(a) and not _afford_up(b))
 	for key in ukeys:
 		col.add_child(_margin(_upgrade_card(key)))
 	# 特別なポイ
-	col.add_child(_section("特別なポイ（1本ずつ使い切り）"))
+	col.add_child(_section(UI.t("特別なポイ（1本ずつ使い切り）")))
 	var ckeys := ["lure", "double", "akari", "paper"]
 	ckeys.sort_custom(func(a, b): return GameState.can_pay(GameState.CRAFTS[a]) and not GameState.can_pay(GameState.CRAFTS[b]))
 	for pid in ckeys:
 		col.add_child(_margin(_craft_card(pid)))
-	col.add_child(_section("色のポイ（その色の玉を寄せて、軽くすくえる）"))
+	col.add_child(_section(UI.t("色のポイ（その色の玉を寄せて、軽くすくえる）")))
 	var tkeys := ["bubble", "tray", "receipt", "pan", "box"]
 	tkeys.sort_custom(func(a, b): return GameState.can_pay(GameState.CRAFTS[a]) and not GameState.can_pay(GameState.CRAFTS[b]))
 	for pid in tkeys:
 		col.add_child(_margin(_craft_card(pid)))
 	# かざり
-	col.add_child(_section("休憩室のかざり（見た目だけ）"))
+	col.add_child(_section(UI.t("休憩室のかざり（見た目だけ）")))
 	var dg := VBoxContainer.new()
 	dg.add_theme_constant_override("separation", 6)
 	for key in GameState.DECOR_ORDER:
 		dg.add_child(_decor_row(key))
 	col.add_child(_margin(dg))
 	# 相棒
-	col.add_child(_section("相棒（池のほとりで手伝う）"))
+	col.add_child(_section(UI.t("相棒（池のほとりで手伝う）")))
 	col.add_child(_margin(_partner_card()))
 	# おすそわけ
 	var gift_ids: Array = GameState.NORMAL_IDS.filter(func(i): return GameState.can_gift(i))
 	if gift_ids.size() > 0:
-		col.add_child(_section("おすそわけ（%sさんへ）" % GameState.gift_target()))
+		col.add_child(_section(UI.t("おすそわけ（%sさんへ）") % UI.t(GameState.gift_target())))
 		var gv := HFlowContainer.new()
 		gv.add_theme_constant_override("h_separation", 6)
 		gv.add_theme_constant_override("v_separation", 6)
 		for id in gift_ids:
-			var b := _button("%s を1体" % GameState.info(id).name, Color("5fc4a8"), _gift.bind(id))
+			var b := _button(UI.t("%s を1体") % GameState.info(id).name, Color("5fc4a8"), _gift.bind(id))
 			b.custom_minimum_size = Vector2(150, 40)
 			b.add_theme_font_size_override("font_size", 14)
 			gv.add_child(b)
@@ -198,7 +198,7 @@ func _shard_chip(k: String, n: int) -> Control:
 	h.add_theme_constant_override("separation", 5)
 	p.add_child(h)
 	h.add_child(_gem(k))
-	h.add_child(_text("%s %d" % [GameState.SHARD_LABEL[k], n], 14, Color("2a2233") if n > 0 else Color("b0a4ae"), font_black))
+	h.add_child(_text("%s %d" % [UI.t(GameState.SHARD_LABEL[k]), n], 14, Color("2a2233") if n > 0 else Color("b0a4ae"), font_black))
 	return p
 
 
@@ -221,14 +221,14 @@ func _cost_row(cost: Dictionary) -> Control:
 	var h := HBoxContainer.new()
 	h.add_theme_constant_override("separation", 4)
 	if not GameState.can_pay(cost):
-		h.add_child(_text("あと", 12, Color("e85a4f")))
+		h.add_child(_text(UI.t("あと"), 12, Color("e85a4f")))
 	for k in cost:
 		var have: int = GameState.shards.get(k, 0)
 		h.add_child(_gem(k, 11))
 		if have >= cost[k]:
-			h.add_child(_text("%s○" % GameState.SHARD_LABEL[k], 13, Color("5fa05a")))
+			h.add_child(_text("%s○" % UI.t(GameState.SHARD_LABEL[k]), 13, Color("5fa05a")))
 		else:
-			h.add_child(_text("%s%d" % [GameState.SHARD_LABEL[k], cost[k] - have], 13, Color("e85a4f")))
+			h.add_child(_text("%s%d" % [UI.t(GameState.SHARD_LABEL[k]), cost[k] - have], 13, Color("e85a4f")))
 	return h
 
 
@@ -245,21 +245,21 @@ func _upgrade_card(key: String) -> Control:
 	v.add_theme_constant_override("separation", 2)
 	h.add_child(v)
 	var t := HBoxContainer.new()
-	t.add_child(_text(u.name, 16, Color("2a2233"), font_black))
-	t.add_child(_text("  改良 %d/3" % lv, 13, Color("ff8a5b")))
+	t.add_child(_text(UI.t(u.name), 16, Color("2a2233"), font_black))
+	t.add_child(_text(UI.t("  改良 %d/3") % lv, 13, Color("ff8a5b")))
 	v.add_child(t)
-	var d := _text(u.desc, 12, Color("6a5f70"))
-	d.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	var d := _text(UI.t(u.desc), 12, Color("6a5f70"))
+	d.autowrap_mode = UI.wrap_mode()
 	v.add_child(d)
 	if lv < 3:
 		v.add_child(_cost_row(u.cost[lv]))
 		if GameState.can_pay(u.cost[lv]):
-			var b := _button("作る", Color("ff8a5b"), _do_upgrade.bind(key))
+			var b := _button(UI.t("作る"), Color("ff8a5b"), _do_upgrade.bind(key))
 			b.custom_minimum_size = Vector2(70, 44)
 			b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 			h.add_child(b)
 	else:
-		v.add_child(_text("これ以上は改良できない", 12, Color("8a7a88")))
+		v.add_child(_text(UI.t("これ以上は改良できない"), 12, Color("8a7a88")))
 	return p
 
 
@@ -284,14 +284,14 @@ func _craft_card(pid: String) -> Control:
 	v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	v.add_theme_constant_override("separation", 2)
 	h.add_child(v)
-	var title: String = ("紙のポイの束（3本）" if pid == "paper" else info.name)
+	var title: String = (UI.t("紙のポイの束（3本）") if pid == "paper" else UI.t(info.name))
 	v.add_child(_text("%s ×%d" % [title, GameState.pois.get(pid, 0)], 15, Color("2a2233"), font_black))
-	var d := _text("余ったかけらで、今夜すくう数をふやす" if pid == "paper" else info.desc.replace("工房製。", ""), 12, Color("6a5f70"))
-	d.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	var d := _text(UI.t("余ったかけらで、今夜すくう数をふやす") if pid == "paper" else UI.t(info.desc).replace(UI.t("工房製。"), ""), 12, Color("6a5f70"))
+	d.autowrap_mode = UI.wrap_mode()
 	v.add_child(d)
 	v.add_child(_cost_row(GameState.CRAFTS[pid]))
 	if GameState.can_pay(GameState.CRAFTS[pid]):
-		var b := _button("作る", Color("5b6fc2"), _do_craft.bind(pid))
+		var b := _button(UI.t("作る"), Color("5b6fc2"), _do_craft.bind(pid))
 		b.custom_minimum_size = Vector2(70, 44)
 		b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		h.add_child(b)
@@ -308,15 +308,15 @@ func _decor_row(key: String) -> Control:
 	p.add_child(h)
 	var v := VBoxContainer.new()
 	v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	v.add_child(_text(d.name, 14, Color("2a2233"), font_black))
+	v.add_child(_text(UI.t(d.name), 14, Color("2a2233"), font_black))
 	if have:
-		v.add_child(_text("休憩室にかざってある", 12, Color("b07a3a")))
+		v.add_child(_text(UI.t("休憩室にかざってある"), 12, Color("b07a3a")))
 	else:
 		v.add_child(_cost_row(d.cost))
 	h.add_child(v)
 	if not have:
 		if GameState.can_pay(d.cost):
-			var b := _button("かざる", Color("5fb07a"), _do_decor.bind(key))
+			var b := _button(UI.t("かざる"), Color("5fb07a"), _do_decor.bind(key))
 			b.custom_minimum_size = Vector2(76, 40)
 			b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 			h.add_child(b)
@@ -326,7 +326,7 @@ func _decor_row(key: String) -> Control:
 func _do_decor(key: String) -> void:
 	if GameState.buy_decor(key):
 		_play("craft")
-		_toast("%sを休憩室にかざった" % GameState.DECOR[key].name)
+		_toast(UI.t("%sを休憩室にかざった") % UI.t(GameState.DECOR[key].name))
 		_build()
 
 
@@ -376,12 +376,12 @@ func _partner_card() -> Control:
 	top.add_child(tv)
 	var pl := GameState.partner_level()
 	tv.add_child(_text("%s  Lv%d" % [GameState.partner_name(), pl], 18, Color("2a2233"), font_black))
-	var sk := _text(GameState.PARTNER_SKILL[GameState.partner_skill()] + "（Lvで強くなる）", 13, Color("6a5f70"))
-	sk.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	var sk := _text(UI.t(GameState.PARTNER_SKILL[GameState.partner_skill()]) + UI.t("（Lvで強くなる）"), 13, Color("6a5f70"))
+	sk.autowrap_mode = UI.wrap_mode()
 	tv.add_child(sk)
 	var o: Dictionary = GameState.owned.get(GameState.partner, {})
 	if pl < GameState.MAX_LEVEL and not o.is_empty():
-		tv.add_child(_text("次のLvまで %d" % (GameState.xp_to_next(pl) - o.xp), 12, Color("8b7bff")))
+		tv.add_child(_text(UI.t("次のLvまで %d") % (GameState.xp_to_next(pl) - o.xp), 12, Color("8b7bff")))
 	var row := HFlowContainer.new()
 	row.add_theme_constant_override("h_separation", 6)
 	row.add_theme_constant_override("v_separation", 6)
@@ -392,7 +392,7 @@ func _partner_card() -> Control:
 			continue
 		var sel: bool = id == GameState.partner
 		if id == "my":
-			var mb := _button("マイ猫", Color("8b7bff") if sel else Color("efe7f7"), _set_partner.bind(id), Color.WHITE if sel else Color("5b4a9e"))
+			var mb := _button(UI.t("マイ猫"), Color("8b7bff") if sel else Color("efe7f7"), _set_partner.bind(id), Color.WHITE if sel else Color("5b4a9e"))
 			mb.custom_minimum_size = Vector2(96, 36)
 			mb.add_theme_font_size_override("font_size", 13)
 			row.add_child(mb)
@@ -421,14 +421,14 @@ func _toast(t: String) -> void:
 func _do_upgrade(key: String) -> void:
 	if GameState.upgrade(key):
 		_play("craft")
-		_toast("%s：Lv%d になった" % [GameState.UPGRADES[key].name, GameState.upgrades[key]])
+		_toast(UI.t("%s：Lv%d になった") % [UI.t(GameState.UPGRADES[key].name), GameState.upgrades[key]])
 		_build()
 
 
 func _do_craft(pid: String) -> void:
 	if GameState.craft(pid):
 		_play("craft")
-		_toast("%sができた" % GameState.POI[pid].name)
+		_toast(UI.t("%sができた") % UI.t(GameState.POI[pid].name))
 		_build()
 
 

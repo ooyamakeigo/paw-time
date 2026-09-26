@@ -32,9 +32,9 @@ var rare_tease := false
 func _update_header() -> void:
 	var n := orbs.size()
 	if index == 0:
-		header.text = "朝のお迎え：玉 %dこ%s" % [n, "（虹色も！）" if rare_tease else ""]
+		header.text = UI.t("朝のお迎え：玉 %dこ%s") % [n, UI.t("（虹色も！）") if rare_tease else ""]
 	else:
-		header.text = "朝のお迎え %d / %d" % [mini(index, n), n]
+		header.text = UI.t("朝のお迎え %d / %d") % [mini(index, n), n]
 
 
 func _ready() -> void:
@@ -71,9 +71,9 @@ func _ready() -> void:
 	var sl: int = GameState.last_sleep
 	var msg := ""
 	if sl >= 7:
-		msg = "よく寝た朝：玉が★ひとつ育ってかえる"
+		msg = UI.t("よく寝た朝：玉が★ひとつ育ってかえる")
 	elif sl <= 5:
-		msg = "寝不足の朝：玉の育ちはふつう"
+		msg = UI.t("寝不足の朝：玉の育ちはふつう")
 	if msg != "":
 		var pill := PanelContainer.new()
 		pill.add_theme_stylebox_override("panel", _pill(Color(0.16, 0.13, 0.22, 0.8) if sl >= 7 else Color(0.3, 0.2, 0.2, 0.7), 16))
@@ -84,10 +84,10 @@ func _ready() -> void:
 		pill.size = Vector2(300, 0)
 		pill.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		add_child(pill)
-	next_btn.text = "玉をひらく"
+	next_btn.text = UI.t("玉をひらく")
 	if n_orbs >= 3:
 		skip_btn = Button.new()
-		skip_btn.text = "まとめて"
+		skip_btn.text = UI.t("まとめて")
 		skip_btn.focus_mode = Control.FOCUS_NONE
 		skip_btn.custom_minimum_size = Vector2(96, 50)
 		skip_btn.add_theme_font_override("font", font_bold)
@@ -261,7 +261,7 @@ func _text(t: String, size: int, color := Color("2a2233"), font: FontFile = null
 	l.add_theme_font_size_override("font_size", size)
 	l.add_theme_color_override("font_color", color)
 	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	l.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	l.autowrap_mode = UI.wrap_mode()
 	return l
 
 
@@ -390,18 +390,18 @@ func _next() -> void:
 	badge.get_parent().visible = h.is_new and not h.get("rare", false)
 	var stars := "★".repeat(h.get("quality", 0)) + "☆".repeat(3 - h.get("quality", 0))
 	if rare:
-		card_sub.text = ("虹の玉から！ レア ・ %s" if h.get("from_rainbow", false) else "レア ・ %s") % sp.group
+		card_sub.text = (UI.t("虹の玉から！ レア ・ %s") if h.get("from_rainbow", false) else UI.t("レア ・ %s")) % sp.group
 	else:
-		card_sub.text = "Lv%d ・ %s  %s" % [h.level, _type_label(sp.type), stars]
+		card_sub.text = UI.t("Lv%d ・ %s  %s") % [h.level, _type_label(sp.type), stars]
 	var extra := ""
 	if h.get("leveled", false):
-		extra = "Lv%d → Lv%d に育った！見た目も変わる" % [h.before, h.level]
+		extra = UI.t("Lv%d → Lv%d に育った！見た目も変わる") % [h.before, h.level]
 	elif h.get("shard", "") != "" and GameState.unlocked("workshop"):
-		extra = "%sのかけら +1（工房で使える）" % GameState.SHARD_LABEL[h.shard]
+		extra = UI.t("%sのかけら +1（工房で使える）") % UI.t(GameState.SHARD_LABEL[h.shard])
 	if h.get("gold_shard", "") != "" and GameState.unlocked("workshop"):
-		extra += ("\n" if extra != "" else "") + "金の玉：%sのかけら +2" % GameState.SHARD_LABEL[h.gold_shard]
+		extra += ("\n" if extra != "" else "") + UI.t("金の玉：%sのかけら +2") % UI.t(GameState.SHARD_LABEL[h.gold_shard])
 	if h.get("kind", "") == "rainbow" and not rare:
-		extra += ("\n" if extra != "" else "") + "虹の玉：大きく育った"
+		extra += ("\n" if extra != "" else "") + UI.t("虹の玉：大きく育った")
 	card_desc.text = sp.desc + ("\n" + extra if extra != "" else "")
 	card.position.y = 430
 	var tw4 := create_tween().set_parallel()
@@ -409,7 +409,7 @@ func _next() -> void:
 	tw4.tween_property(card, "position:y", 390.0, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	if rare:
 		_rare_reaction()
-		_stamp("レア！" if not h.get("from_rainbow", false) else "虹から、レア！")
+		_stamp(UI.t("レア！") if not h.get("from_rainbow", false) else UI.t("虹から、レア！"))
 	if h.get("leveled", false):
 		await get_tree().create_timer(0.5).timeout
 		sfx["levelup"].play()
@@ -422,7 +422,7 @@ func _next() -> void:
 		bump.tween_property(current_obake, "scale", Vector3.ONE * 0.62, 0.15)
 		bump.tween_property(current_obake, "scale", Vector3.ONE * 0.5, 0.3).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	index += 1
-	next_btn.text = "つぎの玉" if index < orbs.size() else "今日をはじめる"
+	next_btn.text = UI.t("つぎの玉") if index < orbs.size() else UI.t("今日をはじめる")
 	_update_header()
 	if skip_btn:
 		skip_btn.visible = orbs.size() - index >= 2
@@ -635,7 +635,7 @@ func _open_all() -> void:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 6)
 	p.add_child(v)
-	v.add_child(_text("けさ かえったおばけ", 20, Color("2a2233"), font_black))
+	v.add_child(_text(UI.t("けさ かえったおばけ"), 20, Color("2a2233"), font_black))
 	var grid := GridContainer.new()
 	grid.columns = 2
 	grid.add_theme_constant_override("h_separation", 6)
@@ -659,7 +659,7 @@ func _open_all() -> void:
 		var a: Dictionary = agg[id]
 		var tag := ""
 		if a.rare:
-			tag = " レア!"
+			tag = UI.t(" レア!")
 		elif a.new:
 			tag = " NEW"
 		elif a.lv > 0:
@@ -675,7 +675,7 @@ func _open_all() -> void:
 	if lvups > 0:
 		sfx["levelup"].play()
 	var b := Button.new()
-	b.text = "今日をはじめる"
+	b.text = UI.t("今日をはじめる")
 	b.custom_minimum_size = Vector2(0, 48)
 	b.add_theme_font_override("font", font_black)
 	b.add_theme_font_size_override("font_size", 18)
@@ -689,7 +689,7 @@ func _open_all() -> void:
 
 
 func _type_label(t: String) -> String:
-	return {"register": "黄の玉から", "dish": "青の玉から", "hall": "紫の玉から", "kitchen": "橙の玉から", "stock": "茶の玉から"}.get(t, "")
+	return {"register": UI.t("黄の玉から"), "dish": UI.t("青の玉から"), "hall": UI.t("紫の玉から"), "kitchen": UI.t("橙の玉から"), "stock": UI.t("茶の玉から")}.get(t, "")
 
 
 func _flash(a: float) -> void:

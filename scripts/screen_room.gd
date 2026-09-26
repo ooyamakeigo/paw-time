@@ -357,13 +357,13 @@ func _gui_input(event: InputEvent) -> void:
 	var info: Dictionary = GameState.info(id)
 	var line: String = info.name
 	if id == "my":
-		line = "マイおばけ猫" + ("（相棒）" if GameState.partner == "my" else "")
+		line = UI.t("マイおばけ猫") + (UI.t("（相棒）") if GameState.partner == "my" else "")
 	elif GameState.SPECIES.has(id):
 		line += "  Lv%d" % GameState.level_of(id)
 		if GameState.partner == id:
-			line += "（相棒）"
+			line += UI.t("（相棒）")
 	else:
-		line += "  レア・" + String(info.get("group", ""))
+		line += UI.t("  レア・") + String(info.get("group", ""))
 	var bubble := PanelContainer.new()
 	bubble.add_theme_stylebox_override("panel", _pill(Color(1, 1, 1, 0.95), 16))
 	bubble.add_child(_text(line, 14, Color("2a2233"), font_black))
@@ -429,16 +429,16 @@ func _build_ui() -> void:
 	add_child(top)
 	var dp := PanelContainer.new()
 	dp.add_theme_stylebox_override("panel", _pill(Color(1, 1, 1, 0.92), 22))
-	dp.add_child(_text("第%d週 %s曜日" % [GameState.week_no(), s.day], 16, Color("2a2233"), font_black))
+	dp.add_child(_text(UI.t("第%d週 %s曜日") % [GameState.week_no(), UI.t(s.day)], 16, Color("2a2233"), font_black))
 	top.add_child(dp)
 	var sp := Control.new()
 	sp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(sp)
-	var hb := _button("？", Color(1, 1, 1, 0.92), _show_boost_help, Color("5b6fc2"))
+	var hb := _button(UI.t("？"), Color(1, 1, 1, 0.92), _show_boost_help, Color("5b6fc2"))
 	hb.custom_minimum_size = Vector2(40, 44)
 	hb.visible = GameState.unlocked("help")
 	top.add_child(hb)
-	var ws := _button("工房", Color(1, 1, 1, 0.92), func(): main.go("workshop"), Color("d9774a"))
+	var ws := _button(UI.t("工房"), Color(1, 1, 1, 0.92), func(): main.go("workshop"), Color("d9774a"))
 	ws.custom_minimum_size = Vector2(62, 44)
 	ws.visible = GameState.unlocked("workshop") # 仕組みは少しずつ見せる
 	top.add_child(ws)
@@ -446,7 +446,7 @@ func _build_ui() -> void:
 		var wdot := _dot(Color("ff5b5b"))
 		wdot.position = Vector2(50, -2)
 		ws.add_child(wdot)
-	var zk := _button("図鑑", Color(1, 1, 1, 0.92), func(): main.go("zukan"), Color("8a5bd6"))
+	var zk := _button(UI.t("図鑑"), Color(1, 1, 1, 0.92), func(): main.go("zukan"), Color("8a5bd6"))
 	zk.custom_minimum_size = Vector2(62, 44)
 	zk.visible = GameState.unlocked("zukan")
 	top.add_child(zk)
@@ -489,7 +489,7 @@ func _build_ui() -> void:
 	card_title = _text("", 19, Color("2a2233"), font_black)
 	v.add_child(card_title)
 	card_body = _text("", 13, Color("6a5f70"))
-	card_body.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	card_body.autowrap_mode = UI.wrap_mode()
 	card_body.custom_minimum_size = Vector2(300, 0)
 	v.add_child(card_body)
 	actions = VBoxContainer.new()
@@ -517,14 +517,14 @@ func _render() -> void:
 		if GameState.claimed.has(q.key):
 			done += 1
 	var ready := GameState.quests_claimable()
-	quest_btn.text = ("おねがい：%dつ受け取れる" % ready) if ready > 0 else ("今週のおねがい %d/3" % done)
+	quest_btn.text = (UI.t("おねがい：%dつ受け取れる") % ready) if ready > 0 else (UI.t("今週のおねがい %d/3") % done)
 	quest_btn.visible = GameState.unlocked("quests")
 	_place_quest_btn()
 	for c in poi_row.get_children():
 		c.queue_free()
-	poi_row.add_child(_text("ポイ", 12, Color("8a7a88")))
+	poi_row.add_child(_text(UI.t("ポイ"), 12, Color("8a7a88")))
 	# 紙・色・特別の3つにまとめて見せる（くわしくは川べりの棚で）
-	var groups := [["紙", ["paper"], Color("f4efe6")], ["色", ["receipt", "bubble", "tray", "pan", "box"], Color("5fc4ff")], ["特別", ["kira", "lure", "double", "akari"], Color("fff2a8")]]
+	var groups := [[UI.t("紙"), ["paper"], Color("f4efe6")], [UI.t("色"), ["receipt", "bubble", "tray", "pan", "box"], Color("5fc4ff")], [UI.t("特別"), ["kira", "lure", "double", "akari"], Color("fff2a8")]]
 	for g in groups:
 		var n := 0
 		for id in g[1]:
@@ -534,9 +534,9 @@ func _render() -> void:
 		poi_row.add_child(_dot(g[2].darkened(0.08)))
 		poi_row.add_child(_text("%s %d" % [g[0], n], 12))
 	if GameState.total_pois() == 0:
-		poi_row.add_child(_text("なし", 12, Color("8a7a88")))
+		poi_row.add_child(_text(UI.t("なし"), 12, Color("8a7a88")))
 	if GameState.strength != 1.0:
-		poi_row.add_child(_text("強さ×%.2f" % GameState.strength, 12, Color("8b7bff")))
+		poi_row.add_child(_text(UI.t("強さ×%.2f") % GameState.strength, 12, Color("8b7bff")))
 
 	for c in actions.get_children():
 		c.queue_free()
@@ -544,36 +544,36 @@ func _render() -> void:
 	var fest := GameState.is_festival()
 	# カードは「題・一行・ボタン」だけ。くわしいことは「？」や各画面へ
 	if GameState.phase == "scooped":
-		card_title.text = "今夜は %dこ すくった" % GameState.tonight.get("count", 0)
-		card_body.text = "寝ると、玉が朝にかえる"
-		actions.add_child(_button("寝る", Color("8b7bff"), func(): main.go("sleep")))
+		card_title.text = UI.t("今夜は %dこ すくった") % GameState.tonight.get("count", 0)
+		card_body.text = UI.t("寝ると、玉が朝にかえる")
+		actions.add_child(_button(UI.t("寝る"), Color("8b7bff"), func(): main.go("sleep")))
 		_fit_card()
 		return
-	var night_label := "夜の川べりへ" if not fest else "大すくい祭りへ"
+	var night_label := UI.t("夜の川べりへ") if not fest else UI.t("大すくい祭りへ")
 	var night_col := Color("5b6fc2") if not fest else Color("e8603c")
 	if not GameState.unlocked("shift"):
 		# はじめての日：やることはひとつ
-		card_title.text = "夜の川べりへ"
-		card_body.text = "光る玉を、ポイですくおう"
-		actions.add_child(_button("すくいに行く", night_col, func(): main.go("catch")))
+		card_title.text = UI.t("夜の川べりへ")
+		card_body.text = UI.t("光る玉を、ポイですくおう")
+		actions.add_child(_button(UI.t("すくいに行く"), night_col, func(): main.go("catch")))
 	elif s.role != "" and not GameState.worked_today:
-		card_title.text = "今日は%sのシフト" % GameState.ROLE_LABEL[s.role]
+		card_title.text = UI.t("今日は%sのシフト") % UI.t(GameState.ROLE_LABEL[s.role])
 		var first: bool = not GameState.stores_seen.has(s.store) or not GameState.roles_seen.has(s.role)
-		card_body.text = "働くと 色のポイ+%d%s" % [GameState.work_poi_count(s.hours), "・きらきら+1" if first else ""]
-		actions.add_child(_button("シフトに行く", Color("ff8a5b"), _do_shift))
-		var skip := _button("働かずに川へ", Color(1, 1, 1, 1), func(): main.go("catch"), night_col)
+		card_body.text = UI.t("働くと 色のポイ+%d%s") % [GameState.work_poi_count(s.hours), UI.t("・きらきら+1") if first else ""]
+		actions.add_child(_button(UI.t("シフトに行く"), Color("ff8a5b"), _do_shift))
+		var skip := _button(UI.t("働かずに川へ"), Color(1, 1, 1, 1), func(): main.go("catch"), night_col)
 		skip.custom_minimum_size = Vector2(0, 38)
 		skip.add_theme_font_size_override("font_size", 14)
 		actions.add_child(skip)
 	else:
 		if GameState.worked_today:
-			card_title.text = "おつかれさま"
-			card_body.text = _got_text if _got_text != "" else "色のポイは、同じ色の玉を寄せる"
+			card_title.text = UI.t("おつかれさま")
+			card_body.text = _got_text if _got_text != "" else UI.t("色のポイは、同じ色の玉を寄せる")
 		else:
-			card_title.text = "今日はお休み"
-			card_body.text = "紙のポイで、川へ行ける"
+			card_title.text = UI.t("今日はお休み")
+			card_body.text = UI.t("紙のポイで、川へ行ける")
 		if fest:
-			card_body.text = "今夜は大すくい祭り"
+			card_body.text = UI.t("今夜は大すくい祭り")
 		actions.add_child(_button(night_label, night_col, func(): main.go("catch")))
 	_fit_card()
 
@@ -596,8 +596,8 @@ func _do_shift() -> void:
 	var got := GameState.finish_shift()
 	var parts: Array = []
 	for g in got:
-		parts.append("%s+%d" % [GameState.POI[g.poi].short, g.n])
-	_got_text = "もらった：" + "・".join(parts)
+		parts.append("%s+%d" % [UI.t(GameState.POI[g.poi].short), g.n])
+	_got_text = UI.t("もらった：") + UI.t("・").join(parts)
 	_play_sfx("chime")
 	# もらったポイが、上のポイの棚へ飛んでいく
 	for i in got.size():
@@ -605,7 +605,7 @@ func _do_shift() -> void:
 		var chip := PanelContainer.new()
 		var st := _pill(Color(GameState.POI[g.poi].color), 16)
 		chip.add_theme_stylebox_override("panel", st)
-		chip.add_child(_text("+%d %s" % [g.n, GameState.POI[g.poi].short], 15, Color("2a2233"), font_black))
+		chip.add_child(_text("+%d %s" % [g.n, UI.t(GameState.POI[g.poi].short)], 15, Color("2a2233"), font_black))
 		chip.position = Vector2(110 + i * 20, 470)
 		chip.modulate.a = 0.0
 		chip.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -653,13 +653,13 @@ func _show_report() -> void:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 4)
 	report.add_child(v)
-	v.add_child(_text("けさのこと", 14, Color("ffe27a"), font_black))
+	v.add_child(_text(UI.t("けさのこと"), 14, Color("ffe27a"), font_black))
 	for line in GameState.morning_report:
-		var l := _text("・" + line, 13, Color("f3eeff"))
-		l.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+		var l := _text(UI.t("・") + line, 13, Color("f3eeff"))
+		l.autowrap_mode = UI.wrap_mode()
 		l.custom_minimum_size = Vector2(296, 0)
 		v.add_child(l)
-	v.add_child(_text("タップで閉じる", 11, Color(1, 1, 1, 0.45)))
+	v.add_child(_text(UI.t("タップで閉じる"), 11, Color(1, 1, 1, 0.45)))
 	report.gui_input.connect(func(e):
 		if (e is InputEventMouseButton or e is InputEventScreenTouch) and e.pressed:
 			_close_report())
@@ -701,17 +701,17 @@ func _show_boost_help() -> void:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 8)
 	p.add_child(v)
-	v.add_child(_text("ポイのもらい方", 19, Color("2a2233"), font_black))
-	for pair in [["毎朝", "紙のポイ 2本（働かない日も）"], ["働いた日", "色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも"], ["よく寝た朝", "ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）"], ["工房", "かぶったおばけのかけらで、ポイを作る・改良する"], ["レア", "いろんな働き方・休み方・眠り方、そして虹の玉で出会える"]]:
+	v.add_child(_text(UI.t("ポイのもらい方"), 19, Color("2a2233"), font_black))
+	for pair in [[UI.t("毎朝"), UI.t("紙のポイ 2本（働かない日も）")], [UI.t("働いた日"), UI.t("色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも")], [UI.t("よく寝た朝"), UI.t("ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）")], [UI.t("工房"), UI.t("かぶったおばけのかけらで、ポイを作る・改良する")], [UI.t("レア"), UI.t("いろんな働き方・休み方・眠り方、そして虹の玉で出会える")]]:
 		var row := VBoxContainer.new()
 		row.add_theme_constant_override("separation", 0)
 		row.add_child(_text(pair[0], 14, Color("e8603c"), font_black))
 		var d := _text(pair[1], 13, Color("4a3f52"))
-		d.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+		d.autowrap_mode = UI.wrap_mode()
 		d.custom_minimum_size = Vector2(296, 0)
 		row.add_child(d)
 		v.add_child(row)
-	v.add_child(_text("タップで閉じる", 11, Color("9a8e98")))
+	v.add_child(_text(UI.t("タップで閉じる"), 11, Color("9a8e98")))
 
 
 ## 今週のおねがい（3つ。そろうと、おまけ）
@@ -737,9 +737,9 @@ func _show_quests() -> void:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 8)
 	p.add_child(v)
-	v.add_child(_text("第%d週のおねがい" % GameState.week_no(), 19, Color("2a2233"), font_black))
-	var sub := _text("ひとつにつき 虹のかけら・きらきらポイ。3つそろうと、おまけ", 12, Color("8a7a88"))
-	sub.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	v.add_child(_text(UI.t("第%d週のおねがい") % GameState.week_no(), 19, Color("2a2233"), font_black))
+	var sub := _text(UI.t("ひとつにつき 虹のかけら・きらきらポイ。3つそろうと、おまけ"), 12, Color("8a7a88"))
+	sub.autowrap_mode = UI.wrap_mode()
 	sub.custom_minimum_size = Vector2(296, 0)
 	v.add_child(sub)
 	for q in GameState.week_quests():
@@ -768,9 +768,9 @@ func _show_quests() -> void:
 		col.add_child(_text("%d / %d" % [prog, q.n], 11, Color("8a7a88")))
 		row.add_child(col)
 		if GameState.claimed.has(q.key):
-			row.add_child(_text("受け取りずみ", 12, Color("b07a3a")))
+			row.add_child(_text(UI.t("受け取りずみ"), 12, Color("b07a3a")))
 		elif GameState.quest_done(q):
-			var b := _button("受け取る", Color("ff8a5b"), func():
+			var b := _button(UI.t("受け取る"), Color("ff8a5b"), func():
 				var rw := GameState.claim_quest(q)
 				if not rw.is_empty():
 					_play_sfx("fanfare")
@@ -779,7 +779,7 @@ func _show_quests() -> void:
 			b.add_theme_font_size_override("font_size", 14)
 			row.add_child(b)
 		v.add_child(row)
-	v.add_child(_text("タップで閉じる", 11, Color("9a8e98")))
+	v.add_child(_text(UI.t("タップで閉じる"), 11, Color("9a8e98")))
 
 
 ## 相棒が真顔でひとこと
@@ -796,7 +796,7 @@ func _partner_says() -> void:
 	var bubble := PanelContainer.new()
 	bubble.add_theme_stylebox_override("panel", _pill(Color(1, 1, 1, 0.95), 16))
 	var l := _text(line, 13, Color("2a2233"))
-	l.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	l.autowrap_mode = UI.wrap_mode()
 	l.custom_minimum_size = Vector2(250, 0)
 	bubble.add_child(l)
 	bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE

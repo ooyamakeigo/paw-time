@@ -1,0 +1,675 @@
+keys,en,ja
+"
+%sがLv%dになりそう","
+%s may reach Lv%d","
+%sがLv%dになりそう"
+"
+使いかけ","
+Part-used","
+使いかけ"
+"
+手に","
+Held","
+手に"
+      工房: %s Lv%d（%d日目）,      Workshop: %s Lv%d (Day %d),      工房: %s Lv%d（%d日目）
+      玉 ,      Orbs ,      玉 
+   -- 週末: 図鑑 %d/%d  Lv %s  かけら %s  累計すくい %d,   -- Weekend: Collection %d/%d  Lv %s  Shards %s  Total scoops %d,   -- 週末: 図鑑 %d/%d  Lv %s  かけら %s  累計すくい %d
+  レア・,  Rare · ,  レア・
+  改良 %d/3,  Upgrade %d/3,  改良 %d/3
+  自動すくいが時間切れ: busy=%s pressed=%s in_hand=%s sel=%s state=%s supply=%d vis=%d pois=%s tele=%.1f,  Auto-scoop timed out: busy=%s pressed=%s in_hand=%s sel=%s state=%s supply=%d vis=%d pois=%s tele=%.1f,  自動すくいが時間切れ: busy=%s pressed=%s in_hand=%s sel=%s state=%s supply=%d vis=%d pois=%s tele=%.1f
+  達成！,  Done!,  達成！
+ レア!, Rare!, レア!
+ 祭, Festival, 祭
+%d こ,%d orbs,%d こ
+%dこすくう,Scoop %d orbs,%dこすくう
+%dつまとめて！,%d orbs at once!,%dつまとめて！
+%dつ重なっている！,%d orbs overlap!,%dつ重なっている！
+%dコンボ,%d combo,%dコンボ
+%dコンボを出す,Get a %d combo,%dコンボを出す
+%dコンボ！,%d combo!,%dコンボ！
+%d時間,%d hours,%d時間
+%d時間ねた,Slept %d hours,%d時間ねた
+%s あと%d本,%s: %d left,%s あと%d本
+%s を1体,Give 1 %s,%s を1体
+%s「%s」,%s: “%s”,%s「%s」
+%sができた,Your %s is ready,%sができた
+%sさんからのおすそわけ,A little gift from %s,%sさんからのおすそわけ
+%sさんに%sをおすそわけした。お返しに%sのかけら×2,Gave %s a %s. Got %s shards ×2.,%sさんに%sをおすそわけした。お返しに%sのかけら×2
+%sのかけら +1（工房で使える）,%s shards +1 (for the Workshop),%sのかけら +1（工房で使える）
+%sのかけら×%d,%s shards ×%d,%sのかけら×%d
+%sの仕事,%s work,%sの仕事
+%sの玉を%dこ,%s orbs: %d,%sの玉を%dこ
+%sの玉を5こ,%s orbs: 5,%sの玉を5こ
+%sを休憩室にかざった,%s is in the breakroom,%sを休憩室にかざった
+%s曜の夜,%s night,%s曜の夜
+%s種類に出会った,Met %s kinds,%s種類に出会った
+%s：Lv%d になった,%s is now Lv%d,%s：Lv%d になった
+10分前に着く,10 minutes early,10分前に着く
+"12の質問で、相棒の猫おばけが決まる。
+バイトと休みの、ゆるい質問だよ。","12 easy questions to meet your cat-obake buddy.
+A little about work, a little about rest.","12の質問で、相棒の猫おばけが決まる。
+バイトと休みの、ゆるい質問だよ。"
+1分くらい ・ 答えはあとで変えられる,About 1 minute · change your answers anytime,1分くらい ・ 答えはあとで変えられる
+1週間で3つの店で働くと生まれる,Born after working at 3 stores in one week.,1週間で3つの店で働くと生まれる
+2こ以上まとめてすくう,Scoop 2+ orbs at once,2こ以上まとめてすくう
+2日以上働いたあとに休むと生まれる。休み方の名人,"Born from a day off after 2+ workdays in a row, a true master of rest.",2日以上働いたあとに休むと生まれる。休み方の名人
+3卓先のお冷やまで見えている。,Spots an empty glass three tables away.,3卓先のお冷やまで見えている。
+3日続けて7時間以上ねむると生まれる。朝焼けの色,"Born after 3 nights of 7+ hours' sleep, in the colors of dawn.",3日続けて7時間以上ねむると生まれる。朝焼けの色
+3日続けて同じ時間ねむると生まれる。いつも落ち着いている,"Born after sleeping the same amount for 3 nights, always calm.",3日続けて同じ時間ねむると生まれる。いつも落ち着いている
+4つの夜にすくう,Scoop on 4 nights,4つの夜にすくう
+5コンボ！虹の気配,5 combo! Rainbow glow,5コンボ！虹の気配
+5時間以下の睡眠の朝に。提灯をさげて夜を歩く,"A lantern-carrying night wanderer, born after 5 hours of sleep or less.",5時間以下の睡眠の朝に。提灯をさげて夜を歩く
+5種類の仕事をぜんぶ経験すると生まれる。どこへでも行ける,"Born after trying all 5 job types, ready to go anywhere.",5種類の仕事をぜんぶ経験すると生まれる。どこへでも行ける
+7時間以上ねむった朝に生まれる。寝息がやさしい,"Born after 7+ hours of sleep, with the softest little snores.",7時間以上ねむった朝に生まれる。寝息がやさしい
+8時間以上ねむった朝に。見た夢の色をしている,"Appears after 8+ hours of sleep, wearing the colors of your dreams.",8時間以上ねむった朝に。見た夢の色をしている
+== 終了: 図鑑 %d/%d 最高コンボ %d 累計 %d,== Done: Collection %d/%d Best combo %d Total %d,== 終了: 図鑑 %d/%d 最高コンボ %d 累計 %d
+D%02d %s曜 %s %s%s | ポイ%2d 使%2d | すくい%2d コンボ%2d ていねい%2d 虹%d | %4.0f秒 | 寝%d,D%02d %s %s %s%s | Nets%2d Used%2d | Scoops%2d Combo%2d Careful%2d Rainbow%d | %4.0fs | Sleep%d,D%02d %s曜 %s %s%s | ポイ%2d 使%2d | すくい%2d コンボ%2d ていねい%2d 虹%d | %4.0f秒 | 寝%d
+D%02d 画面を一巡: %s,D%02d Screen tour: %s,D%02d 画面を一巡: %s
+Lv%d → Lv%d に育った！見た目も変わる,"Lv%d → Lv%d! A new look, too",Lv%d → Lv%d に育った！見た目も変わる
+Lv%d ・ %s  %s,Lv%d · %s  %s,Lv%d ・ %s  %s
+Lv5（王冠）。かぶると、かけらになる,Lv5 (crowned). Duplicates become shards.,Lv5（王冠）。かぶると、かけらになる
+QuizResult: 保存できない %s (%s),QuizResult: Couldn't save %s (%s),QuizResult: 保存できない %s (%s)
+QuizResult: 読めない結果を無視した %s,QuizResult: Skipped unreadable result %s,QuizResult: 読めない結果を無視した %s
+「%s」まで かけら %s,%s needs %s shards,「%s」まで かけら %s
+「%s」をそろえた,%s complete,「%s」をそろえた
+『いつもの』で、全部わかる。,Knows 'the usual' before you say it.,『いつもの』で、全部わかる。
+あたらしいポイ,A fresh net,あたらしいポイ
+あと,Need,あと
+"あなたのおばけ猫を
+さがそう","Find your
+cat-obake","あなたのおばけ猫を
+さがそう"
+あなたのマイおばけ猫は,My Cat-Obake is...,あなたのマイおばけ猫は
+ありがとうの一言,A little thank-you,ありがとうの一言
+いい夜だった,That was a nice night,いい夜だった
+いちばん上の称号,Top title earned,いちばん上の称号
+いま離す！,Release now!,いま離す！
+いま離せば、すくえる,Release now to scoop,いま離せば、すくえる
+いろんな働き方・休み方・眠り方、そして虹の玉で出会える,"Meet them through new ways to work, rest and sleep, or in rainbow orbs.",いろんな働き方・休み方・眠り方、そして虹の玉で出会える
+うれしいのは？,What makes you smile?,うれしいのは？
+おすそわけ（%sさんへ）,A gift for %s,おすそわけ（%sさんへ）
+おだい達成！,Tonight's goal done!,おだい達成！
+おだい達成！ ,Tonight's goal done! ,おだい達成！ 
+おだい：%s  %d/%d%s,Tonight's goal: %s  %d/%d%s,おだい：%s  %d/%d%s
+おだい：%s  達成！,Tonight's goal: %s  Done!,おだい：%s  達成！
+おつかれさま,Nice work today,おつかれさま
+おつりと一緒に、ひと言そえる。,Hands back change with a kind word.,おつりと一緒に、ひと言そえる。
+おねがい：%dつ受け取れる,Wishes: claim %d,おねがい：%dつ受け取れる
+おやすみの前に,Before you drift off,おやすみの前に
+おやすみ上手,Master of the Power Nap,おやすみ上手
+お盆,Tray,お盆
+お盆のポイ,tray net,お盆のポイ
+お菓子を配ると、場がなごむ。,"Shares snacks, lifts the whole room.",お菓子を配ると、場がなごむ。
+かえったおばけが、休憩室に。,New obake join the breakroom.,かえったおばけが、休憩室に。
+かけだし,Rookie,かけだし
+かけら（かぶったおばけから出る）,Shards from duplicates,かけら（かぶったおばけから出る）
+かさ、ないの,no umbrella?,かさ、ないの
+かざる,Place,かざる
+かぶったおばけのかけらで、ポイを作る・改良する,Use shards from duplicate obake to craft and upgrade nets.,かぶったおばけのかけらで、ポイを作る・改良する
+からぶり,Missed,からぶり
+きっちり,Tidy,きっちり
+きのうのコンボ、見てた,i saw that combo yesterday,きのうのコンボ、見てた
+きら,Sparkle,きら
+きらきらポイ,sparkle net,きらきらポイ
+きらきらポイなら逃げない,Sparkle net: it stays,きらきらポイなら逃げない
+きれいに並んだ棚,"Nice, tidy shelves",きれいに並んだ棚
+ぎりぎりセーフ！でも紙が…,Safe! But the paper...,ぎりぎりセーフ！でも紙が…
+ぎりぎり！すくうと破れる,One scoop from tearing,ぎりぎり！すくうと破れる
+くもり：おだやかな夜,Cloudy: a calm night,くもり：おだやかな夜
+けさ かえったおばけ,This morning's obake,けさ かえったおばけ
+けさのこと,This morning,けさのこと
+けん,Ken,けん
+こう,Ko,こう
+ここは休憩室。休むところ,this is the breakroom. for breaks,ここは休憩室。休むところ
+こたつ,Kotatsu,こたつ
+こだわりの仕込み番,The Prep Perfectionist,こだわりの仕込み番
+この子と はじめる,Start together,この子と はじめる
+これまでに %d 体,%d obake met so far,これまでに %d 体
+これ以上は改良できない,Fully upgraded,これ以上は改良できない
+さとう,Sato,さとう
+しっぽが冷たい,my tail's cold,しっぽが冷たい
+しん,Shin,しん
+すくい,Scoop,すくい
+すくいかけだし,Scoop Rookie,すくいかけだし
+すくいに行く,Go scooping,すくいに行く
+すくいのコツ,Scooping tips,すくいのコツ
+すくい一人前,Scoop Regular,すくい一人前
+すくい名人,Scoop Master,すくい名人
+すくい名人のポスター,Scoop Master poster,すくい名人のポスター
+すくい名人の手つき,A Scoop Master's touch,すくい名人の手つき
+すくい名手,Scoop Virtuoso,すくい名手
+すくい見習い,Scoop Newbie,すくい見習い
+すくい達人,Scoop Expert,すくい達人
+すくった %d,Scooped %d,すくった %d
+すくった玉,Orbs scooped,すくった玉
+すくった玉 あと%d,Scoop %d more orbs,すくった玉 あと%d
+すくった玉、あったかい,the orbs feel warm,すくった玉、あったかい
+すくった！,Scooped!,すくった！
+すぐ寝る,Straight to sleep,すぐ寝る
+すべての節目のごほうびを受け取った,All milestone rewards claimed,すべての節目のごほうびを受け取った
+そっと,Gently,そっと
+そっと すくう。,Scoop them gently.,そっと すくう。
+そっと、真ん中で。コンボ！,"Gently, in the middle. Combo!",そっと、真ん中で。コンボ！
+そっと動かすほど、ポイは長持ち,Move gently to help your net last,そっと動かすほど、ポイは長持ち
+そっと玉の下へ,Gently slide under it,そっと玉の下へ
+そばにいる癒やし係,The Calm Companion,そばにいる癒やし係
+だいち,Daichi,だいち
+ちょうどに着く,Right on time,ちょうどに着く
+ついスマホ,One more scroll,ついスマホ
+つぎのごほうびまで あと %d 種類,Meet %d more kinds for a reward,つぎのごほうびまで あと %d 種類
+つぎの玉,Next orb,つぎの玉
+つづきから（第%d週 %s曜）,Resume W%d %s,つづきから（第%d週 %s曜）
+つながり,People,つながり
+ていねいな玉を%dこ,Careful: %d orbs,ていねいな玉を%dこ
+ていねいに%dこ,Careful: %d orbs,ていねいに%dこ
+できた！そっと動かすと長持ち,Nice! Easy on the net,できた！そっと動かすと長持ち
+とじる,Close,とじる
+となりにいるだけで、落ちつく。,Just being nearby makes it better.,となりにいるだけで、落ちつく。
+ともえ,Tomoe,ともえ
+ど真ん中,Dead center,ど真ん中
+なし,None,なし
+ねむそうだね。ぼくもだけど,you look sleepy. me too,ねむそうだね。ぼくもだけど
+のんびり発明家,The Easygoing Inventor,のんびり発明家
+はじめから,New game,はじめから
+はじめからにする,Start over,はじめからにする
+はじめて,Firsts,はじめて
+はじめての%s,First %s,はじめての%s
+はじめての人の、となりにいた,Beside someone on their first day,はじめての人の、となりにいた
+はじめての仕事を覚えた夜,The night a new job feels familiar,はじめての仕事を覚えた夜
+はじめての同僚とシフトに入った日に。あいさつが上手,"Born on a shift with a new coworker, with a knack for hellos.",はじめての同僚とシフトに入った日に。あいさつが上手
+はじめての場所で、光る,A little light in a new place,はじめての場所で、光る
+はじめての店で働いた日に生まれる,Born on your first day working at a new store.,はじめての店で働いた日に生まれる
+はじめての種類の仕事をした日に。まだ少しぎこちない,"Born the day you try a new kind of job, still a little clumsy.",はじめての種類の仕事をした日に。まだ少しぎこちない
+はじめて会う人と、同じ時間に,A shared hour with a new face,はじめて会う人と、同じ時間に
+はじめて入る人と同じシフトに入ると生まれる。頼られると伸びる,"Born on a shift with a newcomer, growing taller when others count on it.",はじめて入る人と同じシフトに入ると生まれる。頼られると伸びる
+はじめの一歩,A little first step,はじめの一歩
+はじめる,Let's start,はじめる
+はやすぎ,Too fast,はやすぎ
+はる,Haru,はる
+ひとつにつき 虹のかけら・きらきらポイ。3つそろうと、おまけ,"Each wish earns rainbow shards and a sparkle net, with a bonus for all 3.",ひとつにつき 虹のかけら・きらきらポイ。3つそろうと、おまけ
+ひとつ戻る,Go back,ひとつ戻る
+ひとりの時間,Time to myself,ひとりの時間
+ひと月、眠りを大切にした,A month of treasured sleep,ひと月、眠りを大切にした
+ひと月の平均睡眠が7時間をこえると生まれる,Born when your average sleep over a month tops 7 hours.,ひと月の平均睡眠が7時間をこえると生まれる
+ひらめき,Spark,ひらめき
+ひらめきで乗りきる,Think on my feet,ひらめきで乗りきる
+ふちを太く,Thicker rim,ふちを太く
+ふつう,Common,ふつう
+ふつうのおばけ,Common obake,ふつうのおばけ
+ふつうのおばけを、みんな集めた,"All the common obake, together",ふつうのおばけを、みんな集めた
+ふつうのおばけを全種類あつめると生まれる。百鬼夜行の先頭,"Born when you collect every common obake, leading their grand night parade.",ふつうのおばけを全種類あつめると生まれる。百鬼夜行の先頭
+まかないの達人,The Staff-Meal Master,まかないの達人
+まかないを作るなら,Making a staff meal?,まかないを作るなら
+まこ,Mako,まこ
+まとめて,Hatch all,まとめて
+まるい月の夜に、働いていた,A shift beneath a full moon,まるい月の夜に、働いていた
+みお,Mio,みお
+もう少しすくう,Scoop a bit more,もう少しすくう
+もっと長い夢の、その先にいる,Beyond a longer dream,もっと長い夢の、その先にいる
+もどる,Back,もどる
+もらった：,Received: ,もらった：
+やぶれた…,It tore...,やぶれた…
+"やぶれた…
+%dコンボ","It tore...
+%d combo","やぶれた…
+%dコンボ"
+やめる,Cancel,やめる
+ゆい,Yui,ゆい
+ゆったり,Easy,ゆったり
+ようこ,Yoko,ようこ
+よく寝た朝,After good sleep,よく寝た朝
+よく寝た朝は、玉がよくかえる。,Sleep well. Hatch more orbs.,よく寝た朝は、玉がよくかえる。
+よく寝た朝：玉が★ひとつ育ってかえる,Good sleep: orbs gain ★ before hatching,よく寝た朝：玉が★ひとつ育ってかえる
+よく寝た：ポイ×%.2f,Rested: nets ×%.2f,よく寝た：ポイ×%.2f
+よく眠った朝、枕元でまるくなっている,Curled by your pillow after deep sleep,よく眠った朝、枕元でまるくなっている
+よく眠る夜が、三つ続くと,Three nights of gentle dreams,よく眠る夜が、三つ続くと
+よび,Lure,よび
+よびこみポイ,lure net,よびこみポイ
+りん,Rin,りん
+わたしのマイおばけ猫は,My Cat-Obake is,わたしのマイおばけ猫は
+"わたしのマイおばけ猫は「%s」！
+%s
+#PawTime #マイおばけ猫
+%s","My Cat-Obake is %s!
+%s
+#PawTime #MyCatObake
+%s","わたしのマイおばけ猫は「%s」！
+%s
+#PawTime #マイおばけ猫
+%s"
+アサツユ,Asatsuyu,アサツユ
+アサヤケ,Asayake,アサヤケ
+アマガサ,Amagasa,アマガサ
+アワワ,Awawa,アワワ
+オクリモノ,Okurimono,オクリモノ
+オボン,Obon,オボン
+カゾエウタ,Kazoeuta,カゾエウタ
+カフェ こもれび,Cafe Komorebi,カフェ こもれび
+カミナリ,Kaminari,カミナリ
+カードを作っています…,Making your card...,カードを作っています…
+キッチン,Kitchen,キッチン
+キラリ,Kirari,キラリ
+ゲージの黄色は乗った玉の重さ。赤は危ない,Yellow on the gauge shows orb weight; red means trouble,ゲージの黄色は乗った玉の重さ。赤は危ない
+コンボ,Combo,コンボ
+コンボ★,Combo★,コンボ★
+コンボが途切れにくい,Combos last longer,コンボが途切れにくい
+コンボ（5で虹）,Combo (5 = rainbow),コンボ（5で虹）
+サクラ,Sakura,サクラ
+シェア文をコピー,Copy share text,シェア文をコピー
+シェア文をコピーしました,Share text copied,シェア文をコピーしました
+シフトで得意なのは？,Your shift superpower?,シフトで得意なのは？
+シフトに行く,Go to shift,シフトに行く
+シフトの前に、まず,Before your shift...,シフトの前に、まず
+シフト表の守り神,Guardian of the Rota,シフト表の守り神
+シュウマツ,Shuumatsu,シュウマツ
+ジュウ,Juu,ジュウ
+センパイ,Senpai,センパイ
+セーブの書き込みを確かめられなかった,Couldn't verify the save was written,セーブの書き込みを確かめられなかった
+セーブを書けなかった: %s,Couldn't write save: %s,セーブを書けなかった: %s
+タソガレ,Tasogare,タソガレ
+タップで閉じる,Tap to close,タップで閉じる
+ダンボ,Danbo,ダンボ
+ツキミ,Tsukimi,ツキミ
+テヲツナグ,Tewotsunagu,テヲツナグ
+デモ（3週間後から）,Demo (3 weeks in),デモ（3週間後から）
+トトノウ,Totonou,トトノウ
+ナカヨシ,Nakayoshi,ナカヨシ
+ネムリン,Nemurin,ネムリン
+ハジメテ,Hajimete,ハジメテ
+ハツコエ,Hatsukoe,ハツコエ
+バイト仲間の相談、だいたい受ける。,Everyone's go-to for a quiet chat.,バイト仲間の相談、だいたい受ける。
+バイト終わりに誘われた,Invited out after work,バイト終わりに誘われた
+パン工房 むぎ,Mugi Bakery,パン工房 むぎ
+ヒャッキ,Hyakki,ヒャッキ
+ヒルネン,Hirunen,ヒルネン
+ヒント：,Hint: ,ヒント：
+ピカッ！玉が散った,Flash! Orbs scattered,ピカッ！玉が散った
+ピークが来た！,It's rush hour!,ピークが来た！
+フライ,Pan,フライ
+フライパンのポイ,frying pan net,フライパンのポイ
+ホテル しらなみ,Hotel Shiranami,ホテル しらなみ
+ホール,Hall,ホール
+ホールの司令塔,The Floor Commander,ホールの司令塔
+ポイ,Nets,ポイ
+ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）,Nets get ×1.2 strength and orbs gain ★ before hatching (extra sleep adds no bonus).,ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）
+ポイがない,No nets left,ポイがない
+ポイがやぶれにくい,Nets tear less,ポイがやぶれにくい
+ポイがやぶれにくくなる（+20%）,Tougher nets (+20%),ポイがやぶれにくくなる（+20%）
+ポイが大きくなる（+12%）,Bigger nets (+12%),ポイが大きくなる（+12%）
+ポイのもらい方,How to get nets,ポイのもらい方
+ポイの丈夫さ,Net durability,ポイの丈夫さ
+ポイの改良（ずっと効く）,Permanent net upgrades,ポイの改良（ずっと効く）
+ポイを使い切った,All nets used up,ポイを使い切った
+ポイ工房,Net Workshop,ポイ工房
+マイおばけ猫,My Cat-Obake,マイおばけ猫
+マイおばけ猫 診断,My Cat-Obake Quiz,マイおばけ猫 診断
+マイ猫,My Cat,マイ猫
+マニュアルを読む,Read the manual,マニュアルを読む
+マヨナカ,Mayonaka,マヨナカ
+マンゲツ,Mangetsu,マンゲツ
+ミツボシ,Mitsuboshi,ミツボシ
+モノ,Things,モノ
+モラッタン,Morattan,モラッタン
+ヤスミジョウズ,Yasumijouzu,ヤスミジョウズ
+ユキミ,Yukimi,ユキミ
+ユメミ,Yumemi,ユメミ
+ヨナキ,Yonaki,ヨナキ
+ヨミセ,Yomise,ヨミセ
+ラベルは全部、こっち向き。,Every label faces front. Every one.,ラベルは全部、こっち向き。
+リズム,Rhythm,リズム
+レア,Rare,レア
+レア ・ ,Rare · ,レア ・ 
+レア ・ %s,Rare · %s,レア ・ %s
+レア30体。図鑑をうめよう。,30 rare obake. Fill your Collection.,レア30体。図鑑をうめよう。
+レアの気配が %d つ…,%d rare visitors nearby...,レアの気配が %d つ…
+レア！,Rare!,レア！
+レシピどおり,Follow the recipe,レシピどおり
+レシートのポイ,receipt net,レシートのポイ
+レシートン,Receipton,レシートン
+レジ,Register,レジ
+レジの音に寄ってくる。レシートの尻尾が長いほど長生き,"Drawn to the register's chime, with a receipt tail that grows longer with age.",レジの音に寄ってくる。レシートの尻尾が長いほど長生き
+ワタリドリ,Wataridori,ワタリドリ
+・, · ,・
+・%sのシフト, · %s shift,・%sのシフト
+・お休み, · day off,・お休み
+・きらきら+1, · sparkle net +1,・きらきら+1
+・紙のポイ+%d, · paper nets +%d,・紙のポイ+%d
+一人前,Pro,一人前
+三つの店を渡り歩いた週に,Three stores beneath one week's stars,三つの店を渡り歩いた週に
+二重,Double,二重
+二重ポイ,double net,二重ポイ
+五つの仕事を、すべて知る者に,For one who knows all five jobs,五つの仕事を、すべて知る者に
+人,People,人
+人と会った日,Seeing people,人と会った日
+人と話す,Chatting to people,人と話す
+人見知りの紫が逃げにくい,Helps shy purple orbs stay close.,人見知りの紫が逃げにくい
+今夜のすくい,Tonight's scoops,今夜のすくい
+今夜の玉は、ぜんぶすくった,Every orb scooped!,今夜の玉は、ぜんぶすくった
+今夜の玉は、もうおしまい,No more orbs tonight,今夜の玉は、もうおしまい
+今夜は %dこ すくった,Tonight: %d orbs,今夜は %dこ すくった
+今夜はここまでにする？,Call it a night?,今夜はここまでにする？
+今夜はもう寝よう。玉は逃げない,let's sleep. the orbs will stay,今夜はもう寝よう。玉は逃げない
+今夜は大すくい祭り,Scoop Festival tonight,今夜は大すくい祭り
+今夜は満月。虹が出る気がする,full moon. feels like rainbow orbs tonight,今夜は満月。虹が出る気がする
+今夜は祭り。はっぴを探している,festival tonight. where's my coat?,今夜は祭り。はっぴを探している
+今夜は見るだけ。明日はきっと,Tomorrow's your night,今夜は見るだけ。明日はきっと
+今日のポイは、すこし弱い。そっとね,the nets are a bit weak today. easy now,今日のポイは、すこし弱い。そっとね
+今日は%sのシフト,Today's shift: %s,今日は%sのシフト
+今日は%sのシフトだって,"a %s shift today, huh",今日は%sのシフトだって
+今日はお休み,A day off today,今日はお休み
+今日は帰る,Home for me,今日は帰る
+今日も、そっといこう,let's take it gently,今日も、そっといこう
+今日をはじめる,Start the day,今日をはじめる
+今週のおねがい %d/3,Weekly wishes %d/3,今週のおねがい %d/3
+仕事,job,仕事
+休みの日に9時間ねむると生まれる。日だまりの匂い,"Born after 9 hours' sleep on a day off, smelling of sunshine.",休みの日に9時間ねむると生まれる。日だまりの匂い
+休みの日に、たっぷり眠ると,A long sleep on a day of rest,休みの日に、たっぷり眠ると
+休みの日は？,A day off?,休みの日は？
+休憩15分で、しっかり回復。,Fully recharged in a 15-minute break.,休憩15分で、しっかり回復。
+休憩15分の使い方,A 15-minute break?,休憩15分の使い方
+休憩室にかざってある,In the breakroom,休憩室にかざってある
+休憩室のかざり（見た目だけ）,Breakroom decor (looks only),休憩室のかざり（見た目だけ）
+休憩室のムードメーカー,The Break-Room Mood Maker,休憩室のムードメーカー
+余ったかけらで、今夜すくう数をふやす,Use spare shards for more scoops tonight,余ったかけらで、今夜すくう数をふやす
+余りもので、ごちそうを作る。,Turns leftovers into a feast.,余りもので、ごちそうを作る。
+作る,Craft,作る
+使いかけは脇に置いた,Used net set aside,使いかけは脇に置いた
+保存しました：,Saved: ,保存しました：
+保存できませんでした（%s）,Couldn't save (%s),保存できませんでした（%s）
+働いた日,Work days,働いた日
+働いた日は、ポイが増える。,Work days bring more nets.,働いた日は、ポイが増える。
+働いた日：色のポイ+%d,Worked: color nets +%d,働いた日：色のポイ+%d
+働かずに川へ,Skip to the river,働かずに川へ
+働くと 色のポイ+%d%s,Work: color nets +%d%s,働くと 色のポイ+%d%s
+働くと、色のポイがもらえる。2本まで,work gets you color nets. up to 2,働くと、色のポイがもらえる。2本まで
+元気が出るのは？,What perks you up?,元気が出るのは？
+先輩に聞く,Ask someone senior,先輩に聞く
+先週のおねがい：ごほうび受け取り,Last week's wishes: rewards claimed,先週のおねがい：ごほうび受け取り
+光る玉を,Glowing orbs.,光る玉を
+光る玉を、ポイですくおう,Scoop glowing orbs with your net,光る玉を、ポイですくおう
+内へ,In,内へ
+内側の輪が金色のとき離すと★,Release when the inner ring turns gold for ★,内側の輪が金色のとき離すと★
+冬,Winter,冬
+冷蔵庫と相談,See what's around,冷蔵庫と相談
+動かしても破れにくい（-20%）,Less wear as you move (-20%),動かしても破れにくい（-20%）
+北倉庫,North Warehouse,北倉庫
+半月,Half moon,半月
+受け取った,Claimed,受け取った
+受け取りずみ,Claimed,受け取りずみ
+受け取る,Claim,受け取る
+台車の押し方を、日々改良中。,Still perfecting the art of the cart.,台車の押し方を、日々改良中。
+同じ人と、何度も並ぶと,Side by side with a familiar face,同じ人と、何度も並ぶと
+同じ同僚と3回シフトに入ると生まれる,Born after 3 shifts with the same coworker.,同じ同僚と3回シフトに入ると生まれる
+同じ時間に眠る夜が、続くと,Nights of sleep in a steady rhythm,同じ時間に眠る夜が、続くと
+同じ色のポイは、その色の玉を寄せて軽くする,Color nets draw in matching orbs and make them lighter,同じ色のポイは、その色の玉を寄せて軽くする
+同じ週に昼と夜のシフトに入ると生まれる,Born after day and night shifts in the same week.,同じ週に昼と夜のシフトに入ると生まれる
+同僚からおばけを贈られると生まれる,Born when a coworker gives you an obake.,同僚からおばけを贈られると生まれる
+同僚におばけをおすそわけすると生まれる,Born when you give an obake to a coworker.,同僚におばけをおすそわけすると生まれる
+名人,Master,名人
+名人！,Scoop Master!,名人！
+名前をタップで くわしく,Tap a name for more,名前をタップで くわしく
+名手,Legend,名手
+向いてる仕事  ,Best job  ,向いてる仕事  
+向いてる仕事：%s,Best job: %s,向いてる仕事：%s
+品出し,Stock,品出し
+困ったときは,When you're stuck...,困ったときは
+図鑑,Album,図鑑
+図鑑 %d/%d ・ %s,Collection %d/%d · %s,図鑑 %d/%d ・ %s
+図鑑が10種類をこえると生まれる。数を歌う,"Born when your Collection passes 10 kinds, singing a counting song.",図鑑が10種類をこえると生まれる。数を歌う
+図鑑が、十をこえたら,When your Collection grows past ten,図鑑が、十をこえたら
+図鑑もポイも、最初からになる,Your Collection and nets will reset,図鑑もポイも、最初からになる
+土,Sat,土
+土と日、ふたつの休日に,"Sat and Sun, a pair of quiet days",土と日、ふたつの休日に
+土曜の夜は、大すくい祭り。,Sat nights: Scoop Festival.,土曜の夜は、大すくい祭り。
+在庫の番人,Keeper of the Stockroom,在庫の番人
+夏,Summer,夏
+外へ,Out,外へ
+外へおでかけ,Out and about,外へおでかけ
+夜,Night,夜
+夜の川べりへ,To the riverside,夜の川べりへ
+夜ふかしの灯りに、寄ってくる,Drawn to a light left on late,夜ふかしの灯りに、寄ってくる
+大すくい祭り,Scoop Festival,大すくい祭り
+大すくい祭りで12こすくうと生まれる。みんなで手をつなぐ,"Born after scooping 12 orbs at the Scoop Festival, holding hands with everyone.",大すくい祭りで12こすくうと生まれる。みんなで手をつなぐ
+大すくい祭りへ,To Scoop Festival,大すくい祭りへ
+天気,Weather,天気
+太鼓の音で、泡が出た,the drums made bubbles,太鼓の音で、泡が出た
+家でまったり,Cozy at home,家でまったり
+寝る,Sleep,寝る
+寝ると、玉が朝にかえる,"Sleep now, hatch orbs in the morning",寝ると、玉が朝にかえる
+寝る前は？,At bedtime?,寝る前は？
+寝不足の朝：玉の育ちはふつう,Short sleep: no boost,寝不足の朝：玉の育ちはふつう
+寝不足は、紙にでる,bad sleep shows in the paper,寝不足は、紙にでる
+寝不足：ポイ×%.2f,Sleepy: nets ×%.2f,寝不足：ポイ×%.2f
+寝不足：ポイが弱くなる,Short sleep: weak nets,寝不足：ポイが弱くなる
+居酒屋 とりまる,Torimaru Izakaya,居酒屋 とりまる
+川の主,Lord of the River,川の主
+工房,Craft,工房
+工房で,Workshop:,工房で
+工房で「%s」が作れる！,Workshop: craft %s!,工房で「%s」が作れる！
+工房製。,Made in the Workshop. ,工房製。
+工房製。手に取ると、虹の玉が浮かんでくる,Made in the Workshop. Hold it to bring out rainbow orbs.,工房製。手に取ると、虹の玉が浮かんでくる
+工房製。水に入れると、まわりの玉がみんな寄ってくる,Made in the Workshop. Dip it to draw in nearby orbs.,工房製。水に入れると、まわりの玉がみんな寄ってくる
+工房製。紙が二枚重ね。とても丈夫,"Made in the Workshop. Two layers of paper, extra sturdy.",工房製。紙が二枚重ね。とても丈夫
+帰って寝る,Home to bed,帰って寝る
+帰り道,Heading home,帰り道
+帰る,Go home,帰る
+常連さんの記憶係,Keeper of the Regulars,常連さんの記憶係
+店,store,店
+強さ×%.2f,Strength ×%.2f,強さ×%.2f
+手順どおりに回す,Stick to the plan,手順どおりに回す
+押すと水に入る。離すとすくう,"Press to dip, release to scoop",押すと水に入る。離すとすくう
+新しいおばけに2体会う,Meet 2 new obake,新しいおばけに2体会う
+新しい子が、隅でじっとしている,the new one's very still in the corner,新しい子が、隅でじっとしている
+新メニュー研究員,The New-Menu Researcher,新メニュー研究員
+新月,New moon,新月
+新月：暗いが玉が多い,"New moon: dark, more orbs",新月：暗いが玉が多い
+日,Sun,日
+明日のポイ ×%.2f,Tomorrow's nets ×%.2f,明日のポイ ×%.2f
+明日の朝が、ちょっとたのしみ,kinda looking forward to morning,明日の朝が、ちょっとたのしみ
+明日：%s%s,Tomorrow: %s%s,明日：%s%s
+春,Spring,春
+春に働くか、春の夜に3つすくうと生まれる。花びらをまとう,"Born after working in spring or scooping 3 orbs on a spring night, wrapped in petals.",春に働くか、春の夜に3つすくうと生まれる。花びらをまとう
+昼,Day,昼
+昼と夜、どちらも知っている,One who knows both day and night,昼と夜、どちらも知っている
+時計を見てきっちり,Watch the clock,時計を見てきっちり
+時間帯,Time of day,時間帯
+景品,prize,景品
+晴,Clear,晴
+晴れ：しずかな水面,Clear: still waters,晴れ：しずかな水面
+曇,Cloudy,曇
+最高コンボ,Best combo,最高コンボ
+最高コンボ %d 新記録！,%d combo! New best!,最高コンボ %d 新記録！
+最高コンボ更新！,New best combo!,最高コンボ更新！
+月,Mon,月
+月がまるい。ぼくもまるい,the moon is round. so am i,月がまるい。ぼくもまるい
+月見だんご,Moon-viewing dango,月見だんご
+朝,Morning,朝
+朝、%d体がかえる,%d obake by morning,朝、%d体がかえる
+朝、おばけにかえる,Obake hatch by morning,朝、おばけにかえる
+朝かえる：,Hatching by morning: ,朝かえる：
+朝のお迎え %d / %d,Morning hatch %d / %d,朝のお迎え %d / %d
+朝のお迎え：玉 %dこ%s,Morning: %d orbs%s,朝のお迎え：玉 %dこ%s
+朝のシフトに3回入ると生まれる。露のしずくでできている,"Born after 3 morning shifts, made of little drops of dew.",朝のシフトに3回入ると生まれる。露のしずくでできている
+朝の光に、三度会うと,Greet the morning light three times,朝の光に、三度会うと
+木,Thu,木
+棚の整列隊長,Captain of the Shelves,棚の整列隊長
+橙,orange,橙
+橙の玉から,From an orange orb,橙の玉から
+橙は跳ねる。着水を待とう,Orange: wait to land,橙は跳ねる。着水を待とう
+次のLvまで %d,%d to next Lv,次のLvまで %d
+次のLvまで あと %d（ていねいな玉ほど育つ）,%d to next Lv (careful scoops help it grow),次のLvまで あと %d（ていねいな玉ほど育つ）
+次は「%s」：%s,Next: %s · %s,次は「%s」：%s
+残りのポイ %d 本は、明日も使える,Your %d leftover nets will keep for tomorrow,残りのポイ %d 本は、明日も使える
+段ボ,Box,段ボ
+段ボールのポイ,cardboard net,段ボールのポイ
+段取り,Plan,段取り
+段取りを決める,Make a plan,段取りを決める
+毎日2本もらえる、ふつうのポイ,"A basic net, with 2 free each day.",毎日2本もらえる、ふつうのポイ
+毎朝,Every morning,毎朝
+気づいた時には、もう片付いている。,Already cleaned up before you noticed.,気づいた時には、もう片付いている。
+気づけばうとうと,Drift off a little,気づけばうとうと
+気配り忍者,The Tidy Ninja,気配り忍者
+水,Wed,水
+水面が、あなたを覚えはじめた,The water knows you,水面が、あなたを覚えはじめた
+池をすくいきった！,Pond cleared!,池をすくいきった！
+油の跳ねる音が好き。すぐ跳ねる,Loves sizzling oil and can't stop bouncing.,油の跳ねる音が好き。すぐ跳ねる
+泡,Bubble,泡
+泡が…？,Bubbles...?,泡が…？
+泡のポイ,bubble net,泡のポイ
+洗い場の泡から生まれる。群れで動く,Born from dish bubbles and always travels in a crowd.,洗い場の泡から生まれる。群れで動く
+深夜,Late night,深夜
+深夜のひとり職人,The Late-Night Artisan,深夜のひとり職人
+深夜のシフトの日に生まれる。静かな場所が好き,"Born on a late night shift, happiest somewhere quiet.",深夜のシフトの日に生まれる。静かな場所が好き
+深夜の品出しをした日に。箱の角が好き,"Born while stocking shelves late at night, fond of box corners.",深夜の品出しをした日に。箱の角が好き
+満月,Full moon,満月
+満月の夜のシフトで生まれる。うさぎの耳のような裾,"Born on a full moon night shift, with hems like bunny ears.",満月の夜のシフトで生まれる。うさぎの耳のような裾
+満月：虹が出やすい,Full moon: more rainbow orbs,満月：虹が出やすい
+火,Tue,火
+灯り,Lantern,灯り
+灯りのポイ,lantern net,灯りのポイ
+特別,Special,特別
+特別なポイ（1本ずつ使い切り）,Special nets (single-use),特別なポイ（1本ずつ使い切り）
+特賞,grand prize,特賞
+特賞！,Grand prize!,特賞！
+猫おばけを、すくってあつめる,Scoop and collect cat-obake,猫おばけを、すくってあつめる
+玉が★ひとつ育ってかえる,Orbs hatch with +1★,玉が★ひとつ育ってかえる
+玉ねぎの薄さに、命をかける。,Slices onions with total devotion.,玉ねぎの薄さに、命をかける。
+玉の手前を、押したまま,Hold below the orb,玉の手前を、押したまま
+玉の真上ではなく、少し手前から入れる,"Dip just in front of an orb, not right on top",玉の真上ではなく、少し手前から入れる
+玉の金魚鉢,Orb bowl,玉の金魚鉢
+玉は、ふつうにかえる,Orbs hatch as usual,玉は、ふつうにかえる
+玉は、真ん中ですくうといい,scoop orbs in the middle of the net,玉は、真ん中ですくうといい
+玉をひらく,Hatch orb,玉をひらく
+現場で考える,Work it out there,現場で考える
+画像をダウンロードしました,Image downloaded,画像をダウンロードしました
+画像を保存,Save image,画像を保存
+画像を保存して、SNSに貼ってね,Save the image and share it on social,画像を保存して、SNSに貼ってね
+白い日の、夜の水辺に,By the water on a snowy night,白い日の、夜の水辺に
+皿がひかるまで、黙って洗う。,Scrubs in silence until plates shine.,皿がひかるまで、黙って洗う。
+皿洗い,Dish,皿洗い
+相性のいいタイプ：%s,Best match: %s,相性のいいタイプ：%s
+相棒にすると：,As your buddy: ,相棒にすると：
+相棒（池のほとりで手伝う）,Buddy (pond helper),相棒（池のほとりで手伝う）
+真夜中の棚の前で,By the shelves at midnight,真夜中の棚の前で
+眠って朝へ,Sleep till morning,眠って朝へ
+睡眠,Sleep,睡眠
+破らずに続けるとコンボ。5コンボで虹の玉、そこからの玉は★がひとつ多い,"Keep scooping without tearing for a combo; at 5, a rainbow orb appears and each orb gets an extra ★",破らずに続けるとコンボ。5コンボで虹の玉、そこからの玉は★がひとつ多い
+祭りで10こすくう,Festival: scoop 10 orbs,祭りで10こすくう
+祭りの%s！,Festival %s!,祭りの%s！
+祭りのふるまい：紙のポイ+%d,Festival gift: paper nets +%d,祭りのふるまい：紙のポイ+%d
+祭りの夜に、たくさんすくった,"A festival night, a bowl full of orbs",祭りの夜に、たくさんすくった
+祭り達成！,Festival goal met!,祭り達成！
+祭り：12こすくう,Festival: scoop 12,祭り：12こすくう
+祭り：12こで景品,Festival: scoop 12 to win,祭り：12こで景品
+秋,Autumn,秋
+称号「%s」！,Title: %s!,称号「%s」！
+称号：,Title: ,称号：
+空が光った日に,On a day the sky flashed,空が光った日に
+笑顔のレジ番長,Register Sunshine,笑顔のレジ番長
+第%d週 %s曜に会った,"Met in week %d, %s",第%d週 %s曜に会った
+第%d週 %s曜日,Week %d · %s,第%d週 %s曜日
+第%d週のおねがい,Wishes for week %d,第%d週のおねがい
+第%d週：すくった玉 %d・出会い %d,Week %d: %d orbs scooped · %d new friends,第%d週：すくった玉 %d・出会い %d
+箱から出たがらない。とにかく重い,A very heavy homebody who won't leave its box.,箱から出たがらない。とにかく重い
+箱の中身、開けなくてもわかる。,Knows what is in the box. Unopened.,箱の中身、開けなくてもわかる。
+紙,Paper,紙
+"紙
+練習","Paper
+Practice","紙
+練習"
+紙のポイ,paper net,紙のポイ
+紙のポイ +%d,paper nets +%d,紙のポイ +%d
+紙のポイ 2本（働かない日も）,2 paper nets (even on days off),紙のポイ 2本（働かない日も）
+紙のポイで、川へ行ける,Take your paper nets to the river,紙のポイで、川へ行ける
+紙のポイの束（3本）,paper net bundle (3),紙のポイの束（3本）
+紙をしなやかに,Softer paper,紙をしなやかに
+紫,purple,紫
+紫の玉から,From a purple orb,紫の玉から
+紫は人見知り。そっと近づく,Shy purple: go gently,紫は人見知り。そっと近づく
+結果をシェア,Share result,結果をシェア
+続けて働いたあと、ちゃんと休んだ,"Busy days, then a well-earned rest",続けて働いたあと、ちゃんと休んだ
+練習,Practice,練習
+練習おしまい,Practice done,練習おしまい
+練習ですくう,Practice scooping,練習ですくう
+練習の最高コンボ %d,Practice best combo %d,練習の最高コンボ %d
+練習（持ち帰れない）,Practice (no rewards),練習（持ち帰れない）
+聞き上手のおばけ,The Good Listener,聞き上手のおばけ
+色,Color,色
+色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも,"2 color nets for any shift, plus a sparkle net for a new store or job.",色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも
+色のポイは、同じ色の玉を寄せる,Color nets draw in matching orbs,色のポイは、同じ色の玉を寄せる
+色のポイ（その色の玉を寄せて、軽くすくえる）,Color nets: lure and lighten matching orbs,色のポイ（その色の玉を寄せて、軽くすくえる）
+花が咲くころに,When the blossoms wake,花が咲くころに
+茶,brown,茶
+茶の玉から,From a brown orb,茶の玉から
+茶は重い。真ん中ですくう,Heavy brown: center it,茶は重い。真ん中ですくう
+虹,rainbow,虹
+虹から、レア！,Rainbow orb: rare!,虹から、レア！
+虹の気配：レアが近い,Rainbow glow: a rare obake is near,虹の気配：レアが近い
+虹の玉,Rainbow orb,虹の玉
+虹の玉 %d,Rainbow orbs %d,虹の玉 %d
+虹の玉 あと%d,%d more rainbow orbs,虹の玉 あと%d
+虹の玉から！ レア ・ %s,Rainbow orb! Rare · %s,虹の玉から！ レア ・ %s
+虹の玉が沈んだ…,Rainbow orb sank...,虹の玉が沈んだ…
+虹の玉が逃げない。はじめての経験でもらえる,"Earned from firsts, this net keeps rainbow orbs from fleeing.",虹の玉が逃げない。はじめての経験でもらえる
+虹の玉が長くとどまる,Rainbow orbs linger,虹の玉が長くとどまる
+虹の玉は、すぐ沈む,Rainbow orbs sink fast,虹の玉は、すぐ沈む
+虹の玉を1つすくう,Scoop 1 rainbow orb,虹の玉を1つすくう
+虹の玉！,Rainbow orb!,虹の玉！
+虹の玉：大きく育った,Rainbow orb grew big,虹の玉：大きく育った
+行く行く！,Count me in!,行く行く！
+街が眠っているあいだに,While the town is dreaming,街が眠っているあいだに
+見習い,Apprentice,見習い
+観葉植物,Houseplant,観葉植物
+診断をやりなおす,Retake quiz,診断をやりなおす
+試作は3回まで、と決めている。,Allows exactly three test batches.,試作は3回まで、と決めている。
+誰かから、受け取った,A little something from someone,誰かから、受け取った
+誰かに、おばけを手渡した,An obake placed in someone's hands,誰かに、おばけを手渡した
+誰がいつ休みか、だいたい知ってる。,Knows who is off when. Mostly.,誰がいつ休みか、だいたい知ってる。
+赤ちょうちん,Red lantern,赤ちょうちん
+跳ねる橙が寄ってくる,Draws in bouncy orange orbs.,跳ねる橙が寄ってくる
+輪を広く,Wider hoop,輪を広く
+近くの玉を少し寄せる,Draws nearby orbs in,近くの玉を少し寄せる
+週末の両方でシフトに入ると生まれる,Born after working shifts on both weekend days.,週末の両方でシフトに入ると生まれる
+達人,Grandmaster,達人
+選ぶと、すぐ朝になる,"Pick, and it's morning",選ぶと、すぐ朝になる
+重い玉が軽くなる,Lightens heavy orbs,重い玉が軽くなる
+重い茶の玉も、やぶれずに持ち上がる,Lifts even heavy brown orbs without tearing.,重い茶の玉も、やぶれずに持ち上がる
+重すぎる！やぶれそう,Too heavy! It'll tear,重すぎる！やぶれそう
+金,Fri,金
+金の玉は、すこし重い,gold orbs are a little heavy,金の玉は、すこし重い
+金の玉は、祭りの玉,Gold orbs: festival!,金の玉は、祭りの玉
+金の玉！,Gold orb!,金の玉！
+金の玉：%sのかけら +2,Gold orb: %s shards +2,金の玉：%sのかけら +2
+集合時間には,When meeting up...,集合時間には
+雨,Rain,雨
+雨の夜は、玉がふえる。ぬれるけど,rain brings more orbs. and wet paws,雨の夜は、玉がふえる。ぬれるけど
+雨の日に働くか、雨の夜に3つすくうと生まれる。傘の下で歌う,"Born after a rainy shift or scooping 3 orbs on a rainy night, singing under an umbrella.",雨の日に働くか、雨の夜に3つすくうと生まれる。傘の下で歌う
+雨の音が、好きらしい,A soft spot for the sound of rain,雨の音が、好きらしい
+雨：玉が多い・ぬれやすい,"Rain: more orbs, soggy nets",雨：玉が多い・ぬれやすい
+雪,Snow,雪
+雪の日に働くか、雪の夜に3つすくうと生まれる。ひんやりしている,"Born after a snowy shift or scooping 3 orbs on a snowy night, cool to the touch.",雪の日に働くか、雪の夜に3つすくうと生まれる。ひんやりしている
+雪の日の玉は、ゆっくりだよ,orbs take it slow in the snow,雪の日の玉は、ゆっくりだよ
+雪：玉がゆっくり,Snow: slower orbs,雪：玉がゆっくり
+雷,Thunder,雷
+雷の日に働くか、雷の夜に3つすくうと生まれる。ちょっとせっかち,"Born after a stormy shift or scooping 3 orbs on a stormy night, always in a little hurry.",雷の日に働くか、雷の夜に3つすくうと生まれる。ちょっとせっかち
+雷：光ると玉が散る,Thunder scatters orbs,雷：光ると玉が散る
+青,blue,青
+青の玉から,From a blue orb,青の玉から
+青の群れが寄ってくる。まとめてすくいやすい,Draws in groups of blue orbs for easy scooping.,青の群れが寄ってくる。まとめてすくいやすい
+青は群れ。まとめてすくえる,Blue: scoop a cluster,青は群れ。まとめてすくえる
+音：%s,Sound: %s,音：%s
+頭のお盆は絶対に落とさない。人見知り,A shy little one who never drops the tray on its head.,頭のお盆は絶対に落とさない。人見知り
+黄,yellow,黄
+黄の玉から,From a yellow orb,黄の玉から
+黄の玉が寄ってくる。黄の玉は軽い,Draws in light little yellow orbs.,黄の玉が寄ってくる。黄の玉は軽い
+黙々と作業,"Quiet, steady work",黙々と作業
+（Lvで強くなる）, (grows with level),（Lvで強くなる）
+（相棒）, (buddy),（相棒）
+（虹色も！）, (rainbow too!),（虹色も！）
+（青の群れは2つでひとり）, (2 blue orbs hatch into 1 obake),（青の群れは2つでひとり）
+＋,+,＋
+：ポイが少し弱い,: nets feel a bit weak,：ポイが少し弱い
+：玉がよく育った,: orbs grew nicely,：玉がよく育った
+？,?,？
+？×%d,?×%d,？×%d
+？？？,???,？？？

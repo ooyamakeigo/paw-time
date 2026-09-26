@@ -266,15 +266,15 @@ func _build_intro() -> void:
 	v.size = Vector2(328, 0)
 	v.add_theme_constant_override("separation", 10)
 	layer_intro.add_child(v)
-	v.add_child(_text("マイおばけ猫 診断", 14, LILAC))
-	v.add_child(_text("あなたのおばけ猫を\nさがそう", 26, Color("fff6e8"), font_black))
-	var sub := _text("12の質問で、相棒の猫おばけが決まる。\nバイトと休みの、ゆるい質問だよ。", 14, LILAC)
+	v.add_child(_text(UI.t("マイおばけ猫 診断"), 14, LILAC))
+	v.add_child(_text(UI.t("あなたのおばけ猫を\nさがそう"), 26, Color("fff6e8"), font_black))
+	var sub := _text(UI.t("12の質問で、相棒の猫おばけが決まる。\nバイトと休みの、ゆるい質問だよ。"), 14, LILAC)
 	v.add_child(sub)
-	var start := _button("はじめる", Color("ff8a5b"), _start)
+	var start := _button(UI.t("はじめる"), Color("ff8a5b"), _start)
 	start.position = Vector2(40, 552)
 	start.size = Vector2(280, 54)
 	layer_intro.add_child(start)
-	var note := _text("1分くらい ・ 答えはあとで変えられる", 12, Color(0.81, 0.76, 0.93, 0.7))
+	var note := _text(UI.t("1分くらい ・ 答えはあとで変えられる"), 12, Color(0.81, 0.76, 0.93, 0.7))
 	note.position = Vector2(0, 610)
 	note.size = Vector2(360, 20)
 	layer_intro.add_child(note)
@@ -323,7 +323,7 @@ func _build_questions() -> void:
 	q_text = _text("", 22, Color("fff6e8"), font_black)
 	q_text.position = Vector2(16, 250)
 	q_text.size = Vector2(328, 64)
-	q_text.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	q_text.autowrap_mode = UI.wrap_mode()
 	q_box.add_child(q_text)
 	for i in 2:
 		var b := Button.new()
@@ -359,7 +359,7 @@ func _build_questions() -> void:
 		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		h.add_child(l)
 		answer_labels.append(l)
-	back_btn = _link("ひとつ戻る", Color(0.81, 0.76, 0.93, 0.85), _back)
+	back_btn = _link(UI.t("ひとつ戻る"), Color(0.81, 0.76, 0.93, 0.85), _back)
 	back_btn.position = Vector2(120, 580)
 	back_btn.size = Vector2(120, 40)
 	layer_q.add_child(back_btn)
@@ -368,9 +368,9 @@ func _build_questions() -> void:
 func _render_question(animate := true) -> void:
 	var q: Dictionary = QuizData.QUESTIONS[index]
 	q_num.text = "Q%d" % (index + 1)
-	q_text.text = q.q
-	answer_labels[0].text = q.a
-	answer_labels[1].text = q.b
+	q_text.text = UI.t(q.q)
+	answer_labels[0].text = UI.t(q.a)
+	answer_labels[1].text = UI.t(q.b)
 	back_btn.visible = index > 0
 	for b in answer_btns:
 		b.disabled = false
@@ -476,7 +476,7 @@ var r_kicker: Label
 
 func _build_reveal() -> void:
 	layer_reveal = _layer()
-	r_kicker = _text("あなたのマイおばけ猫は", 14, SUB)
+	r_kicker = _text(UI.t("あなたのマイおばけ猫は"), 14, SUB)
 	r_kicker.add_theme_color_override("font_outline_color", Color(1, 1, 1, 0.9))
 	r_kicker.add_theme_constant_override("outline_size", 6)
 	r_kicker.z_index = 5 # 帽子などの持ち物より手前に
@@ -519,8 +519,8 @@ func _build_reveal() -> void:
 	r_buttons.size = Vector2(328, 0)
 	r_buttons.add_theme_constant_override("separation", 2)
 	layer_reveal.add_child(r_buttons)
-	r_buttons.add_child(_button("この子と はじめる", Color("ff8a5b"), _begin))
-	r_buttons.add_child(_link("結果をシェア", Color("8a5bd6"), open_share))
+	r_buttons.add_child(_button(UI.t("この子と はじめる"), Color("ff8a5b"), _begin))
+	r_buttons.add_child(_link(UI.t("結果をシェア"), Color("8a5bd6"), open_share))
 
 
 func _reveal() -> void:
@@ -644,11 +644,11 @@ func _spawn_obake(s: float) -> void:
 func _fill_card(t: Dictionary) -> void:
 	var col := QuizData.tone(result.type_id)
 	r_kicker.add_theme_color_override("font_color", col.darkened(0.5))
-	r_name.text = t.name
+	r_name.text = t.en_name if UI.is_en() else t.name
 	r_en.text = t.en_name
-	r_line.text = t.line
-	r_job.text = "向いてる仕事：%s" % QuizData.JOBS[t.job].ja
-	r_match.text = "相性のいいタイプ：%s" % QuizData.TYPES[t.match].name
+	r_line.text = t.en_line if UI.is_en() else t.line
+	r_job.text = UI.t("向いてる仕事：%s") % (QuizData.JOBS[t.job].en if UI.is_en() else QuizData.JOBS[t.job].ja)
+	r_match.text = UI.t("相性のいいタイプ：%s") % (QuizData.TYPES[t.match].en_name if UI.is_en() else QuizData.TYPES[t.match].name)
 	for c in r_axes.get_children():
 		c.queue_free()
 	for i in 4:
@@ -691,25 +691,25 @@ func open_share() -> void:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 8)
 	panel.add_child(v)
-	v.add_child(_text("結果をシェア", 17, INK, font_black))
+	v.add_child(_text(UI.t("結果をシェア"), 17, INK, font_black))
 	var preview := TextureRect.new()
 	preview.custom_minimum_size = Vector2(216, 270)
 	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	preview.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	v.add_child(preview)
-	v.add_child(_button("画像を保存", Color("ff8a5b"), _save_card))
-	var copy := _button("シェア文をコピー", Color("fffaf2"), _copy_text, INK, 44)
+	v.add_child(_button(UI.t("画像を保存"), Color("ff8a5b"), _save_card))
+	var copy := _button(UI.t("シェア文をコピー"), Color("fffaf2"), _copy_text, INK, 44)
 	v.add_child(copy)
-	share_status = _text("カードを作っています…", 12, SUB)
-	share_status.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
+	share_status = _text(UI.t("カードを作っています…"), 12, SUB)
+	share_status.autowrap_mode = UI.wrap_mode()
 	share_status.custom_minimum_size = Vector2(300, 0)
 	v.add_child(share_status)
-	v.add_child(_link("とじる", SUB, close_share))
+	v.add_child(_link(UI.t("とじる"), SUB, close_share))
 	card_image = await QuizCard.render(self, result)
 	if share_sheet and is_instance_valid(preview):
 		preview.texture = ImageTexture.create_from_image(card_image)
-		share_status.text = "画像を保存して、SNSに貼ってね"
+		share_status.text = UI.t("画像を保存して、SNSに貼ってね")
 
 
 func _save_card() -> void:
@@ -720,7 +720,7 @@ func _save_card() -> void:
 
 func _copy_text() -> void:
 	DisplayServer.clipboard_set(QuizData.share_text(result.type_id))
-	share_status.text = "シェア文をコピーしました"
+	share_status.text = UI.t("シェア文をコピーしました")
 
 
 func close_share() -> void:

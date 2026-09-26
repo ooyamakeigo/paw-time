@@ -21,7 +21,7 @@ func _ready() -> void:
 	title.position = Vector2(0, 92)
 	title.size = Vector2(360, 56)
 	add_child(title)
-	var sub := _text("猫おばけを、すくってあつめる", 16, Color("ffe7a8"))
+	var sub := _text(UI.t("猫おばけを、すくってあつめる"), 16, Color("ffe7a8"))
 	sub.position = Vector2(0, 148)
 	sub.size = Vector2(360, 26)
 	add_child(sub)
@@ -33,15 +33,15 @@ func _ready() -> void:
 	add_child(v)
 	var has_save: bool = GameState.has_save() and GameState.records.nights > 0
 	if has_save:
-		var info := _text("図鑑 %d/%d ・ %s" % [GameState.seen.size(), GameState.ALL.size(), GameState.title_name()], 13, Color(1, 1, 1, 0.75))
+		var info := _text(UI.t("図鑑 %d/%d ・ %s") % [GameState.seen.size(), GameState.ALL.size(), GameState.title_name()], 13, Color(1, 1, 1, 0.75))
 		v.add_child(info)
-		v.add_child(_button("つづきから（第%d週 %s曜）" % [GameState.week_no(), GameState.dow()], Color("ff8a5b"), _continue))
-		v.add_child(_button("はじめから", Color(1, 1, 1, 0.9), _ask_reset, Color("5b6fc2")))
+		v.add_child(_button(UI.t("つづきから（第%d週 %s曜）") % [GameState.week_no(), UI.t(GameState.dow())], Color("ff8a5b"), _continue))
+		v.add_child(_button(UI.t("はじめから"), Color(1, 1, 1, 0.9), _ask_reset, Color("5b6fc2")))
 	else:
-		v.add_child(_button("はじめる", Color("ff8a5b"), _continue))
+		v.add_child(_button(UI.t("はじめる"), Color("ff8a5b"), _continue))
 	var mute := Button.new()
 	mute.focus_mode = Control.FOCUS_NONE
-	mute.text = "音：%s" % ("OFF" if AudioServer.is_bus_mute(0) else "ON")
+	mute.text = UI.t("音：%s") % ("OFF" if AudioServer.is_bus_mute(0) else "ON")
 	mute.position = Vector2(284, 14)
 	mute.size = Vector2(64, 32)
 	mute.add_theme_font_override("font", font_bold)
@@ -54,9 +54,25 @@ func _ready() -> void:
 		AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
 		GameState.tut["mute"] = AudioServer.is_bus_mute(0)
 		GameState.save_game()
-		mute.text = "音：%s" % ("OFF" if AudioServer.is_bus_mute(0) else "ON"))
+		mute.text = UI.t("音：%s") % ("OFF" if AudioServer.is_bus_mute(0) else "ON"))
 	add_child(mute)
-	var demo := _button("デモ（3週間後から）", Color(1, 1, 1, 0.1), _demo, Color(1, 1, 1, 0.6))
+	# EN / 日本語 の切り替え（覚えておく）
+	var lang := Button.new()
+	lang.focus_mode = Control.FOCUS_NONE
+	lang.text = "日本語" if UI.is_en() else "English"
+	lang.position = Vector2(12, 14)
+	lang.size = Vector2(76, 32)
+	lang.add_theme_font_override("font", font_bold)
+	lang.add_theme_font_size_override("font_size", 12)
+	for k in ["normal", "hover", "pressed"]:
+		lang.add_theme_stylebox_override(k, _pill(Color(1, 1, 1, 0.16), 16))
+	lang.add_theme_color_override("font_color", Color(1, 1, 1, 0.85))
+	lang.add_theme_color_override("font_hover_color", Color(1, 1, 1, 0.85))
+	lang.pressed.connect(func():
+		GameState.set_locale("ja" if UI.is_en() else "en")
+		main.go("title", true))
+	add_child(lang)
+	var demo := _button(UI.t("デモ（3週間後から）"), Color(1, 1, 1, 0.1), _demo, Color(1, 1, 1, 0.6))
 	demo.custom_minimum_size = Vector2(0, 36)
 	demo.add_theme_font_size_override("font_size", 12)
 	v.add_child(demo)
@@ -224,11 +240,11 @@ func _ask_reset() -> void:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 8)
 	confirm.add_child(v)
-	v.add_child(_text("図鑑もポイも、最初からになる", 15, Color("2a2233")))
-	v.add_child(_button("はじめからにする", Color("e85a4f"), func():
+	v.add_child(_text(UI.t("図鑑もポイも、最初からになる"), 15, Color("2a2233")))
+	v.add_child(_button(UI.t("はじめからにする"), Color("e85a4f"), func():
 		GameState.wipe_save()
 		main.go("room")))
-	v.add_child(_button("やめる", Color(1, 1, 1), func():
+	v.add_child(_button(UI.t("やめる"), Color(1, 1, 1), func():
 		confirm.queue_free()
 		confirm = null, Color("5b6fc2")))
 

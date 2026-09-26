@@ -16,7 +16,7 @@ static func save(result: Dictionary) -> bool:
 	data["saved_at"] = int(Time.get_unix_time_from_system())
 	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f == null:
-		push_warning("QuizResult: 保存できない %s (%s)" % [path, error_string(FileAccess.get_open_error())])
+		push_warning(UI.t("QuizResult: 保存できない %s (%s)") % [path, error_string(FileAccess.get_open_error())])
 		return false
 	f.store_string(JSON.stringify(data, "\t"))
 	return true
@@ -28,7 +28,7 @@ static func load_result() -> Dictionary:
 		return {}
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string(path))
 	if typeof(parsed) != TYPE_DICTIONARY or not QuizData.TYPES.has(parsed.get("type_id", "")):
-		push_warning("QuizResult: 読めない結果を無視した %s" % path)
+		push_warning(UI.t("QuizResult: 読めない結果を無視した %s") % path)
 		return {}
 	# look は今の定義から引き直す（タイプの見た目を後で調整しても、古い保存に引きずられない）
 	parsed["look"] = QuizData.TYPES[parsed.type_id].look.duplicate()

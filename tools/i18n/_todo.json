@@ -1,0 +1,3030 @@
+{
+ "光る玉を": {
+  "ctx": [
+   "demo.gd:129: var hook := _big_text([\"光る玉を\", \"そっと すくう。\"], [Color.WHITE, Color(\"ffe27a\")], 0.35, 200)"
+  ]
+ },
+ "そっと すくう。": {
+  "ctx": [
+   "demo.gd:129: var hook := _big_text([\"光る玉を\", \"そっと すくう。\"], [Color.WHITE, Color(\"ffe27a\")], 0.35, 200)"
+  ]
+ },
+ "働いた日は、ポイが増える。": {
+  "ctx": [
+   "demo.gd:134: caption(\"働いた日は、ポイが増える。\")",
+   "demo.gd:188: _big_text([\"Paw Time\", \"働いた日は、ポイが増える。\", \"よく寝た朝は、玉がよくかえる。\"], [Color.WHITE, Color(\"ffe27a\"), Color(\"ffe27a\")], 0.9, 230)"
+  ]
+ },
+ "そっと、真ん中で。コンボ！": {
+  "ctx": [
+   "demo.gd:136: caption(\"そっと、真ん中で。コンボ！\")"
+  ]
+ },
+ "よく寝た朝は、玉がよくかえる。": {
+  "ctx": [
+   "demo.gd:147: caption(\"よく寝た朝は、玉がよくかえる。\", 470)",
+   "demo.gd:152: caption(\"よく寝た朝は、玉がよくかえる。\", 130)"
+  ]
+ },
+ "かえったおばけが、休憩室に。": {
+  "ctx": [
+   "demo.gd:159: caption(\"かえったおばけが、休憩室に。\", 250)"
+  ]
+ },
+ "レア30体。図鑑をうめよう。": {
+  "ctx": [
+   "demo.gd:165: caption(\"レア30体。図鑑をうめよう。\", 520)"
+  ]
+ },
+ "土曜の夜は、大すくい祭り。": {
+  "ctx": [
+   "demo.gd:185: caption(\"土曜の夜は、大すくい祭り。\", 250)"
+  ]
+ },
+ "  自動すくいが時間切れ: busy=%s pressed=%s in_hand=%s sel=%s state=%s supply=%d vis=%d pois=%s tele=%.1f": {
+  "ctx": [
+   "demo.gd:226: print(\"  自動すくいが時間切れ: busy=%s pressed=%s in_hand=%s sel=%s state=%s supply=%d vis=%d pois=%s tele=%.1f\" % [scoop.busy, scoop.pressed, scoop.i"
+  ]
+ },
+ "D%02d 画面を一巡: %s": {
+  "ctx": [
+   "demo.gd:247: print(\"D%02d 画面を一巡: %s\" % [d + 1, main.current_name])"
+  ]
+ },
+ "D%02d %s曜 %s %s%s | ポイ%2d 使%2d | すくい%2d コンボ%2d ていねい%2d 虹%d | %4.0f秒 | 寝%d": {
+  "ctx": [
+   "demo.gd:249: print(\"D%02d %s曜 %s %s%s | ポイ%2d 使%2d | すくい%2d コンボ%2d ていねい%2d 虹%d | %4.0f秒 | 寝%d\" % [d + 1, s.day, s.weather, s.moon if s.moon != \"\" else \"-"
+  ]
+ },
+ " 祭": {
+  "ctx": [
+   "demo.gd:249: print(\"D%02d %s曜 %s %s%s | ポイ%2d 使%2d | すくい%2d コンボ%2d ていねい%2d 虹%d | %4.0f秒 | 寝%d\" % [d + 1, s.day, s.weather, s.moon if s.moon != \"\" else \"-"
+  ]
+ },
+ "      玉 ": {
+  "ctx": [
+   "demo.gd:258: print(\"      玉 \", kinds, \" → \", hs)"
+  ]
+ },
+ "      工房: %s Lv%d（%d日目）": {
+  "ctx": [
+   "demo.gd:272: print(\"      工房: %s Lv%d（%d日目）\" % [u, GameState.upgrades[u], d + 1])"
+  ]
+ },
+ "   -- 週末: 図鑑 %d/%d  Lv %s  かけら %s  累計すくい %d": {
+  "ctx": [
+   "demo.gd:274: print(\"   -- 週末: 図鑑 %d/%d  Lv %s  かけら %s  累計すくい %d\" % [GameState.seen.size(), GameState.ALL.size(), str(lv), str(GameState.shards), total])"
+  ]
+ },
+ "== 終了: 図鑑 %d/%d 最高コンボ %d 累計 %d": {
+  "ctx": [
+   "demo.gd:275: print(\"== 終了: 図鑑 %d/%d 最高コンボ %d 累計 %d\" % [GameState.seen.size(), GameState.ALL.size(), GameState.records.best_combo, total])"
+  ]
+ },
+ "レシートン": {
+  "ctx": [
+   "game_state.gd:14: \"receipt\": {\"name\": \"レシートン\", \"type\": \"register\", \"desc\": \"レジの音に寄ってくる。レシートの尻尾が長いほど長生き\"},"
+  ]
+ },
+ "レジの音に寄ってくる。レシートの尻尾が長いほど長生き": {
+  "ctx": [
+   "game_state.gd:14: \"receipt\": {\"name\": \"レシートン\", \"type\": \"register\", \"desc\": \"レジの音に寄ってくる。レシートの尻尾が長いほど長生き\"},"
+  ]
+ },
+ "アワワ": {
+  "ctx": [
+   "game_state.gd:15: \"bubble\": {\"name\": \"アワワ\", \"type\": \"dish\", \"desc\": \"洗い場の泡から生まれる。群れで動く\"},"
+  ]
+ },
+ "洗い場の泡から生まれる。群れで動く": {
+  "ctx": [
+   "game_state.gd:15: \"bubble\": {\"name\": \"アワワ\", \"type\": \"dish\", \"desc\": \"洗い場の泡から生まれる。群れで動く\"},"
+  ]
+ },
+ "オボン": {
+  "ctx": [
+   "game_state.gd:16: \"tray\": {\"name\": \"オボン\", \"type\": \"hall\", \"desc\": \"頭のお盆は絶対に落とさない。人見知り\"},"
+  ]
+ },
+ "頭のお盆は絶対に落とさない。人見知り": {
+  "ctx": [
+   "game_state.gd:16: \"tray\": {\"name\": \"オボン\", \"type\": \"hall\", \"desc\": \"頭のお盆は絶対に落とさない。人見知り\"},"
+  ]
+ },
+ "ジュウ": {
+  "ctx": [
+   "game_state.gd:17: \"pan\": {\"name\": \"ジュウ\", \"type\": \"kitchen\", \"desc\": \"油の跳ねる音が好き。すぐ跳ねる\"},"
+  ]
+ },
+ "油の跳ねる音が好き。すぐ跳ねる": {
+  "ctx": [
+   "game_state.gd:17: \"pan\": {\"name\": \"ジュウ\", \"type\": \"kitchen\", \"desc\": \"油の跳ねる音が好き。すぐ跳ねる\"},"
+  ]
+ },
+ "ダンボ": {
+  "ctx": [
+   "game_state.gd:18: \"box\": {\"name\": \"ダンボ\", \"type\": \"stock\", \"desc\": \"箱から出たがらない。とにかく重い\"},"
+  ]
+ },
+ "箱から出たがらない。とにかく重い": {
+  "ctx": [
+   "game_state.gd:18: \"box\": {\"name\": \"ダンボ\", \"type\": \"stock\", \"desc\": \"箱から出たがらない。とにかく重い\"},"
+  ]
+ },
+ "紙のポイ": {
+  "ctx": [
+   "game_state.gd:24: \"paper\": {\"name\": \"紙のポイ\", \"short\": \"紙\", \"type\": \"\", \"color\": \"f4efe6\", \"desc\": \"毎日2本もらえる、ふつうのポイ\"},"
+  ]
+ },
+ "紙": {
+  "ctx": [
+   "game_state.gd:24: \"paper\": {\"name\": \"紙のポイ\", \"short\": \"紙\", \"type\": \"\", \"color\": \"f4efe6\", \"desc\": \"毎日2本もらえる、ふつうのポイ\"},",
+   "screen_room.gd:527: var groups := [[\"紙\", [\"paper\"], Color(\"f4efe6\")], [\"色\", [\"receipt\", \"bubble\", \"tray\", \"pan\", \"box\"], Color(\"5fc4ff\")], [\"特別\", [\"kira\", \"lure"
+  ]
+ },
+ "毎日2本もらえる、ふつうのポイ": {
+  "ctx": [
+   "game_state.gd:24: \"paper\": {\"name\": \"紙のポイ\", \"short\": \"紙\", \"type\": \"\", \"color\": \"f4efe6\", \"desc\": \"毎日2本もらえる、ふつうのポイ\"},"
+  ]
+ },
+ "レシートのポイ": {
+  "ctx": [
+   "game_state.gd:25: \"receipt\": {\"name\": \"レシートのポイ\", \"short\": \"レジ\", \"type\": \"register\", \"color\": \"ffc23d\", \"desc\": \"黄の玉が寄ってくる。黄の玉は軽い\"},"
+  ]
+ },
+ "黄の玉が寄ってくる。黄の玉は軽い": {
+  "ctx": [
+   "game_state.gd:25: \"receipt\": {\"name\": \"レシートのポイ\", \"short\": \"レジ\", \"type\": \"register\", \"color\": \"ffc23d\", \"desc\": \"黄の玉が寄ってくる。黄の玉は軽い\"},"
+  ]
+ },
+ "泡のポイ": {
+  "ctx": [
+   "game_state.gd:26: \"bubble\": {\"name\": \"泡のポイ\", \"short\": \"泡\", \"type\": \"dish\", \"color\": \"5fc4ff\", \"desc\": \"青の群れが寄ってくる。まとめてすくいやすい\"},"
+  ]
+ },
+ "泡": {
+  "ctx": [
+   "game_state.gd:26: \"bubble\": {\"name\": \"泡のポイ\", \"short\": \"泡\", \"type\": \"dish\", \"color\": \"5fc4ff\", \"desc\": \"青の群れが寄ってくる。まとめてすくいやすい\"},"
+  ]
+ },
+ "青の群れが寄ってくる。まとめてすくいやすい": {
+  "ctx": [
+   "game_state.gd:26: \"bubble\": {\"name\": \"泡のポイ\", \"short\": \"泡\", \"type\": \"dish\", \"color\": \"5fc4ff\", \"desc\": \"青の群れが寄ってくる。まとめてすくいやすい\"},"
+  ]
+ },
+ "お盆のポイ": {
+  "ctx": [
+   "game_state.gd:27: \"tray\": {\"name\": \"お盆のポイ\", \"short\": \"お盆\", \"type\": \"hall\", \"color\": \"a98bff\", \"desc\": \"人見知りの紫が逃げにくい\"},"
+  ]
+ },
+ "お盆": {
+  "ctx": [
+   "game_state.gd:27: \"tray\": {\"name\": \"お盆のポイ\", \"short\": \"お盆\", \"type\": \"hall\", \"color\": \"a98bff\", \"desc\": \"人見知りの紫が逃げにくい\"},"
+  ]
+ },
+ "人見知りの紫が逃げにくい": {
+  "ctx": [
+   "game_state.gd:27: \"tray\": {\"name\": \"お盆のポイ\", \"short\": \"お盆\", \"type\": \"hall\", \"color\": \"a98bff\", \"desc\": \"人見知りの紫が逃げにくい\"},"
+  ]
+ },
+ "フライパンのポイ": {
+  "ctx": [
+   "game_state.gd:28: \"pan\": {\"name\": \"フライパンのポイ\", \"short\": \"フライ\", \"type\": \"kitchen\", \"color\": \"ff7a45\", \"desc\": \"跳ねる橙が寄ってくる\"},"
+  ]
+ },
+ "フライ": {
+  "ctx": [
+   "game_state.gd:28: \"pan\": {\"name\": \"フライパンのポイ\", \"short\": \"フライ\", \"type\": \"kitchen\", \"color\": \"ff7a45\", \"desc\": \"跳ねる橙が寄ってくる\"},"
+  ]
+ },
+ "跳ねる橙が寄ってくる": {
+  "ctx": [
+   "game_state.gd:28: \"pan\": {\"name\": \"フライパンのポイ\", \"short\": \"フライ\", \"type\": \"kitchen\", \"color\": \"ff7a45\", \"desc\": \"跳ねる橙が寄ってくる\"},"
+  ]
+ },
+ "段ボールのポイ": {
+  "ctx": [
+   "game_state.gd:29: \"box\": {\"name\": \"段ボールのポイ\", \"short\": \"段ボ\", \"type\": \"stock\", \"color\": \"e8b878\", \"desc\": \"重い茶の玉も、やぶれずに持ち上がる\"},"
+  ]
+ },
+ "段ボ": {
+  "ctx": [
+   "game_state.gd:29: \"box\": {\"name\": \"段ボールのポイ\", \"short\": \"段ボ\", \"type\": \"stock\", \"color\": \"e8b878\", \"desc\": \"重い茶の玉も、やぶれずに持ち上がる\"},"
+  ]
+ },
+ "重い茶の玉も、やぶれずに持ち上がる": {
+  "ctx": [
+   "game_state.gd:29: \"box\": {\"name\": \"段ボールのポイ\", \"short\": \"段ボ\", \"type\": \"stock\", \"color\": \"e8b878\", \"desc\": \"重い茶の玉も、やぶれずに持ち上がる\"},"
+  ]
+ },
+ "きらきらポイ": {
+  "ctx": [
+   "game_state.gd:30: \"kira\": {\"name\": \"きらきらポイ\", \"short\": \"きら\", \"type\": \"rare\", \"color\": \"fff2a8\", \"desc\": \"虹の玉が逃げない。はじめての経験でもらえる\"},"
+  ]
+ },
+ "きら": {
+  "ctx": [
+   "game_state.gd:30: \"kira\": {\"name\": \"きらきらポイ\", \"short\": \"きら\", \"type\": \"rare\", \"color\": \"fff2a8\", \"desc\": \"虹の玉が逃げない。はじめての経験でもらえる\"},"
+  ]
+ },
+ "虹の玉が逃げない。はじめての経験でもらえる": {
+  "ctx": [
+   "game_state.gd:30: \"kira\": {\"name\": \"きらきらポイ\", \"short\": \"きら\", \"type\": \"rare\", \"color\": \"fff2a8\", \"desc\": \"虹の玉が逃げない。はじめての経験でもらえる\"},"
+  ]
+ },
+ "よびこみポイ": {
+  "ctx": [
+   "game_state.gd:31: \"lure\": {\"name\": \"よびこみポイ\", \"short\": \"よび\", \"type\": \"lure\", \"color\": \"7fe3c8\", \"desc\": \"工房製。水に入れると、まわりの玉がみんな寄ってくる\"},"
+  ]
+ },
+ "よび": {
+  "ctx": [
+   "game_state.gd:31: \"lure\": {\"name\": \"よびこみポイ\", \"short\": \"よび\", \"type\": \"lure\", \"color\": \"7fe3c8\", \"desc\": \"工房製。水に入れると、まわりの玉がみんな寄ってくる\"},"
+  ]
+ },
+ "工房製。水に入れると、まわりの玉がみんな寄ってくる": {
+  "ctx": [
+   "game_state.gd:31: \"lure\": {\"name\": \"よびこみポイ\", \"short\": \"よび\", \"type\": \"lure\", \"color\": \"7fe3c8\", \"desc\": \"工房製。水に入れると、まわりの玉がみんな寄ってくる\"},"
+  ]
+ },
+ "二重ポイ": {
+  "ctx": [
+   "game_state.gd:32: \"double\": {\"name\": \"二重ポイ\", \"short\": \"二重\", \"type\": \"double\", \"color\": \"ff9eb8\", \"desc\": \"工房製。紙が二枚重ね。とても丈夫\"},"
+  ]
+ },
+ "二重": {
+  "ctx": [
+   "game_state.gd:32: \"double\": {\"name\": \"二重ポイ\", \"short\": \"二重\", \"type\": \"double\", \"color\": \"ff9eb8\", \"desc\": \"工房製。紙が二枚重ね。とても丈夫\"},"
+  ]
+ },
+ "工房製。紙が二枚重ね。とても丈夫": {
+  "ctx": [
+   "game_state.gd:32: \"double\": {\"name\": \"二重ポイ\", \"short\": \"二重\", \"type\": \"double\", \"color\": \"ff9eb8\", \"desc\": \"工房製。紙が二枚重ね。とても丈夫\"},"
+  ]
+ },
+ "灯りのポイ": {
+  "ctx": [
+   "game_state.gd:33: \"akari\": {\"name\": \"灯りのポイ\", \"short\": \"灯り\", \"type\": \"akari\", \"color\": \"ffcf7a\", \"desc\": \"工房製。手に取ると、虹の玉が浮かんでくる\"},"
+  ]
+ },
+ "灯り": {
+  "ctx": [
+   "game_state.gd:33: \"akari\": {\"name\": \"灯りのポイ\", \"short\": \"灯り\", \"type\": \"akari\", \"color\": \"ffcf7a\", \"desc\": \"工房製。手に取ると、虹の玉が浮かんでくる\"},"
+  ]
+ },
+ "工房製。手に取ると、虹の玉が浮かんでくる": {
+  "ctx": [
+   "game_state.gd:33: \"akari\": {\"name\": \"灯りのポイ\", \"short\": \"灯り\", \"type\": \"akari\", \"color\": \"ffcf7a\", \"desc\": \"工房製。手に取ると、虹の玉が浮かんでくる\"},"
+  ]
+ },
+ "黄": {
+  "ctx": [
+   "game_state.gd:44: const SHARD_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\", \"rainbow\": \"虹\"}",
+   "game_state.gd:642: const TYPE_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\"}"
+  ]
+ },
+ "青": {
+  "ctx": [
+   "game_state.gd:44: const SHARD_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\", \"rainbow\": \"虹\"}",
+   "game_state.gd:642: const TYPE_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\"}"
+  ]
+ },
+ "紫": {
+  "ctx": [
+   "game_state.gd:44: const SHARD_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\", \"rainbow\": \"虹\"}",
+   "game_state.gd:642: const TYPE_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\"}"
+  ]
+ },
+ "橙": {
+  "ctx": [
+   "game_state.gd:44: const SHARD_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\", \"rainbow\": \"虹\"}",
+   "game_state.gd:642: const TYPE_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\"}"
+  ]
+ },
+ "茶": {
+  "ctx": [
+   "game_state.gd:44: const SHARD_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\", \"rainbow\": \"虹\"}",
+   "game_state.gd:642: const TYPE_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\"}"
+  ]
+ },
+ "虹": {
+  "ctx": [
+   "game_state.gd:44: const SHARD_LABEL := {\"register\": \"黄\", \"dish\": \"青\", \"hall\": \"紫\", \"kitchen\": \"橙\", \"stock\": \"茶\", \"rainbow\": \"虹\"}"
+  ]
+ },
+ "月": {
+  "ctx": [
+   "game_state.gd:45: const DOW := [\"月\", \"火\", \"水\", \"木\", \"金\", \"土\", \"日\"]"
+  ]
+ },
+ "火": {
+  "ctx": [
+   "game_state.gd:45: const DOW := [\"月\", \"火\", \"水\", \"木\", \"金\", \"土\", \"日\"]"
+  ]
+ },
+ "水": {
+  "ctx": [
+   "game_state.gd:45: const DOW := [\"月\", \"火\", \"水\", \"木\", \"金\", \"土\", \"日\"]"
+  ]
+ },
+ "木": {
+  "ctx": [
+   "game_state.gd:45: const DOW := [\"月\", \"火\", \"水\", \"木\", \"金\", \"土\", \"日\"]"
+  ]
+ },
+ "金": {
+  "ctx": [
+   "game_state.gd:45: const DOW := [\"月\", \"火\", \"水\", \"木\", \"金\", \"土\", \"日\"]"
+  ]
+ },
+ "土": {
+  "ctx": [
+   "game_state.gd:45: const DOW := [\"月\", \"火\", \"水\", \"木\", \"金\", \"土\", \"日\"]"
+  ]
+ },
+ "日": {
+  "ctx": [
+   "game_state.gd:45: const DOW := [\"月\", \"火\", \"水\", \"木\", \"金\", \"土\", \"日\"]"
+  ]
+ },
+ "ふちを太く": {
+  "ctx": [
+   "game_state.gd:50: \"fuchi\": {\"name\": \"ふちを太く\", \"desc\": \"ポイがやぶれにくくなる（+20%）\", \"cost\": [{\"stock\": 2, \"register\": 2}, {\"stock\": 7, \"hall\": 4}, {\"stock\": 12, \"rainbo"
+  ]
+ },
+ "ポイがやぶれにくくなる（+20%）": {
+  "ctx": [
+   "game_state.gd:50: \"fuchi\": {\"name\": \"ふちを太く\", \"desc\": \"ポイがやぶれにくくなる（+20%）\", \"cost\": [{\"stock\": 2, \"register\": 2}, {\"stock\": 7, \"hall\": 4}, {\"stock\": 12, \"rainbo"
+  ]
+ },
+ "輪を広く": {
+  "ctx": [
+   "game_state.gd:51: \"wa\": {\"name\": \"輪を広く\", \"desc\": \"ポイが大きくなる（+12%）\", \"cost\": [{\"dish\": 3, \"register\": 2}, {\"dish\": 8, \"kitchen\": 4}, {\"dish\": 14, \"rainbow\": 3}]"
+  ]
+ },
+ "ポイが大きくなる（+12%）": {
+  "ctx": [
+   "game_state.gd:51: \"wa\": {\"name\": \"輪を広く\", \"desc\": \"ポイが大きくなる（+12%）\", \"cost\": [{\"dish\": 3, \"register\": 2}, {\"dish\": 8, \"kitchen\": 4}, {\"dish\": 14, \"rainbow\": 3}]"
+  ]
+ },
+ "紙をしなやかに": {
+  "ctx": [
+   "game_state.gd:52: \"kami\": {\"name\": \"紙をしなやかに\", \"desc\": \"動かしても破れにくい（-20%）\", \"cost\": [{\"hall\": 2, \"kitchen\": 2}, {\"hall\": 7, \"register\": 4}, {\"hall\": 12, \"rainbo"
+  ]
+ },
+ "動かしても破れにくい（-20%）": {
+  "ctx": [
+   "game_state.gd:52: \"kami\": {\"name\": \"紙をしなやかに\", \"desc\": \"動かしても破れにくい（-20%）\", \"cost\": [{\"hall\": 2, \"kitchen\": 2}, {\"hall\": 7, \"register\": 4}, {\"hall\": 12, \"rainbo"
+  ]
+ },
+ "赤ちょうちん": {
+  "ctx": [
+   "game_state.gd:69: \"chochin\": {\"name\": \"赤ちょうちん\", \"cost\": {\"register\": 5, \"kitchen\": 5}},"
+  ]
+ },
+ "観葉植物": {
+  "ctx": [
+   "game_state.gd:70: \"plant\": {\"name\": \"観葉植物\", \"cost\": {\"dish\": 6, \"stock\": 4}},"
+  ]
+ },
+ "玉の金魚鉢": {
+  "ctx": [
+   "game_state.gd:71: \"bowl\": {\"name\": \"玉の金魚鉢\", \"cost\": {\"dish\": 8, \"hall\": 4}},"
+  ]
+ },
+ "すくい名人のポスター": {
+  "ctx": [
+   "game_state.gd:72: \"poster\": {\"name\": \"すくい名人のポスター\", \"cost\": {\"hall\": 6, \"register\": 6}},"
+  ]
+ },
+ "こたつ": {
+  "ctx": [
+   "game_state.gd:73: \"kotatsu\": {\"name\": \"こたつ\", \"cost\": {\"stock\": 8, \"kitchen\": 6}},"
+  ]
+ },
+ "月見だんご": {
+  "ctx": [
+   "game_state.gd:74: \"dango\": {\"name\": \"月見だんご\", \"cost\": {\"register\": 8, \"rainbow\": 2}},"
+  ]
+ },
+ "コンボが途切れにくい": {
+  "ctx": [
+   "game_state.gd:80: \"receipt\": \"コンボが途切れにくい\","
+  ]
+ },
+ "近くの玉を少し寄せる": {
+  "ctx": [
+   "game_state.gd:81: \"bubble\": \"近くの玉を少し寄せる\","
+  ]
+ },
+ "重い玉が軽くなる": {
+  "ctx": [
+   "game_state.gd:82: \"tray\": \"重い玉が軽くなる\","
+  ]
+ },
+ "虹の玉が長くとどまる": {
+  "ctx": [
+   "game_state.gd:83: \"pan\": \"虹の玉が長くとどまる\","
+  ]
+ },
+ "ポイがやぶれにくい": {
+  "ctx": [
+   "game_state.gd:84: \"box\": \"ポイがやぶれにくい\","
+  ]
+ },
+ "睡眠": {
+  "ctx": [
+   "game_state.gd:89: \"睡眠\": {\"poi\": {\"double\": 2}, \"shards\": {\"rainbow\": 1}},",
+   "rares.gd:14: {\"id\": \"nemurin\", \"name\": \"ネムリン\", \"group\": \"睡眠\", \"hint\": \"よく眠った朝、枕元でまるくなっている\","
+  ]
+ },
+ "はじめて": {
+  "ctx": [
+   "game_state.gd:90: \"はじめて\": {\"poi\": {\"kira\": 2}, \"shards\": {\"rainbow\": 1}},",
+   "rares.gd:28: {\"id\": \"kirari\", \"name\": \"キラリ\", \"group\": \"はじめて\", \"hint\": \"はじめての場所で、光る\","
+  ]
+ },
+ "時間帯": {
+  "ctx": [
+   "game_state.gd:91: \"時間帯\": {\"poi\": {\"akari\": 1}, \"shards\": {\"rainbow\": 1}},",
+   "rares.gd:40: {\"id\": \"yonaki\", \"name\": \"ヨナキ\", \"group\": \"時間帯\", \"hint\": \"街が眠っているあいだに\","
+  ]
+ },
+ "天気": {
+  "ctx": [
+   "game_state.gd:92: \"天気\": {\"poi\": {\"lure\": 2}, \"shards\": {\"rainbow\": 1}},",
+   "rares.gd:52: {\"id\": \"amagasa\", \"name\": \"アマガサ\", \"group\": \"天気\", \"hint\": \"雨の音が、好きらしい\","
+  ]
+ },
+ "つながり": {
+  "ctx": [
+   "game_state.gd:93: \"つながり\": {\"poi\": {\"double\": 1, \"lure\": 1}, \"shards\": {\"rainbow\": 2}},",
+   "rares.gd:62: {\"id\": \"nakayoshi\", \"name\": \"ナカヨシ\", \"group\": \"つながり\", \"hint\": \"同じ人と、何度も並ぶと\","
+  ]
+ },
+ "リズム": {
+  "ctx": [
+   "game_state.gd:94: \"リズム\": {\"poi\": {\"akari\": 2}, \"shards\": {\"rainbow\": 2}},",
+   "rares.gd:74: {\"id\": \"yasumijouzu\", \"name\": \"ヤスミジョウズ\", \"group\": \"リズム\", \"hint\": \"続けて働いたあと、ちゃんと休んだ\","
+  ]
+ },
+ "ふつう": {
+  "ctx": [
+   "game_state.gd:95: \"ふつう\": {\"poi\": {\"kira\": 1, \"double\": 1}, \"shards\": {\"rainbow\": 1}},",
+   "game_state.gd:1089: if g == \"ふつう\":"
+  ]
+ },
+ "カフェ こもれび": {
+  "ctx": [
+   "game_state.gd:101: {\"store\": \"カフェ こもれび\", \"role\": \"register\", \"band\": \"朝\", \"hours\": 4, \"weather\": \"晴\", \"coworkers\": [\"さとう\", \"りん\"], \"newbie\": false},",
+   "game_state.gd:108: {\"name\": \"カフェ こもれび\", \"roles\": [\"register\", \"hall\"], \"bands\": [\"朝\", \"昼\"], \"crew\": [\"さとう\", \"りん\", \"まこ\"]},"
+  ]
+ },
+ "朝": {
+  "ctx": [
+   "game_state.gd:101: {\"store\": \"カフェ こもれび\", \"role\": \"register\", \"band\": \"朝\", \"hours\": 4, \"weather\": \"晴\", \"coworkers\": [\"さとう\", \"りん\"], \"newbie\": false},",
+   "game_state.gd:108: {\"name\": \"カフェ こもれび\", \"roles\": [\"register\", \"hall\"], \"bands\": [\"朝\", \"昼\"], \"crew\": [\"さとう\", \"りん\", \"まこ\"]},"
+  ]
+ },
+ "晴": {
+  "ctx": [
+   "game_state.gd:101: {\"store\": \"カフェ こもれび\", \"role\": \"register\", \"band\": \"朝\", \"hours\": 4, \"weather\": \"晴\", \"coworkers\": [\"さとう\", \"りん\"], \"newbie\": false},",
+   "game_state.gd:103: {\"store\": \"\", \"role\": \"\", \"band\": \"\", \"hours\": 0, \"weather\": \"晴\", \"coworkers\": [], \"newbie\": false},"
+  ]
+ },
+ "さとう": {
+  "ctx": [
+   "game_state.gd:101: {\"store\": \"カフェ こもれび\", \"role\": \"register\", \"band\": \"朝\", \"hours\": 4, \"weather\": \"晴\", \"coworkers\": [\"さとう\", \"りん\"], \"newbie\": false},",
+   "game_state.gd:108: {\"name\": \"カフェ こもれび\", \"roles\": [\"register\", \"hall\"], \"bands\": [\"朝\", \"昼\"], \"crew\": [\"さとう\", \"りん\", \"まこ\"]},"
+  ]
+ },
+ "りん": {
+  "ctx": [
+   "game_state.gd:101: {\"store\": \"カフェ こもれび\", \"role\": \"register\", \"band\": \"朝\", \"hours\": 4, \"weather\": \"晴\", \"coworkers\": [\"さとう\", \"りん\"], \"newbie\": false},",
+   "game_state.gd:108: {\"name\": \"カフェ こもれび\", \"roles\": [\"register\", \"hall\"], \"bands\": [\"朝\", \"昼\"], \"crew\": [\"さとう\", \"りん\", \"まこ\"]},"
+  ]
+ },
+ "居酒屋 とりまる": {
+  "ctx": [
+   "game_state.gd:102: {\"store\": \"居酒屋 とりまる\", \"role\": \"hall\", \"band\": \"夜\", \"hours\": 5, \"weather\": \"雨\", \"coworkers\": [\"けん\", \"ようこ\"], \"newbie\": false},",
+   "game_state.gd:104: {\"store\": \"居酒屋 とりまる\", \"role\": \"dish\", \"band\": \"夜\", \"hours\": 4, \"weather\": \"晴\", \"coworkers\": [\"けん\", \"みお\"], \"newbie\": true},"
+  ]
+ },
+ "夜": {
+  "ctx": [
+   "game_state.gd:102: {\"store\": \"居酒屋 とりまる\", \"role\": \"hall\", \"band\": \"夜\", \"hours\": 5, \"weather\": \"雨\", \"coworkers\": [\"けん\", \"ようこ\"], \"newbie\": false},",
+   "game_state.gd:104: {\"store\": \"居酒屋 とりまる\", \"role\": \"dish\", \"band\": \"夜\", \"hours\": 4, \"weather\": \"晴\", \"coworkers\": [\"けん\", \"みお\"], \"newbie\": true},"
+  ]
+ },
+ "雨": {
+  "ctx": [
+   "game_state.gd:102: {\"store\": \"居酒屋 とりまる\", \"role\": \"hall\", \"band\": \"夜\", \"hours\": 5, \"weather\": \"雨\", \"coworkers\": [\"けん\", \"ようこ\"], \"newbie\": false},",
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]"
+  ]
+ },
+ "けん": {
+  "ctx": [
+   "game_state.gd:102: {\"store\": \"居酒屋 とりまる\", \"role\": \"hall\", \"band\": \"夜\", \"hours\": 5, \"weather\": \"雨\", \"coworkers\": [\"けん\", \"ようこ\"], \"newbie\": false},",
+   "game_state.gd:104: {\"store\": \"居酒屋 とりまる\", \"role\": \"dish\", \"band\": \"夜\", \"hours\": 4, \"weather\": \"晴\", \"coworkers\": [\"けん\", \"みお\"], \"newbie\": true},"
+  ]
+ },
+ "ようこ": {
+  "ctx": [
+   "game_state.gd:102: {\"store\": \"居酒屋 とりまる\", \"role\": \"hall\", \"band\": \"夜\", \"hours\": 5, \"weather\": \"雨\", \"coworkers\": [\"けん\", \"ようこ\"], \"newbie\": false},",
+   "game_state.gd:109: {\"name\": \"居酒屋 とりまる\", \"roles\": [\"hall\", \"dish\", \"kitchen\"], \"bands\": [\"夜\"], \"crew\": [\"けん\", \"ようこ\", \"みお\"]},"
+  ]
+ },
+ "みお": {
+  "ctx": [
+   "game_state.gd:104: {\"store\": \"居酒屋 とりまる\", \"role\": \"dish\", \"band\": \"夜\", \"hours\": 4, \"weather\": \"晴\", \"coworkers\": [\"けん\", \"みお\"], \"newbie\": true},",
+   "game_state.gd:109: {\"name\": \"居酒屋 とりまる\", \"roles\": [\"hall\", \"dish\", \"kitchen\"], \"bands\": [\"夜\"], \"crew\": [\"けん\", \"ようこ\", \"みお\"]},"
+  ]
+ },
+ "北倉庫": {
+  "ctx": [
+   "game_state.gd:105: {\"store\": \"北倉庫\", \"role\": \"stock\", \"band\": \"深夜\", \"hours\": 6, \"weather\": \"雷\", \"coworkers\": [\"だいち\"], \"newbie\": false},",
+   "game_state.gd:110: {\"name\": \"北倉庫\", \"roles\": [\"stock\"], \"bands\": [\"深夜\", \"昼\"], \"crew\": [\"だいち\", \"しん\"]},"
+  ]
+ },
+ "深夜": {
+  "ctx": [
+   "game_state.gd:105: {\"store\": \"北倉庫\", \"role\": \"stock\", \"band\": \"深夜\", \"hours\": 6, \"weather\": \"雷\", \"coworkers\": [\"だいち\"], \"newbie\": false},",
+   "game_state.gd:110: {\"name\": \"北倉庫\", \"roles\": [\"stock\"], \"bands\": [\"深夜\", \"昼\"], \"crew\": [\"だいち\", \"しん\"]},"
+  ]
+ },
+ "雷": {
+  "ctx": [
+   "game_state.gd:105: {\"store\": \"北倉庫\", \"role\": \"stock\", \"band\": \"深夜\", \"hours\": 6, \"weather\": \"雷\", \"coworkers\": [\"だいち\"], \"newbie\": false},",
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]"
+  ]
+ },
+ "だいち": {
+  "ctx": [
+   "game_state.gd:105: {\"store\": \"北倉庫\", \"role\": \"stock\", \"band\": \"深夜\", \"hours\": 6, \"weather\": \"雷\", \"coworkers\": [\"だいち\"], \"newbie\": false},",
+   "game_state.gd:110: {\"name\": \"北倉庫\", \"roles\": [\"stock\"], \"bands\": [\"深夜\", \"昼\"], \"crew\": [\"だいち\", \"しん\"]},"
+  ]
+ },
+ "昼": {
+  "ctx": [
+   "game_state.gd:108: {\"name\": \"カフェ こもれび\", \"roles\": [\"register\", \"hall\"], \"bands\": [\"朝\", \"昼\"], \"crew\": [\"さとう\", \"りん\", \"まこ\"]},",
+   "game_state.gd:110: {\"name\": \"北倉庫\", \"roles\": [\"stock\"], \"bands\": [\"深夜\", \"昼\"], \"crew\": [\"だいち\", \"しん\"]},"
+  ]
+ },
+ "まこ": {
+  "ctx": [
+   "game_state.gd:108: {\"name\": \"カフェ こもれび\", \"roles\": [\"register\", \"hall\"], \"bands\": [\"朝\", \"昼\"], \"crew\": [\"さとう\", \"りん\", \"まこ\"]},"
+  ]
+ },
+ "しん": {
+  "ctx": [
+   "game_state.gd:110: {\"name\": \"北倉庫\", \"roles\": [\"stock\"], \"bands\": [\"深夜\", \"昼\"], \"crew\": [\"だいち\", \"しん\"]},"
+  ]
+ },
+ "パン工房 むぎ": {
+  "ctx": [
+   "game_state.gd:111: {\"name\": \"パン工房 むぎ\", \"roles\": [\"kitchen\", \"register\"], \"bands\": [\"朝\"], \"crew\": [\"はる\", \"ともえ\"], \"from\": 8},"
+  ]
+ },
+ "はる": {
+  "ctx": [
+   "game_state.gd:111: {\"name\": \"パン工房 むぎ\", \"roles\": [\"kitchen\", \"register\"], \"bands\": [\"朝\"], \"crew\": [\"はる\", \"ともえ\"], \"from\": 8},"
+  ]
+ },
+ "ともえ": {
+  "ctx": [
+   "game_state.gd:111: {\"name\": \"パン工房 むぎ\", \"roles\": [\"kitchen\", \"register\"], \"bands\": [\"朝\"], \"crew\": [\"はる\", \"ともえ\"], \"from\": 8},"
+  ]
+ },
+ "ホテル しらなみ": {
+  "ctx": [
+   "game_state.gd:112: {\"name\": \"ホテル しらなみ\", \"roles\": [\"dish\", \"hall\"], \"bands\": [\"昼\", \"夜\"], \"crew\": [\"ゆい\", \"こう\"], \"from\": 15},"
+  ]
+ },
+ "ゆい": {
+  "ctx": [
+   "game_state.gd:112: {\"name\": \"ホテル しらなみ\", \"roles\": [\"dish\", \"hall\"], \"bands\": [\"昼\", \"夜\"], \"crew\": [\"ゆい\", \"こう\"], \"from\": 15},"
+  ]
+ },
+ "こう": {
+  "ctx": [
+   "game_state.gd:112: {\"name\": \"ホテル しらなみ\", \"roles\": [\"dish\", \"hall\"], \"bands\": [\"昼\", \"夜\"], \"crew\": [\"ゆい\", \"こう\"], \"from\": 15},"
+  ]
+ },
+ "秋": {
+  "ctx": [
+   "game_state.gd:263: return [\"秋\", \"冬\", \"春\", \"夏\"][(d / 14) % 4]",
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]"
+  ]
+ },
+ "冬": {
+  "ctx": [
+   "game_state.gd:263: return [\"秋\", \"冬\", \"春\", \"夏\"][(d / 14) % 4]",
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]"
+  ]
+ },
+ "春": {
+  "ctx": [
+   "game_state.gd:263: return [\"秋\", \"冬\", \"春\", \"夏\"][(d / 14) % 4]",
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]"
+  ]
+ },
+ "夏": {
+  "ctx": [
+   "game_state.gd:263: return [\"秋\", \"冬\", \"春\", \"夏\"][(d / 14) % 4]",
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]"
+  ]
+ },
+ "満月": {
+  "ctx": [
+   "game_state.gd:269: return \"満月\"",
+   "game_state.gd:594: \"満月\":"
+  ]
+ },
+ "新月": {
+  "ctx": [
+   "game_state.gd:271: return \"新月\"",
+   "game_state.gd:598: \"新月\":"
+  ]
+ },
+ "半月": {
+  "ctx": [
+   "game_state.gd:273: return \"半月\"",
+   "screen_scoop.gd:278: if moon_name == \"半月\":"
+  ]
+ },
+ "曇": {
+  "ctx": [
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]",
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]"
+  ]
+ },
+ "雪": {
+  "ctx": [
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]",
+   "game_state.gd:294: var weathers: Array = {\"秋\": [\"晴\", \"晴\", \"曇\", \"雨\"], \"冬\": [\"晴\", \"雪\", \"曇\", \"雪\"], \"春\": [\"晴\", \"晴\", \"雨\", \"曇\"], \"夏\": [\"晴\", \"雷\", \"雨\", \"晴\"]}[season]"
+  ]
+ },
+ "%sの仕事": {
+  "ctx": [
+   "game_state.gd:356: got.append({\"poi\": pid, \"n\": n, \"why\": \"%sの仕事\" % ROLE_LABEL[s.role]})"
+  ]
+ },
+ "はじめての%s": {
+  "ctx": [
+   "game_state.gd:359: got.append({\"poi\": \"kira\", \"n\": 1, \"why\": \"はじめての%s\" % (\"店\" if first_store_today else \"仕事\")})"
+  ]
+ },
+ "店": {
+  "ctx": [
+   "game_state.gd:359: got.append({\"poi\": \"kira\", \"n\": 1, \"why\": \"はじめての%s\" % (\"店\" if first_store_today else \"仕事\")})"
+  ]
+ },
+ "仕事": {
+  "ctx": [
+   "game_state.gd:359: got.append({\"poi\": \"kira\", \"n\": 1, \"why\": \"はじめての%s\" % (\"店\" if first_store_today else \"仕事\")})"
+  ]
+ },
+ "%sさんからのおすそわけ": {
+  "ctx": [
+   "game_state.gd:364: got.append({\"poi\": \"lure\", \"n\": 1, \"why\": \"%sさんからのおすそわけ\" % old_friend})"
+  ]
+ },
+ "マイおばけ猫": {
+  "ctx": [
+   "game_state.gd:410: return \"マイおばけ猫\"",
+   "screen_room.gd:360: line = \"マイおばけ猫\" + (\"（相棒）\" if GameState.partner == \"my\" else \"\")"
+  ]
+ },
+ "%sさんに%sをおすそわけした。お返しに%sのかけら×2": {
+  "ctx": [
+   "game_state.gd:501: return \"%sさんに%sをおすそわけした。お返しに%sのかけら×2\" % [gift_target(), info(id).name, SHARD_LABEL[bt]]"
+  ]
+ },
+ "第%d週 %s曜に会った": {
+  "ctx": [
+   "game_state.gd:555: return \"第%d週 %s曜に会った\" % [d / 7 + 1, DOW[d % 7]]"
+  ]
+ },
+ "雨：玉が多い・ぬれやすい": {
+  "ctx": [
+   "game_state.gd:582: m.label.append(\"雨：玉が多い・ぬれやすい\")"
+  ]
+ },
+ "雷：光ると玉が散る": {
+  "ctx": [
+   "game_state.gd:586: m.label.append(\"雷：光ると玉が散る\")"
+  ]
+ },
+ "雪：玉がゆっくり": {
+  "ctx": [
+   "game_state.gd:590: m.label.append(\"雪：玉がゆっくり\")"
+  ]
+ },
+ "くもり：おだやかな夜": {
+  "ctx": [
+   "game_state.gd:592: m.label.append(\"くもり：おだやかな夜\")"
+  ]
+ },
+ "満月：虹が出やすい": {
+  "ctx": [
+   "game_state.gd:597: m.label.append(\"満月：虹が出やすい\")"
+  ]
+ },
+ "新月：暗いが玉が多い": {
+  "ctx": [
+   "game_state.gd:601: m.label.append(\"新月：暗いが玉が多い\")"
+  ]
+ },
+ "虹の気配：レアが近い": {
+  "ctx": [
+   "game_state.gd:606: m.label.append(\"虹の気配：レアが近い\")"
+  ]
+ },
+ "祭り：12こで景品": {
+  "ctx": [
+   "game_state.gd:611: m.label.push_front(\"祭り：12こで景品\")"
+  ]
+ },
+ "晴れ：しずかな水面": {
+  "ctx": [
+   "game_state.gd:613: m.label.append(\"晴れ：しずかな水面\")"
+  ]
+ },
+ "祭り：12こすくう": {
+  "ctx": [
+   "game_state.gd:647: return {\"id\": \"count\", \"n\": 12, \"text\": \"祭り：12こすくう\", \"reward\": {\"shards\": {\"rainbow\": 1}}}"
+  ]
+ },
+ "%dこすくう": {
+  "ctx": [
+   "game_state.gd:662: g = {\"id\": \"count\", \"n\": 3 + w, \"text\": \"%dこすくう\" % (3 + w)}"
+  ]
+ },
+ "%dコンボ": {
+  "ctx": [
+   "game_state.gd:664: g = {\"id\": \"combo\", \"n\": 2 + w, \"text\": \"%dコンボ\" % (2 + w)}",
+   "game_state.gd:758: parts.append(\"%dコンボ\" % t.combo)"
+  ]
+ },
+ "ていねいに%dこ": {
+  "ctx": [
+   "game_state.gd:666: g = {\"id\": \"clean\", \"n\": 1 + w, \"text\": \"ていねいに%dこ\" % (1 + w)}"
+  ]
+ },
+ "2こ以上まとめてすくう": {
+  "ctx": [
+   "game_state.gd:668: g = {\"id\": \"multi\", \"n\": 1, \"text\": \"2こ以上まとめてすくう\"}"
+  ]
+ },
+ "%sの玉を%dこ": {
+  "ctx": [
+   "game_state.gd:670: g = {\"id\": \"type\", \"type\": t, \"n\": 1 + (w + 1) / 2, \"text\": \"%sの玉を%dこ\" % [TYPE_LABEL[t], 1 + (w + 1) / 2]}"
+  ]
+ },
+ "工房で「%s」が作れる！": {
+  "ctx": [
+   "game_state.gd:702: best = \"工房で「%s」が作れる！\" % UPGRADES[key].name if need == 0 else \"「%s」まで かけら %s\" % [UPGRADES[key].name, \"・\".join(parts)]"
+  ]
+ },
+ "「%s」まで かけら %s": {
+  "ctx": [
+   "game_state.gd:702: best = \"工房で「%s」が作れる！\" % UPGRADES[key].name if need == 0 else \"「%s」まで かけら %s\" % [UPGRADES[key].name, \"・\".join(parts)]"
+  ]
+ },
+ "・": {
+  "ctx": [
+   "game_state.gd:702: best = \"工房で「%s」が作れる！\" % UPGRADES[key].name if need == 0 else \"「%s」まで かけら %s\" % [UPGRADES[key].name, \"・\".join(parts)]",
+   "game_state.gd:761: return \"次は「%s」：%s\" % [t.name, \"・\".join(parts)]"
+  ]
+ },
+ "見習い": {
+  "ctx": [
+   "game_state.gd:725: {\"name\": \"見習い\", \"total\": 0, \"combo\": 0, \"rainbow\": 0},"
+  ]
+ },
+ "かけだし": {
+  "ctx": [
+   "game_state.gd:726: {\"name\": \"かけだし\", \"total\": 20, \"combo\": 3, \"rainbow\": 0},"
+  ]
+ },
+ "一人前": {
+  "ctx": [
+   "game_state.gd:727: {\"name\": \"一人前\", \"total\": 60, \"combo\": 5, \"rainbow\": 1},"
+  ]
+ },
+ "名人": {
+  "ctx": [
+   "game_state.gd:728: {\"name\": \"名人\", \"total\": 150, \"combo\": 8, \"rainbow\": 4},"
+  ]
+ },
+ "達人": {
+  "ctx": [
+   "game_state.gd:729: {\"name\": \"達人\", \"total\": 300, \"combo\": 12, \"rainbow\": 10},"
+  ]
+ },
+ "名手": {
+  "ctx": [
+   "game_state.gd:730: {\"name\": \"名手\", \"total\": 600, \"combo\": 16, \"rainbow\": 20},"
+  ]
+ },
+ "川の主": {
+  "ctx": [
+   "game_state.gd:731: {\"name\": \"川の主\", \"total\": 1000, \"combo\": 20, \"rainbow\": 35},",
+   "game_state.gd:746: return n if n == \"川の主\" else \"すくい\" + n"
+  ]
+ },
+ "すくい": {
+  "ctx": [
+   "game_state.gd:746: return n if n == \"川の主\" else \"すくい\" + n"
+  ]
+ },
+ "いちばん上の称号": {
+  "ctx": [
+   "game_state.gd:752: return \"いちばん上の称号\""
+  ]
+ },
+ "すくった玉 あと%d": {
+  "ctx": [
+   "game_state.gd:756: parts.append(\"すくった玉 あと%d\" % (t.total - records.total))"
+  ]
+ },
+ "虹の玉 あと%d": {
+  "ctx": [
+   "game_state.gd:760: parts.append(\"虹の玉 あと%d\" % (t.rainbow - records.rainbow))"
+  ]
+ },
+ "次は「%s」：%s": {
+  "ctx": [
+   "game_state.gd:761: return \"次は「%s」：%s\" % [t.name, \"・\".join(parts)]"
+  ]
+ },
+ "%d時間ねた": {
+  "ctx": [
+   "game_state.gd:898: var head := \"%d時間ねた\" % hours"
+  ]
+ },
+ "：玉がよく育った": {
+  "ctx": [
+   "game_state.gd:900: head += \"：玉がよく育った\""
+  ]
+ },
+ "：ポイが少し弱い": {
+  "ctx": [
+   "game_state.gd:902: head += \"：ポイが少し弱い\""
+  ]
+ },
+ "紙のポイ +%d": {
+  "ctx": [
+   "game_state.gd:905: morning_report.append(\"紙のポイ +%d\" % free)"
+  ]
+ },
+ "先週のおねがい：ごほうび受け取り": {
+  "ctx": [
+   "game_state.gd:907: morning_report.append(\"先週のおねがい：ごほうび受け取り\")"
+  ]
+ },
+ "レアの気配が %d つ…": {
+  "ctx": [
+   "game_state.gd:909: morning_report.append(\"レアの気配が %d つ…\" % rare_pending.size())"
+  ]
+ },
+ "第%d週：すくった玉 %d・出会い %d": {
+  "ctx": [
+   "game_state.gd:911: morning_report.push_front(\"第%d週：すくった玉 %d・出会い %d\" % [week_no() - 1, records.total - int(week_snap.total), seen.size() - int(week_snap.seen)])"
+  ]
+ },
+ "虹の玉を1つすくう": {
+  "ctx": [
+   "game_state.gd:985: {\"id\": \"rainbow\", \"n\": 1, \"text\": \"虹の玉を1つすくう\"},"
+  ]
+ },
+ "%dコンボを出す": {
+  "ctx": [
+   "game_state.gd:986: {\"id\": \"combo\", \"n\": 5 + mini(w, 4), \"text\": \"%dコンボを出す\" % (5 + mini(w, 4))},"
+  ]
+ },
+ "ていねいな玉を%dこ": {
+  "ctx": [
+   "game_state.gd:987: {\"id\": \"clean\", \"n\": 8 + w * 2, \"text\": \"ていねいな玉を%dこ\" % (8 + w * 2)},"
+  ]
+ },
+ "%sの玉を5こ": {
+  "ctx": [
+   "game_state.gd:988: {\"id\": \"type\", \"type\": t, \"n\": 5, \"text\": \"%sの玉を5こ\" % TYPE_LABEL[t]},"
+  ]
+ },
+ "4つの夜にすくう": {
+  "ctx": [
+   "game_state.gd:989: {\"id\": \"nights\", \"n\": 4, \"text\": \"4つの夜にすくう\"},"
+  ]
+ },
+ "祭りで10こすくう": {
+  "ctx": [
+   "game_state.gd:990: {\"id\": \"festival\", \"n\": 10, \"text\": \"祭りで10こすくう\"},"
+  ]
+ },
+ "新しいおばけに2体会う": {
+  "ctx": [
+   "game_state.gd:991: {\"id\": \"seen\", \"n\": 2, \"text\": \"新しいおばけに2体会う\"},"
+  ]
+ },
+ "今夜はもう寝よう。玉は逃げない": {
+  "ctx": [
+   "game_state.gd:1066: lines = [\"今夜はもう寝よう。玉は逃げない\", \"すくった玉、あったかい\", \"明日の朝が、ちょっとたのしみ\"]"
+  ]
+ },
+ "すくった玉、あったかい": {
+  "ctx": [
+   "game_state.gd:1066: lines = [\"今夜はもう寝よう。玉は逃げない\", \"すくった玉、あったかい\", \"明日の朝が、ちょっとたのしみ\"]"
+  ]
+ },
+ "明日の朝が、ちょっとたのしみ": {
+  "ctx": [
+   "game_state.gd:1066: lines = [\"今夜はもう寝よう。玉は逃げない\", \"すくった玉、あったかい\", \"明日の朝が、ちょっとたのしみ\"]"
+  ]
+ },
+ "今夜は祭り。はっぴを探している": {
+  "ctx": [
+   "game_state.gd:1068: lines = [\"今夜は祭り。はっぴを探している\", \"金の玉は、すこし重い\", \"太鼓の音で、泡が出た\"]"
+  ]
+ },
+ "金の玉は、すこし重い": {
+  "ctx": [
+   "game_state.gd:1068: lines = [\"今夜は祭り。はっぴを探している\", \"金の玉は、すこし重い\", \"太鼓の音で、泡が出た\"]"
+  ]
+ },
+ "太鼓の音で、泡が出た": {
+  "ctx": [
+   "game_state.gd:1068: lines = [\"今夜は祭り。はっぴを探している\", \"金の玉は、すこし重い\", \"太鼓の音で、泡が出た\"]"
+  ]
+ },
+ "ねむそうだね。ぼくもだけど": {
+  "ctx": [
+   "game_state.gd:1070: lines = [\"ねむそうだね。ぼくもだけど\", \"今日のポイは、すこし弱い。そっとね\", \"寝不足は、紙にでる\"]"
+  ]
+ },
+ "今日のポイは、すこし弱い。そっとね": {
+  "ctx": [
+   "game_state.gd:1070: lines = [\"ねむそうだね。ぼくもだけど\", \"今日のポイは、すこし弱い。そっとね\", \"寝不足は、紙にでる\"]"
+  ]
+ },
+ "寝不足は、紙にでる": {
+  "ctx": [
+   "game_state.gd:1070: lines = [\"ねむそうだね。ぼくもだけど\", \"今日のポイは、すこし弱い。そっとね\", \"寝不足は、紙にでる\"]"
+  ]
+ },
+ "雨の夜は、玉がふえる。ぬれるけど": {
+  "ctx": [
+   "game_state.gd:1072: lines = [\"雨の夜は、玉がふえる。ぬれるけど\", \"かさ、ないの\"]"
+  ]
+ },
+ "かさ、ないの": {
+  "ctx": [
+   "game_state.gd:1072: lines = [\"雨の夜は、玉がふえる。ぬれるけど\", \"かさ、ないの\"]"
+  ]
+ },
+ "雪の日の玉は、ゆっくりだよ": {
+  "ctx": [
+   "game_state.gd:1074: lines = [\"雪の日の玉は、ゆっくりだよ\", \"しっぽが冷たい\"]"
+  ]
+ },
+ "しっぽが冷たい": {
+  "ctx": [
+   "game_state.gd:1074: lines = [\"雪の日の玉は、ゆっくりだよ\", \"しっぽが冷たい\"]"
+  ]
+ },
+ "今夜は満月。虹が出る気がする": {
+  "ctx": [
+   "game_state.gd:1076: lines = [\"今夜は満月。虹が出る気がする\", \"月がまるい。ぼくもまるい\"]"
+  ]
+ },
+ "月がまるい。ぼくもまるい": {
+  "ctx": [
+   "game_state.gd:1076: lines = [\"今夜は満月。虹が出る気がする\", \"月がまるい。ぼくもまるい\"]"
+  ]
+ },
+ "今日は%sのシフトだって": {
+  "ctx": [
+   "game_state.gd:1078: lines = [\"今日は%sのシフトだって\" % ROLE_LABEL[s.role], \"働くと、色のポイがもらえる。2本まで\"]"
+  ]
+ },
+ "働くと、色のポイがもらえる。2本まで": {
+  "ctx": [
+   "game_state.gd:1078: lines = [\"今日は%sのシフトだって\" % ROLE_LABEL[s.role], \"働くと、色のポイがもらえる。2本まで\"]"
+  ]
+ },
+ "ここは休憩室。休むところ": {
+  "ctx": [
+   "game_state.gd:1080: lines = [\"ここは休憩室。休むところ\", \"きのうのコンボ、見てた\", \"今日も、そっといこう\", \"玉は、真ん中ですくうといい\", \"新しい子が、隅でじっとしている\"]"
+  ]
+ },
+ "きのうのコンボ、見てた": {
+  "ctx": [
+   "game_state.gd:1080: lines = [\"ここは休憩室。休むところ\", \"きのうのコンボ、見てた\", \"今日も、そっといこう\", \"玉は、真ん中ですくうといい\", \"新しい子が、隅でじっとしている\"]"
+  ]
+ },
+ "今日も、そっといこう": {
+  "ctx": [
+   "game_state.gd:1080: lines = [\"ここは休憩室。休むところ\", \"きのうのコンボ、見てた\", \"今日も、そっといこう\", \"玉は、真ん中ですくうといい\", \"新しい子が、隅でじっとしている\"]"
+  ]
+ },
+ "玉は、真ん中ですくうといい": {
+  "ctx": [
+   "game_state.gd:1080: lines = [\"ここは休憩室。休むところ\", \"きのうのコンボ、見てた\", \"今日も、そっといこう\", \"玉は、真ん中ですくうといい\", \"新しい子が、隅でじっとしている\"]"
+  ]
+ },
+ "新しい子が、隅でじっとしている": {
+  "ctx": [
+   "game_state.gd:1080: lines = [\"ここは休憩室。休むところ\", \"きのうのコンボ、見てた\", \"今日も、そっといこう\", \"玉は、真ん中ですくうといい\", \"新しい子が、隅でじっとしている\"]"
+  ]
+ },
+ "%sのかけら×%d": {
+  "ctx": [
+   "game_state.gd:1138: parts.append(\"%sのかけら×%d\" % [SHARD_LABEL[k], rw.shards[k]])"
+  ]
+ },
+ "セーブを書けなかった: %s": {
+  "ctx": [
+   "game_state.gd:1157: push_warning(\"セーブを書けなかった: %s\" % FileAccess.get_open_error())"
+  ]
+ },
+ "セーブの書き込みを確かめられなかった": {
+  "ctx": [
+   "game_state.gd:1162: push_warning(\"セーブの書き込みを確かめられなかった\")"
+  ]
+ },
+ "マイおばけ猫 診断": {
+  "ctx": [
+   "quiz_card.gd:38: var kicker := _label(\"マイおばけ猫 診断\", bold, 32, col.darkened(0.45))",
+   "screen_quiz.gd:269: v.add_child(_text(\"マイおばけ猫 診断\", 14, LILAC))"
+  ]
+ },
+ "向いてる仕事  ": {
+  "ctx": [
+   "quiz_card.gd:66: var job := _chip(\"向いてる仕事  \" + QuizData.JOBS[t.job].ja, bold, 30, Color.WHITE, col.darkened(0.35))"
+  ]
+ },
+ "わたしのマイおばけ猫は": {
+  "ctx": [
+   "quiz_card.gd:71: var pre := _label(\"わたしのマイおばけ猫は\", bold, 34, SUB)"
+  ]
+ },
+ "画像をダウンロードしました": {
+  "ctx": [
+   "quiz_card.gd:232: return \"画像をダウンロードしました\""
+  ]
+ },
+ "保存できませんでした（%s）": {
+  "ctx": [
+   "quiz_card.gd:236: return \"保存できませんでした（%s）\" % error_string(err)"
+  ]
+ },
+ "保存しました：": {
+  "ctx": [
+   "quiz_card.gd:237: return \"保存しました：\" + ProjectSettings.globalize_path(path)"
+  ]
+ },
+ "休みの日は？": {
+  "ctx": [
+   "quiz_data.gd:17: {\"axis\": 0, \"q\": \"休みの日は？\", \"a\": \"外へおでかけ\", \"b\": \"家でまったり\"},"
+  ]
+ },
+ "外へおでかけ": {
+  "ctx": [
+   "quiz_data.gd:17: {\"axis\": 0, \"q\": \"休みの日は？\", \"a\": \"外へおでかけ\", \"b\": \"家でまったり\"},"
+  ]
+ },
+ "家でまったり": {
+  "ctx": [
+   "quiz_data.gd:17: {\"axis\": 0, \"q\": \"休みの日は？\", \"a\": \"外へおでかけ\", \"b\": \"家でまったり\"},"
+  ]
+ },
+ "シフトの前に、まず": {
+  "ctx": [
+   "quiz_data.gd:18: {\"axis\": 1, \"q\": \"シフトの前に、まず\", \"a\": \"段取りを決める\", \"b\": \"現場で考える\"},"
+  ]
+ },
+ "段取りを決める": {
+  "ctx": [
+   "quiz_data.gd:18: {\"axis\": 1, \"q\": \"シフトの前に、まず\", \"a\": \"段取りを決める\", \"b\": \"現場で考える\"},"
+  ]
+ },
+ "現場で考える": {
+  "ctx": [
+   "quiz_data.gd:18: {\"axis\": 1, \"q\": \"シフトの前に、まず\", \"a\": \"段取りを決める\", \"b\": \"現場で考える\"},"
+  ]
+ },
+ "シフトで得意なのは？": {
+  "ctx": [
+   "quiz_data.gd:19: {\"axis\": 2, \"q\": \"シフトで得意なのは？\", \"a\": \"人と話す\", \"b\": \"黙々と作業\"},"
+  ]
+ },
+ "人と話す": {
+  "ctx": [
+   "quiz_data.gd:19: {\"axis\": 2, \"q\": \"シフトで得意なのは？\", \"a\": \"人と話す\", \"b\": \"黙々と作業\"},"
+  ]
+ },
+ "黙々と作業": {
+  "ctx": [
+   "quiz_data.gd:19: {\"axis\": 2, \"q\": \"シフトで得意なのは？\", \"a\": \"人と話す\", \"b\": \"黙々と作業\"},"
+  ]
+ },
+ "寝る前は？": {
+  "ctx": [
+   "quiz_data.gd:20: {\"axis\": 3, \"q\": \"寝る前は？\", \"a\": \"すぐ寝る\", \"b\": \"ついスマホ\"},"
+  ]
+ },
+ "すぐ寝る": {
+  "ctx": [
+   "quiz_data.gd:20: {\"axis\": 3, \"q\": \"寝る前は？\", \"a\": \"すぐ寝る\", \"b\": \"ついスマホ\"},"
+  ]
+ },
+ "ついスマホ": {
+  "ctx": [
+   "quiz_data.gd:20: {\"axis\": 3, \"q\": \"寝る前は？\", \"a\": \"すぐ寝る\", \"b\": \"ついスマホ\"},"
+  ]
+ },
+ "バイト終わりに誘われた": {
+  "ctx": [
+   "quiz_data.gd:21: {\"axis\": 0, \"q\": \"バイト終わりに誘われた\", \"a\": \"行く行く！\", \"b\": \"今日は帰る\"},"
+  ]
+ },
+ "行く行く！": {
+  "ctx": [
+   "quiz_data.gd:21: {\"axis\": 0, \"q\": \"バイト終わりに誘われた\", \"a\": \"行く行く！\", \"b\": \"今日は帰る\"},"
+  ]
+ },
+ "今日は帰る": {
+  "ctx": [
+   "quiz_data.gd:21: {\"axis\": 0, \"q\": \"バイト終わりに誘われた\", \"a\": \"行く行く！\", \"b\": \"今日は帰る\"},"
+  ]
+ },
+ "ピークが来た！": {
+  "ctx": [
+   "quiz_data.gd:22: {\"axis\": 1, \"q\": \"ピークが来た！\", \"a\": \"手順どおりに回す\", \"b\": \"ひらめきで乗りきる\"},"
+  ]
+ },
+ "手順どおりに回す": {
+  "ctx": [
+   "quiz_data.gd:22: {\"axis\": 1, \"q\": \"ピークが来た！\", \"a\": \"手順どおりに回す\", \"b\": \"ひらめきで乗りきる\"},"
+  ]
+ },
+ "ひらめきで乗りきる": {
+  "ctx": [
+   "quiz_data.gd:22: {\"axis\": 1, \"q\": \"ピークが来た！\", \"a\": \"手順どおりに回す\", \"b\": \"ひらめきで乗りきる\"},"
+  ]
+ },
+ "うれしいのは？": {
+  "ctx": [
+   "quiz_data.gd:23: {\"axis\": 2, \"q\": \"うれしいのは？\", \"a\": \"ありがとうの一言\", \"b\": \"きれいに並んだ棚\"},"
+  ]
+ },
+ "ありがとうの一言": {
+  "ctx": [
+   "quiz_data.gd:23: {\"axis\": 2, \"q\": \"うれしいのは？\", \"a\": \"ありがとうの一言\", \"b\": \"きれいに並んだ棚\"},"
+  ]
+ },
+ "きれいに並んだ棚": {
+  "ctx": [
+   "quiz_data.gd:23: {\"axis\": 2, \"q\": \"うれしいのは？\", \"a\": \"ありがとうの一言\", \"b\": \"きれいに並んだ棚\"},"
+  ]
+ },
+ "集合時間には": {
+  "ctx": [
+   "quiz_data.gd:24: {\"axis\": 3, \"q\": \"集合時間には\", \"a\": \"10分前に着く\", \"b\": \"ちょうどに着く\"},"
+  ]
+ },
+ "10分前に着く": {
+  "ctx": [
+   "quiz_data.gd:24: {\"axis\": 3, \"q\": \"集合時間には\", \"a\": \"10分前に着く\", \"b\": \"ちょうどに着く\"},"
+  ]
+ },
+ "ちょうどに着く": {
+  "ctx": [
+   "quiz_data.gd:24: {\"axis\": 3, \"q\": \"集合時間には\", \"a\": \"10分前に着く\", \"b\": \"ちょうどに着く\"},"
+  ]
+ },
+ "元気が出るのは？": {
+  "ctx": [
+   "quiz_data.gd:25: {\"axis\": 0, \"q\": \"元気が出るのは？\", \"a\": \"人と会った日\", \"b\": \"ひとりの時間\"},"
+  ]
+ },
+ "人と会った日": {
+  "ctx": [
+   "quiz_data.gd:25: {\"axis\": 0, \"q\": \"元気が出るのは？\", \"a\": \"人と会った日\", \"b\": \"ひとりの時間\"},"
+  ]
+ },
+ "ひとりの時間": {
+  "ctx": [
+   "quiz_data.gd:25: {\"axis\": 0, \"q\": \"元気が出るのは？\", \"a\": \"人と会った日\", \"b\": \"ひとりの時間\"},"
+  ]
+ },
+ "まかないを作るなら": {
+  "ctx": [
+   "quiz_data.gd:26: {\"axis\": 1, \"q\": \"まかないを作るなら\", \"a\": \"レシピどおり\", \"b\": \"冷蔵庫と相談\"},"
+  ]
+ },
+ "レシピどおり": {
+  "ctx": [
+   "quiz_data.gd:26: {\"axis\": 1, \"q\": \"まかないを作るなら\", \"a\": \"レシピどおり\", \"b\": \"冷蔵庫と相談\"},"
+  ]
+ },
+ "冷蔵庫と相談": {
+  "ctx": [
+   "quiz_data.gd:26: {\"axis\": 1, \"q\": \"まかないを作るなら\", \"a\": \"レシピどおり\", \"b\": \"冷蔵庫と相談\"},"
+  ]
+ },
+ "困ったときは": {
+  "ctx": [
+   "quiz_data.gd:27: {\"axis\": 2, \"q\": \"困ったときは\", \"a\": \"先輩に聞く\", \"b\": \"マニュアルを読む\"},"
+  ]
+ },
+ "先輩に聞く": {
+  "ctx": [
+   "quiz_data.gd:27: {\"axis\": 2, \"q\": \"困ったときは\", \"a\": \"先輩に聞く\", \"b\": \"マニュアルを読む\"},"
+  ]
+ },
+ "マニュアルを読む": {
+  "ctx": [
+   "quiz_data.gd:27: {\"axis\": 2, \"q\": \"困ったときは\", \"a\": \"先輩に聞く\", \"b\": \"マニュアルを読む\"},"
+  ]
+ },
+ "休憩15分の使い方": {
+  "ctx": [
+   "quiz_data.gd:28: {\"axis\": 3, \"q\": \"休憩15分の使い方\", \"a\": \"時計を見てきっちり\", \"b\": \"気づけばうとうと\"},"
+  ]
+ },
+ "時計を見てきっちり": {
+  "ctx": [
+   "quiz_data.gd:28: {\"axis\": 3, \"q\": \"休憩15分の使い方\", \"a\": \"時計を見てきっちり\", \"b\": \"気づけばうとうと\"},"
+  ]
+ },
+ "気づけばうとうと": {
+  "ctx": [
+   "quiz_data.gd:28: {\"axis\": 3, \"q\": \"休憩15分の使い方\", \"a\": \"時計を見てきっちり\", \"b\": \"気づけばうとうと\"},"
+  ]
+ },
+ "わたしのマイおばけ猫は「%s」！\\n%s\\n#PawTime #マイおばけ猫\\n%s": {
+  "ctx": [
+   "quiz_data.gd:188: return \"わたしのマイおばけ猫は「%s」！\\n%s\\n#PawTime #マイおばけ猫\\n%s\" % [t.name, t.line, SITE_URL]"
+  ]
+ },
+ "QuizResult: 保存できない %s (%s)": {
+  "ctx": [
+   "quiz_result.gd:19: push_warning(\"QuizResult: 保存できない %s (%s)\" % [path, error_string(FileAccess.get_open_error())])"
+  ]
+ },
+ "QuizResult: 読めない結果を無視した %s": {
+  "ctx": [
+   "quiz_result.gd:31: push_warning(\"QuizResult: 読めない結果を無視した %s\" % path)"
+  ]
+ },
+ "ネムリン": {
+  "ctx": [
+   "rares.gd:14: {\"id\": \"nemurin\", \"name\": \"ネムリン\", \"group\": \"睡眠\", \"hint\": \"よく眠った朝、枕元でまるくなっている\","
+  ]
+ },
+ "よく眠った朝、枕元でまるくなっている": {
+  "ctx": [
+   "rares.gd:14: {\"id\": \"nemurin\", \"name\": \"ネムリン\", \"group\": \"睡眠\", \"hint\": \"よく眠った朝、枕元でまるくなっている\","
+  ]
+ },
+ "7時間以上ねむった朝に生まれる。寝息がやさしい": {
+  "ctx": [
+   "rares.gd:15: \"desc\": \"7時間以上ねむった朝に生まれる。寝息がやさしい\", \"look\": {\"skin\": \"cloud\", \"prop\": \"nightcap\", \"fx\": \"motes\", \"c1\": \"c9bdf5\", \"c2\": \"5b6fc2\"}},"
+  ]
+ },
+ "ユメミ": {
+  "ctx": [
+   "rares.gd:16: {\"id\": \"yumemi\", \"name\": \"ユメミ\", \"group\": \"睡眠\", \"hint\": \"もっと長い夢の、その先にいる\","
+  ]
+ },
+ "もっと長い夢の、その先にいる": {
+  "ctx": [
+   "rares.gd:16: {\"id\": \"yumemi\", \"name\": \"ユメミ\", \"group\": \"睡眠\", \"hint\": \"もっと長い夢の、その先にいる\","
+  ]
+ },
+ "8時間以上ねむった朝に。見た夢の色をしている": {
+  "ctx": [
+   "rares.gd:17: \"desc\": \"8時間以上ねむった朝に。見た夢の色をしている\", \"look\": {\"skin\": \"aurora\", \"prop\": \"halo\", \"fx\": \"stars\", \"c1\": \"b9a7ff\", \"c2\": \"7fe3ff\"}},"
+  ]
+ },
+ "アサヤケ": {
+  "ctx": [
+   "rares.gd:18: {\"id\": \"asayake\", \"name\": \"アサヤケ\", \"group\": \"睡眠\", \"hint\": \"よく眠る夜が、三つ続くと\","
+  ]
+ },
+ "よく眠る夜が、三つ続くと": {
+  "ctx": [
+   "rares.gd:18: {\"id\": \"asayake\", \"name\": \"アサヤケ\", \"group\": \"睡眠\", \"hint\": \"よく眠る夜が、三つ続くと\","
+  ]
+ },
+ "3日続けて7時間以上ねむると生まれる。朝焼けの色": {
+  "ctx": [
+   "rares.gd:19: \"desc\": \"3日続けて7時間以上ねむると生まれる。朝焼けの色\", \"look\": {\"skin\": \"flame\", \"prop\": \"none\", \"fx\": \"motes\", \"c1\": \"ffb07a\", \"c2\": \"ff6f91\"}},"
+  ]
+ },
+ "ヨミセ": {
+  "ctx": [
+   "rares.gd:20: {\"id\": \"yomise\", \"name\": \"ヨミセ\", \"group\": \"睡眠\", \"hint\": \"夜ふかしの灯りに、寄ってくる\","
+  ]
+ },
+ "夜ふかしの灯りに、寄ってくる": {
+  "ctx": [
+   "rares.gd:20: {\"id\": \"yomise\", \"name\": \"ヨミセ\", \"group\": \"睡眠\", \"hint\": \"夜ふかしの灯りに、寄ってくる\","
+  ]
+ },
+ "5時間以下の睡眠の朝に。提灯をさげて夜を歩く": {
+  "ctx": [
+   "rares.gd:21: \"desc\": \"5時間以下の睡眠の朝に。提灯をさげて夜を歩く\", \"look\": {\"skin\": \"starry\", \"prop\": \"lantern\", \"fx\": \"fireflies\", \"c1\": \"2b3478\", \"c2\": \"ffb35c\"}},"
+  ]
+ },
+ "ヒルネン": {
+  "ctx": [
+   "rares.gd:22: {\"id\": \"hirunen\", \"name\": \"ヒルネン\", \"group\": \"睡眠\", \"hint\": \"休みの日に、たっぷり眠ると\","
+  ]
+ },
+ "休みの日に、たっぷり眠ると": {
+  "ctx": [
+   "rares.gd:22: {\"id\": \"hirunen\", \"name\": \"ヒルネン\", \"group\": \"睡眠\", \"hint\": \"休みの日に、たっぷり眠ると\","
+  ]
+ },
+ "休みの日に9時間ねむると生まれる。日だまりの匂い": {
+  "ctx": [
+   "rares.gd:23: \"desc\": \"休みの日に9時間ねむると生まれる。日だまりの匂い\", \"look\": {\"skin\": \"cloud\", \"prop\": \"leaf_hat\", \"fx\": \"motes\", \"c1\": \"ffe7a8\", \"c2\": \"8fd18a\"}},"
+  ]
+ },
+ "トトノウ": {
+  "ctx": [
+   "rares.gd:24: {\"id\": \"totonou\", \"name\": \"トトノウ\", \"group\": \"睡眠\", \"hint\": \"同じ時間に眠る夜が、続くと\","
+  ]
+ },
+ "同じ時間に眠る夜が、続くと": {
+  "ctx": [
+   "rares.gd:24: {\"id\": \"totonou\", \"name\": \"トトノウ\", \"group\": \"睡眠\", \"hint\": \"同じ時間に眠る夜が、続くと\","
+  ]
+ },
+ "3日続けて同じ時間ねむると生まれる。いつも落ち着いている": {
+  "ctx": [
+   "rares.gd:25: \"desc\": \"3日続けて同じ時間ねむると生まれる。いつも落ち着いている\", \"look\": {\"skin\": \"water\", \"prop\": \"bell\", \"fx\": \"bubbles\", \"c1\": \"8fe0d8\", \"c2\": \"3aa6a0\"}},"
+  ]
+ },
+ "キラリ": {
+  "ctx": [
+   "rares.gd:28: {\"id\": \"kirari\", \"name\": \"キラリ\", \"group\": \"はじめて\", \"hint\": \"はじめての場所で、光る\","
+  ]
+ },
+ "はじめての場所で、光る": {
+  "ctx": [
+   "rares.gd:28: {\"id\": \"kirari\", \"name\": \"キラリ\", \"group\": \"はじめて\", \"hint\": \"はじめての場所で、光る\","
+  ]
+ },
+ "はじめての店で働いた日に生まれる": {
+  "ctx": [
+   "rares.gd:29: \"desc\": \"はじめての店で働いた日に生まれる\", \"look\": {\"skin\": \"gold\", \"prop\": \"crown\", \"fx\": \"stars\", \"c1\": \"ffd23f\", \"c2\": \"fff2a8\"}},"
+  ]
+ },
+ "ハジメテ": {
+  "ctx": [
+   "rares.gd:30: {\"id\": \"hajimete\", \"name\": \"ハジメテ\", \"group\": \"はじめて\", \"hint\": \"はじめての仕事を覚えた夜\","
+  ]
+ },
+ "はじめての仕事を覚えた夜": {
+  "ctx": [
+   "rares.gd:30: {\"id\": \"hajimete\", \"name\": \"ハジメテ\", \"group\": \"はじめて\", \"hint\": \"はじめての仕事を覚えた夜\","
+  ]
+ },
+ "はじめての種類の仕事をした日に。まだ少しぎこちない": {
+  "ctx": [
+   "rares.gd:31: \"desc\": \"はじめての種類の仕事をした日に。まだ少しぎこちない\", \"look\": {\"skin\": \"pearl\", \"prop\": \"ribbon\", \"fx\": \"sparks\", \"c1\": \"ffe0ec\", \"c2\": \"ff8fb1\"}},"
+  ]
+ },
+ "ワタリドリ": {
+  "ctx": [
+   "rares.gd:32: {\"id\": \"wataridori\", \"name\": \"ワタリドリ\", \"group\": \"はじめて\", \"hint\": \"五つの仕事を、すべて知る者に\","
+  ]
+ },
+ "五つの仕事を、すべて知る者に": {
+  "ctx": [
+   "rares.gd:32: {\"id\": \"wataridori\", \"name\": \"ワタリドリ\", \"group\": \"はじめて\", \"hint\": \"五つの仕事を、すべて知る者に\","
+  ]
+ },
+ "5種類の仕事をぜんぶ経験すると生まれる。どこへでも行ける": {
+  "ctx": [
+   "rares.gd:33: \"desc\": \"5種類の仕事をぜんぶ経験すると生まれる。どこへでも行ける\", \"look\": {\"skin\": \"aurora\", \"prop\": \"scarf\", \"fx\": \"motes\", \"c1\": \"9fe0ff\", \"c2\": \"ffd36b\"}},"
+  ]
+ },
+ "ミツボシ": {
+  "ctx": [
+   "rares.gd:34: {\"id\": \"mitsuboshi\", \"name\": \"ミツボシ\", \"group\": \"はじめて\", \"hint\": \"三つの店を渡り歩いた週に\","
+  ]
+ },
+ "三つの店を渡り歩いた週に": {
+  "ctx": [
+   "rares.gd:34: {\"id\": \"mitsuboshi\", \"name\": \"ミツボシ\", \"group\": \"はじめて\", \"hint\": \"三つの店を渡り歩いた週に\","
+  ]
+ },
+ "1週間で3つの店で働くと生まれる": {
+  "ctx": [
+   "rares.gd:35: \"desc\": \"1週間で3つの店で働くと生まれる\", \"look\": {\"skin\": \"starry\", \"prop\": \"star_wand\", \"fx\": \"stars\", \"c1\": \"3a3f8f\", \"c2\": \"ffe27a\"}},"
+  ]
+ },
+ "ハツコエ": {
+  "ctx": [
+   "rares.gd:36: {\"id\": \"hatsukoe\", \"name\": \"ハツコエ\", \"group\": \"はじめて\", \"hint\": \"はじめて会う人と、同じ時間に\","
+  ]
+ },
+ "はじめて会う人と、同じ時間に": {
+  "ctx": [
+   "rares.gd:36: {\"id\": \"hatsukoe\", \"name\": \"ハツコエ\", \"group\": \"はじめて\", \"hint\": \"はじめて会う人と、同じ時間に\","
+  ]
+ },
+ "はじめての同僚とシフトに入った日に。あいさつが上手": {
+  "ctx": [
+   "rares.gd:37: \"desc\": \"はじめての同僚とシフトに入った日に。あいさつが上手\", \"look\": {\"skin\": \"pearl\", \"prop\": \"bell\", \"fx\": \"sparks\", \"c1\": \"fff4d6\", \"c2\": \"ffb35c\"}},"
+  ]
+ },
+ "ヨナキ": {
+  "ctx": [
+   "rares.gd:40: {\"id\": \"yonaki\", \"name\": \"ヨナキ\", \"group\": \"時間帯\", \"hint\": \"街が眠っているあいだに\","
+  ]
+ },
+ "街が眠っているあいだに": {
+  "ctx": [
+   "rares.gd:40: {\"id\": \"yonaki\", \"name\": \"ヨナキ\", \"group\": \"時間帯\", \"hint\": \"街が眠っているあいだに\","
+  ]
+ },
+ "深夜のシフトの日に生まれる。静かな場所が好き": {
+  "ctx": [
+   "rares.gd:41: \"desc\": \"深夜のシフトの日に生まれる。静かな場所が好き\", \"look\": {\"skin\": \"ink\", \"prop\": \"none\", \"fx\": \"fireflies\", \"c1\": \"23284f\", \"c2\": \"8fb4ff\"}},"
+  ]
+ },
+ "アサツユ": {
+  "ctx": [
+   "rares.gd:42: {\"id\": \"asatsuyu\", \"name\": \"アサツユ\", \"group\": \"時間帯\", \"hint\": \"朝の光に、三度会うと\","
+  ]
+ },
+ "朝の光に、三度会うと": {
+  "ctx": [
+   "rares.gd:42: {\"id\": \"asatsuyu\", \"name\": \"アサツユ\", \"group\": \"時間帯\", \"hint\": \"朝の光に、三度会うと\","
+  ]
+ },
+ "朝のシフトに3回入ると生まれる。露のしずくでできている": {
+  "ctx": [
+   "rares.gd:43: \"desc\": \"朝のシフトに3回入ると生まれる。露のしずくでできている\", \"look\": {\"skin\": \"water\", \"prop\": \"leaf_hat\", \"fx\": \"bubbles\", \"c1\": \"bdf0ff\", \"c2\": \"7fd18a\"}},"
+  ]
+ },
+ "ツキミ": {
+  "ctx": [
+   "rares.gd:44: {\"id\": \"tsukimi\", \"name\": \"ツキミ\", \"group\": \"時間帯\", \"hint\": \"まるい月の夜に、働いていた\","
+  ]
+ },
+ "まるい月の夜に、働いていた": {
+  "ctx": [
+   "rares.gd:44: {\"id\": \"tsukimi\", \"name\": \"ツキミ\", \"group\": \"時間帯\", \"hint\": \"まるい月の夜に、働いていた\","
+  ]
+ },
+ "満月の夜のシフトで生まれる。うさぎの耳のような裾": {
+  "ctx": [
+   "rares.gd:45: \"desc\": \"満月の夜のシフトで生まれる。うさぎの耳のような裾\", \"look\": {\"skin\": \"moon\", \"prop\": \"halo\", \"fx\": \"stars\", \"c1\": \"fff1c8\", \"c2\": \"c9b8ff\"}},"
+  ]
+ },
+ "タソガレ": {
+  "ctx": [
+   "rares.gd:46: {\"id\": \"tasogare\", \"name\": \"タソガレ\", \"group\": \"時間帯\", \"hint\": \"昼と夜、どちらも知っている\","
+  ]
+ },
+ "昼と夜、どちらも知っている": {
+  "ctx": [
+   "rares.gd:46: {\"id\": \"tasogare\", \"name\": \"タソガレ\", \"group\": \"時間帯\", \"hint\": \"昼と夜、どちらも知っている\","
+  ]
+ },
+ "同じ週に昼と夜のシフトに入ると生まれる": {
+  "ctx": [
+   "rares.gd:47: \"desc\": \"同じ週に昼と夜のシフトに入ると生まれる\", \"look\": {\"skin\": \"flame\", \"prop\": \"scarf\", \"fx\": \"motes\", \"c1\": \"ff9e6b\", \"c2\": \"5b4a9e\"}},"
+  ]
+ },
+ "マヨナカ": {
+  "ctx": [
+   "rares.gd:48: {\"id\": \"shinya\", \"name\": \"マヨナカ\", \"group\": \"時間帯\", \"hint\": \"真夜中の棚の前で\","
+  ]
+ },
+ "真夜中の棚の前で": {
+  "ctx": [
+   "rares.gd:48: {\"id\": \"shinya\", \"name\": \"マヨナカ\", \"group\": \"時間帯\", \"hint\": \"真夜中の棚の前で\","
+  ]
+ },
+ "深夜の品出しをした日に。箱の角が好き": {
+  "ctx": [
+   "rares.gd:49: \"desc\": \"深夜の品出しをした日に。箱の角が好き\", \"look\": {\"skin\": \"ink\", \"prop\": \"lantern\", \"fx\": \"sparks\", \"c1\": \"1f2440\", \"c2\": \"e8b878\"}},"
+  ]
+ },
+ "アマガサ": {
+  "ctx": [
+   "rares.gd:52: {\"id\": \"amagasa\", \"name\": \"アマガサ\", \"group\": \"天気\", \"hint\": \"雨の音が、好きらしい\","
+  ]
+ },
+ "雨の音が、好きらしい": {
+  "ctx": [
+   "rares.gd:52: {\"id\": \"amagasa\", \"name\": \"アマガサ\", \"group\": \"天気\", \"hint\": \"雨の音が、好きらしい\","
+  ]
+ },
+ "雨の日に働くか、雨の夜に3つすくうと生まれる。傘の下で歌う": {
+  "ctx": [
+   "rares.gd:53: \"desc\": \"雨の日に働くか、雨の夜に3つすくうと生まれる。傘の下で歌う\", \"look\": {\"skin\": \"water\", \"prop\": \"umbrella\", \"fx\": \"rain\", \"c1\": \"7fb8ff\", \"c2\": \"ff8fb1\"}},"
+  ]
+ },
+ "ユキミ": {
+  "ctx": [
+   "rares.gd:54: {\"id\": \"yukimi\", \"name\": \"ユキミ\", \"group\": \"天気\", \"hint\": \"白い日の、夜の水辺に\","
+  ]
+ },
+ "白い日の、夜の水辺に": {
+  "ctx": [
+   "rares.gd:54: {\"id\": \"yukimi\", \"name\": \"ユキミ\", \"group\": \"天気\", \"hint\": \"白い日の、夜の水辺に\","
+  ]
+ },
+ "雪の日に働くか、雪の夜に3つすくうと生まれる。ひんやりしている": {
+  "ctx": [
+   "rares.gd:55: \"desc\": \"雪の日に働くか、雪の夜に3つすくうと生まれる。ひんやりしている\", \"look\": {\"skin\": \"crystal\", \"prop\": \"snowflake\", \"fx\": \"snow\", \"c1\": \"e8f6ff\", \"c2\": \"9fd4ff\"}},"
+  ]
+ },
+ "カミナリ": {
+  "ctx": [
+   "rares.gd:56: {\"id\": \"kaminari\", \"name\": \"カミナリ\", \"group\": \"天気\", \"hint\": \"空が光った日に\","
+  ]
+ },
+ "空が光った日に": {
+  "ctx": [
+   "rares.gd:56: {\"id\": \"kaminari\", \"name\": \"カミナリ\", \"group\": \"天気\", \"hint\": \"空が光った日に\","
+  ]
+ },
+ "雷の日に働くか、雷の夜に3つすくうと生まれる。ちょっとせっかち": {
+  "ctx": [
+   "rares.gd:57: \"desc\": \"雷の日に働くか、雷の夜に3つすくうと生まれる。ちょっとせっかち\", \"look\": {\"skin\": \"gold\", \"prop\": \"bolt\", \"fx\": \"sparks\", \"c1\": \"ffe14d\", \"c2\": \"6b5bd6\"}},"
+  ]
+ },
+ "サクラ": {
+  "ctx": [
+   "rares.gd:58: {\"id\": \"sakura\", \"name\": \"サクラ\", \"group\": \"天気\", \"hint\": \"花が咲くころに\","
+  ]
+ },
+ "花が咲くころに": {
+  "ctx": [
+   "rares.gd:58: {\"id\": \"sakura\", \"name\": \"サクラ\", \"group\": \"天気\", \"hint\": \"花が咲くころに\","
+  ]
+ },
+ "春に働くか、春の夜に3つすくうと生まれる。花びらをまとう": {
+  "ctx": [
+   "rares.gd:59: \"desc\": \"春に働くか、春の夜に3つすくうと生まれる。花びらをまとう\", \"look\": {\"skin\": \"pearl\", \"prop\": \"sakura\", \"fx\": \"petals\", \"c1\": \"ffd1e0\", \"c2\": \"ff8fb1\"}},"
+  ]
+ },
+ "ナカヨシ": {
+  "ctx": [
+   "rares.gd:62: {\"id\": \"nakayoshi\", \"name\": \"ナカヨシ\", \"group\": \"つながり\", \"hint\": \"同じ人と、何度も並ぶと\","
+  ]
+ },
+ "同じ人と、何度も並ぶと": {
+  "ctx": [
+   "rares.gd:62: {\"id\": \"nakayoshi\", \"name\": \"ナカヨシ\", \"group\": \"つながり\", \"hint\": \"同じ人と、何度も並ぶと\","
+  ]
+ },
+ "同じ同僚と3回シフトに入ると生まれる": {
+  "ctx": [
+   "rares.gd:63: \"desc\": \"同じ同僚と3回シフトに入ると生まれる\", \"look\": {\"skin\": \"cloud\", \"prop\": \"ribbon\", \"fx\": \"petals\", \"c1\": \"ffc4d6\", \"c2\": \"ffe7a8\"}},"
+  ]
+ },
+ "オクリモノ": {
+  "ctx": [
+   "rares.gd:64: {\"id\": \"okurimono\", \"name\": \"オクリモノ\", \"group\": \"つながり\", \"hint\": \"誰かに、おばけを手渡した\","
+  ]
+ },
+ "誰かに、おばけを手渡した": {
+  "ctx": [
+   "rares.gd:64: {\"id\": \"okurimono\", \"name\": \"オクリモノ\", \"group\": \"つながり\", \"hint\": \"誰かに、おばけを手渡した\","
+  ]
+ },
+ "同僚におばけをおすそわけすると生まれる": {
+  "ctx": [
+   "rares.gd:65: \"desc\": \"同僚におばけをおすそわけすると生まれる\", \"look\": {\"skin\": \"paper\", \"prop\": \"ribbon\", \"fx\": \"sparks\", \"c1\": \"fff1dc\", \"c2\": \"e85a4f\"}},"
+  ]
+ },
+ "モラッタン": {
+  "ctx": [
+   "rares.gd:66: {\"id\": \"morattan\", \"name\": \"モラッタン\", \"group\": \"つながり\", \"hint\": \"誰かから、受け取った\","
+  ]
+ },
+ "誰かから、受け取った": {
+  "ctx": [
+   "rares.gd:66: {\"id\": \"morattan\", \"name\": \"モラッタン\", \"group\": \"つながり\", \"hint\": \"誰かから、受け取った\","
+  ]
+ },
+ "同僚からおばけを贈られると生まれる": {
+  "ctx": [
+   "rares.gd:67: \"desc\": \"同僚からおばけを贈られると生まれる\", \"look\": {\"skin\": \"paper\", \"prop\": \"bell\", \"fx\": \"petals\", \"c1\": \"fff1dc\", \"c2\": \"5fc4a8\"}},"
+  ]
+ },
+ "テヲツナグ": {
+  "ctx": [
+   "rares.gd:68: {\"id\": \"teamwork\", \"name\": \"テヲツナグ\", \"group\": \"つながり\", \"hint\": \"祭りの夜に、たくさんすくった\","
+  ]
+ },
+ "祭りの夜に、たくさんすくった": {
+  "ctx": [
+   "rares.gd:68: {\"id\": \"teamwork\", \"name\": \"テヲツナグ\", \"group\": \"つながり\", \"hint\": \"祭りの夜に、たくさんすくった\","
+  ]
+ },
+ "大すくい祭りで12こすくうと生まれる。みんなで手をつなぐ": {
+  "ctx": [
+   "rares.gd:69: \"desc\": \"大すくい祭りで12こすくうと生まれる。みんなで手をつなぐ\", \"look\": {\"skin\": \"flame\", \"prop\": \"halo\", \"fx\": \"sparks\", \"c1\": \"ff8a5b\", \"c2\": \"ffe27a\"}},"
+  ]
+ },
+ "センパイ": {
+  "ctx": [
+   "rares.gd:70: {\"id\": \"senpai\", \"name\": \"センパイ\", \"group\": \"つながり\", \"hint\": \"はじめての人の、となりにいた\","
+  ]
+ },
+ "はじめての人の、となりにいた": {
+  "ctx": [
+   "rares.gd:70: {\"id\": \"senpai\", \"name\": \"センパイ\", \"group\": \"つながり\", \"hint\": \"はじめての人の、となりにいた\","
+  ]
+ },
+ "はじめて入る人と同じシフトに入ると生まれる。頼られると伸びる": {
+  "ctx": [
+   "rares.gd:71: \"desc\": \"はじめて入る人と同じシフトに入ると生まれる。頼られると伸びる\", \"look\": {\"skin\": \"leaf\", \"prop\": \"book\", \"fx\": \"motes\", \"c1\": \"a8e07f\", \"c2\": \"4f8a5b\"}},"
+  ]
+ },
+ "ヤスミジョウズ": {
+  "ctx": [
+   "rares.gd:74: {\"id\": \"yasumijouzu\", \"name\": \"ヤスミジョウズ\", \"group\": \"リズム\", \"hint\": \"続けて働いたあと、ちゃんと休んだ\","
+  ]
+ },
+ "続けて働いたあと、ちゃんと休んだ": {
+  "ctx": [
+   "rares.gd:74: {\"id\": \"yasumijouzu\", \"name\": \"ヤスミジョウズ\", \"group\": \"リズム\", \"hint\": \"続けて働いたあと、ちゃんと休んだ\","
+  ]
+ },
+ "2日以上働いたあとに休むと生まれる。休み方の名人": {
+  "ctx": [
+   "rares.gd:75: \"desc\": \"2日以上働いたあとに休むと生まれる。休み方の名人\", \"look\": {\"skin\": \"cloud\", \"prop\": \"nightcap\", \"fx\": \"motes\", \"c1\": \"d8f0e0\", \"c2\": \"7fbf9a\"}},"
+  ]
+ },
+ "シュウマツ": {
+  "ctx": [
+   "rares.gd:76: {\"id\": \"shuumatsu\", \"name\": \"シュウマツ\", \"group\": \"リズム\", \"hint\": \"土と日、ふたつの休日に\","
+  ]
+ },
+ "土と日、ふたつの休日に": {
+  "ctx": [
+   "rares.gd:76: {\"id\": \"shuumatsu\", \"name\": \"シュウマツ\", \"group\": \"リズム\", \"hint\": \"土と日、ふたつの休日に\","
+  ]
+ },
+ "週末の両方でシフトに入ると生まれる": {
+  "ctx": [
+   "rares.gd:77: \"desc\": \"週末の両方でシフトに入ると生まれる\", \"look\": {\"skin\": \"aurora\", \"prop\": \"scarf\", \"fx\": \"petals\", \"c1\": \"ffb3c7\", \"c2\": \"9fe0ff\"}},"
+  ]
+ },
+ "ヒャッキ": {
+  "ctx": [
+   "rares.gd:78: {\"id\": \"hyakki\", \"name\": \"ヒャッキ\", \"group\": \"リズム\", \"hint\": \"ふつうのおばけを、みんな集めた\","
+  ]
+ },
+ "ふつうのおばけを、みんな集めた": {
+  "ctx": [
+   "rares.gd:78: {\"id\": \"hyakki\", \"name\": \"ヒャッキ\", \"group\": \"リズム\", \"hint\": \"ふつうのおばけを、みんな集めた\","
+  ]
+ },
+ "ふつうのおばけを全種類あつめると生まれる。百鬼夜行の先頭": {
+  "ctx": [
+   "rares.gd:79: \"desc\": \"ふつうのおばけを全種類あつめると生まれる。百鬼夜行の先頭\", \"look\": {\"skin\": \"ink\", \"prop\": \"crown\", \"fx\": \"fireflies\", \"c1\": \"2a2233\", \"c2\": \"ff6b5b\"}},"
+  ]
+ },
+ "カゾエウタ": {
+  "ctx": [
+   "rares.gd:80: {\"id\": \"kazoeuta\", \"name\": \"カゾエウタ\", \"group\": \"リズム\", \"hint\": \"図鑑が、十をこえたら\","
+  ]
+ },
+ "図鑑が、十をこえたら": {
+  "ctx": [
+   "rares.gd:80: {\"id\": \"kazoeuta\", \"name\": \"カゾエウタ\", \"group\": \"リズム\", \"hint\": \"図鑑が、十をこえたら\","
+  ]
+ },
+ "図鑑が10種類をこえると生まれる。数を歌う": {
+  "ctx": [
+   "rares.gd:81: \"desc\": \"図鑑が10種類をこえると生まれる。数を歌う\", \"look\": {\"skin\": \"crystal\", \"prop\": \"book\", \"fx\": \"stars\", \"c1\": \"d6f5ff\", \"c2\": \"b9a7ff\"}},"
+  ]
+ },
+ "マンゲツ": {
+  "ctx": [
+   "rares.gd:82: {\"id\": \"mangetsu\", \"name\": \"マンゲツ\", \"group\": \"リズム\", \"hint\": \"ひと月、眠りを大切にした\","
+  ]
+ },
+ "ひと月、眠りを大切にした": {
+  "ctx": [
+   "rares.gd:82: {\"id\": \"mangetsu\", \"name\": \"マンゲツ\", \"group\": \"リズム\", \"hint\": \"ひと月、眠りを大切にした\","
+  ]
+ },
+ "ひと月の平均睡眠が7時間をこえると生まれる": {
+  "ctx": [
+   "rares.gd:83: \"desc\": \"ひと月の平均睡眠が7時間をこえると生まれる\", \"look\": {\"skin\": \"moon\", \"prop\": \"crown\", \"fx\": \"stars\", \"c1\": \"fff1c8\", \"c2\": \"ffd23f\"}},"
+  ]
+ },
+ "朝のお迎え：玉 %dこ%s": {
+  "ctx": [
+   "screen_hatch.gd:35: header.text = \"朝のお迎え：玉 %dこ%s\" % [n, \"（虹色も！）\" if rare_tease else \"\"]"
+  ]
+ },
+ "（虹色も！）": {
+  "ctx": [
+   "screen_hatch.gd:35: header.text = \"朝のお迎え：玉 %dこ%s\" % [n, \"（虹色も！）\" if rare_tease else \"\"]"
+  ]
+ },
+ "朝のお迎え %d / %d": {
+  "ctx": [
+   "screen_hatch.gd:37: header.text = \"朝のお迎え %d / %d\" % [mini(index, n), n]"
+  ]
+ },
+ "よく寝た朝：玉が★ひとつ育ってかえる": {
+  "ctx": [
+   "screen_hatch.gd:74: msg = \"よく寝た朝：玉が★ひとつ育ってかえる\""
+  ]
+ },
+ "寝不足の朝：玉の育ちはふつう": {
+  "ctx": [
+   "screen_hatch.gd:76: msg = \"寝不足の朝：玉の育ちはふつう\""
+  ]
+ },
+ "玉をひらく": {
+  "ctx": [
+   "screen_hatch.gd:87: next_btn.text = \"玉をひらく\""
+  ]
+ },
+ "まとめて": {
+  "ctx": [
+   "screen_hatch.gd:90: skip_btn.text = \"まとめて\""
+  ]
+ },
+ "虹の玉から！ レア ・ %s": {
+  "ctx": [
+   "screen_hatch.gd:393: card_sub.text = (\"虹の玉から！ レア ・ %s\" if h.get(\"from_rainbow\", false) else \"レア ・ %s\") % sp.group"
+  ]
+ },
+ "レア ・ %s": {
+  "ctx": [
+   "screen_hatch.gd:393: card_sub.text = (\"虹の玉から！ レア ・ %s\" if h.get(\"from_rainbow\", false) else \"レア ・ %s\") % sp.group"
+  ]
+ },
+ "Lv%d ・ %s  %s": {
+  "ctx": [
+   "screen_hatch.gd:395: card_sub.text = \"Lv%d ・ %s  %s\" % [h.level, _type_label(sp.type), stars]"
+  ]
+ },
+ "Lv%d → Lv%d に育った！見た目も変わる": {
+  "ctx": [
+   "screen_hatch.gd:398: extra = \"Lv%d → Lv%d に育った！見た目も変わる\" % [h.before, h.level]"
+  ]
+ },
+ "%sのかけら +1（工房で使える）": {
+  "ctx": [
+   "screen_hatch.gd:400: extra = \"%sのかけら +1（工房で使える）\" % GameState.SHARD_LABEL[h.shard]"
+  ]
+ },
+ "金の玉：%sのかけら +2": {
+  "ctx": [
+   "screen_hatch.gd:402: extra += (\"\\n\" if extra != \"\" else \"\") + \"金の玉：%sのかけら +2\" % GameState.SHARD_LABEL[h.gold_shard]"
+  ]
+ },
+ "虹の玉：大きく育った": {
+  "ctx": [
+   "screen_hatch.gd:404: extra += (\"\\n\" if extra != \"\" else \"\") + \"虹の玉：大きく育った\""
+  ]
+ },
+ "レア！": {
+  "ctx": [
+   "screen_hatch.gd:412: _stamp(\"レア！\" if not h.get(\"from_rainbow\", false) else \"虹から、レア！\")"
+  ]
+ },
+ "虹から、レア！": {
+  "ctx": [
+   "screen_hatch.gd:412: _stamp(\"レア！\" if not h.get(\"from_rainbow\", false) else \"虹から、レア！\")"
+  ]
+ },
+ "つぎの玉": {
+  "ctx": [
+   "screen_hatch.gd:425: next_btn.text = \"つぎの玉\" if index < orbs.size() else \"今日をはじめる\""
+  ]
+ },
+ "今日をはじめる": {
+  "ctx": [
+   "screen_hatch.gd:425: next_btn.text = \"つぎの玉\" if index < orbs.size() else \"今日をはじめる\"",
+   "screen_hatch.gd:678: b.text = \"今日をはじめる\""
+  ]
+ },
+ "けさ かえったおばけ": {
+  "ctx": [
+   "screen_hatch.gd:638: v.add_child(_text(\"けさ かえったおばけ\", 20, Color(\"2a2233\"), font_black))"
+  ]
+ },
+ " レア!": {
+  "ctx": [
+   "screen_hatch.gd:662: tag = \" レア!\""
+  ]
+ },
+ "黄の玉から": {
+  "ctx": [
+   "screen_hatch.gd:692: return {\"register\": \"黄の玉から\", \"dish\": \"青の玉から\", \"hall\": \"紫の玉から\", \"kitchen\": \"橙の玉から\", \"stock\": \"茶の玉から\"}.get(t, \"\")"
+  ]
+ },
+ "青の玉から": {
+  "ctx": [
+   "screen_hatch.gd:692: return {\"register\": \"黄の玉から\", \"dish\": \"青の玉から\", \"hall\": \"紫の玉から\", \"kitchen\": \"橙の玉から\", \"stock\": \"茶の玉から\"}.get(t, \"\")"
+  ]
+ },
+ "紫の玉から": {
+  "ctx": [
+   "screen_hatch.gd:692: return {\"register\": \"黄の玉から\", \"dish\": \"青の玉から\", \"hall\": \"紫の玉から\", \"kitchen\": \"橙の玉から\", \"stock\": \"茶の玉から\"}.get(t, \"\")"
+  ]
+ },
+ "橙の玉から": {
+  "ctx": [
+   "screen_hatch.gd:692: return {\"register\": \"黄の玉から\", \"dish\": \"青の玉から\", \"hall\": \"紫の玉から\", \"kitchen\": \"橙の玉から\", \"stock\": \"茶の玉から\"}.get(t, \"\")"
+  ]
+ },
+ "茶の玉から": {
+  "ctx": [
+   "screen_hatch.gd:692: return {\"register\": \"黄の玉から\", \"dish\": \"青の玉から\", \"hall\": \"紫の玉から\", \"kitchen\": \"橙の玉から\", \"stock\": \"茶の玉から\"}.get(t, \"\")"
+  ]
+ },
+ "あなたのおばけ猫を\\nさがそう": {
+  "ctx": [
+   "screen_quiz.gd:270: v.add_child(_text(\"あなたのおばけ猫を\\nさがそう\", 26, Color(\"fff6e8\"), font_black))"
+  ]
+ },
+ "12の質問で、相棒の猫おばけが決まる。\\nバイトと休みの、ゆるい質問だよ。": {
+  "ctx": [
+   "screen_quiz.gd:271: var sub := _text(\"12の質問で、相棒の猫おばけが決まる。\\nバイトと休みの、ゆるい質問だよ。\", 14, LILAC)"
+  ]
+ },
+ "はじめる": {
+  "ctx": [
+   "screen_quiz.gd:273: var start := _button(\"はじめる\", Color(\"ff8a5b\"), _start)",
+   "screen_title.gd:41: v.add_child(_button(\"はじめる\", Color(\"ff8a5b\"), _continue))"
+  ]
+ },
+ "1分くらい ・ 答えはあとで変えられる": {
+  "ctx": [
+   "screen_quiz.gd:277: var note := _text(\"1分くらい ・ 答えはあとで変えられる\", 12, Color(0.81, 0.76, 0.93, 0.7))"
+  ]
+ },
+ "ひとつ戻る": {
+  "ctx": [
+   "screen_quiz.gd:362: back_btn = _link(\"ひとつ戻る\", Color(0.81, 0.76, 0.93, 0.85), _back)"
+  ]
+ },
+ "あなたのマイおばけ猫は": {
+  "ctx": [
+   "screen_quiz.gd:479: r_kicker = _text(\"あなたのマイおばけ猫は\", 14, SUB)"
+  ]
+ },
+ "この子と はじめる": {
+  "ctx": [
+   "screen_quiz.gd:522: r_buttons.add_child(_button(\"この子と はじめる\", Color(\"ff8a5b\"), _begin))"
+  ]
+ },
+ "結果をシェア": {
+  "ctx": [
+   "screen_quiz.gd:523: r_buttons.add_child(_link(\"結果をシェア\", Color(\"8a5bd6\"), open_share))",
+   "screen_quiz.gd:694: v.add_child(_text(\"結果をシェア\", 17, INK, font_black))"
+  ]
+ },
+ "向いてる仕事：%s": {
+  "ctx": [
+   "screen_quiz.gd:650: r_job.text = \"向いてる仕事：%s\" % QuizData.JOBS[t.job].ja"
+  ]
+ },
+ "相性のいいタイプ：%s": {
+  "ctx": [
+   "screen_quiz.gd:651: r_match.text = \"相性のいいタイプ：%s\" % QuizData.TYPES[t.match].name"
+  ]
+ },
+ "画像を保存": {
+  "ctx": [
+   "screen_quiz.gd:701: v.add_child(_button(\"画像を保存\", Color(\"ff8a5b\"), _save_card))"
+  ]
+ },
+ "シェア文をコピー": {
+  "ctx": [
+   "screen_quiz.gd:702: var copy := _button(\"シェア文をコピー\", Color(\"fffaf2\"), _copy_text, INK, 44)"
+  ]
+ },
+ "カードを作っています…": {
+  "ctx": [
+   "screen_quiz.gd:704: share_status = _text(\"カードを作っています…\", 12, SUB)"
+  ]
+ },
+ "とじる": {
+  "ctx": [
+   "screen_quiz.gd:708: v.add_child(_link(\"とじる\", SUB, close_share))"
+  ]
+ },
+ "画像を保存して、SNSに貼ってね": {
+  "ctx": [
+   "screen_quiz.gd:712: share_status.text = \"画像を保存して、SNSに貼ってね\""
+  ]
+ },
+ "シェア文をコピーしました": {
+  "ctx": [
+   "screen_quiz.gd:723: share_status.text = \"シェア文をコピーしました\""
+  ]
+ },
+ "（相棒）": {
+  "ctx": [
+   "screen_room.gd:360: line = \"マイおばけ猫\" + (\"（相棒）\" if GameState.partner == \"my\" else \"\")",
+   "screen_room.gd:364: line += \"（相棒）\""
+  ]
+ },
+ "  レア・": {
+  "ctx": [
+   "screen_room.gd:366: line += \"  レア・\" + String(info.get(\"group\", \"\"))"
+  ]
+ },
+ "第%d週 %s曜日": {
+  "ctx": [
+   "screen_room.gd:432: dp.add_child(_text(\"第%d週 %s曜日\" % [GameState.week_no(), s.day], 16, Color(\"2a2233\"), font_black))"
+  ]
+ },
+ "？": {
+  "ctx": [
+   "screen_room.gd:437: var hb := _button(\"？\", Color(1, 1, 1, 0.92), _show_boost_help, Color(\"5b6fc2\"))",
+   "screen_scoop.gd:745: help.text = \"？\""
+  ]
+ },
+ "工房": {
+  "ctx": [
+   "screen_room.gd:441: var ws := _button(\"工房\", Color(1, 1, 1, 0.92), func(): main.go(\"workshop\"), Color(\"d9774a\"))",
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "工房で": {
+  "ctx": [
+   "screen_room.gd:445: if GameState.next_unlock_text().begins_with(\"工房で\"):"
+  ]
+ },
+ "図鑑": {
+  "ctx": [
+   "screen_room.gd:449: var zk := _button(\"図鑑\", Color(1, 1, 1, 0.92), func(): main.go(\"zukan\"), Color(\"8a5bd6\"))",
+   "screen_zukan.gd:34: head.add_child(_text(\"図鑑\", 26, Color(\"2a2233\"), font_black))"
+  ]
+ },
+ "おねがい：%dつ受け取れる": {
+  "ctx": [
+   "screen_room.gd:520: quest_btn.text = (\"おねがい：%dつ受け取れる\" % ready) if ready > 0 else (\"今週のおねがい %d/3\" % done)"
+  ]
+ },
+ "今週のおねがい %d/3": {
+  "ctx": [
+   "screen_room.gd:520: quest_btn.text = (\"おねがい：%dつ受け取れる\" % ready) if ready > 0 else (\"今週のおねがい %d/3\" % done)"
+  ]
+ },
+ "ポイ": {
+  "ctx": [
+   "screen_room.gd:525: poi_row.add_child(_text(\"ポイ\", 12, Color(\"8a7a88\")))"
+  ]
+ },
+ "色": {
+  "ctx": [
+   "screen_room.gd:527: var groups := [[\"紙\", [\"paper\"], Color(\"f4efe6\")], [\"色\", [\"receipt\", \"bubble\", \"tray\", \"pan\", \"box\"], Color(\"5fc4ff\")], [\"特別\", [\"kira\", \"lure"
+  ]
+ },
+ "特別": {
+  "ctx": [
+   "screen_room.gd:527: var groups := [[\"紙\", [\"paper\"], Color(\"f4efe6\")], [\"色\", [\"receipt\", \"bubble\", \"tray\", \"pan\", \"box\"], Color(\"5fc4ff\")], [\"特別\", [\"kira\", \"lure"
+  ]
+ },
+ "なし": {
+  "ctx": [
+   "screen_room.gd:537: poi_row.add_child(_text(\"なし\", 12, Color(\"8a7a88\")))"
+  ]
+ },
+ "強さ×%.2f": {
+  "ctx": [
+   "screen_room.gd:539: poi_row.add_child(_text(\"強さ×%.2f\" % GameState.strength, 12, Color(\"8b7bff\")))"
+  ]
+ },
+ "今夜は %dこ すくった": {
+  "ctx": [
+   "screen_room.gd:547: card_title.text = \"今夜は %dこ すくった\" % GameState.tonight.get(\"count\", 0)"
+  ]
+ },
+ "寝ると、玉が朝にかえる": {
+  "ctx": [
+   "screen_room.gd:548: card_body.text = \"寝ると、玉が朝にかえる\""
+  ]
+ },
+ "寝る": {
+  "ctx": [
+   "screen_room.gd:549: actions.add_child(_button(\"寝る\", Color(\"8b7bff\"), func(): main.go(\"sleep\")))",
+   "screen_scoop.gd:2149: b.text = \"寝る\""
+  ]
+ },
+ "夜の川べりへ": {
+  "ctx": [
+   "screen_room.gd:552: var night_label := \"夜の川べりへ\" if not fest else \"大すくい祭りへ\"",
+   "screen_room.gd:556: card_title.text = \"夜の川べりへ\""
+  ]
+ },
+ "大すくい祭りへ": {
+  "ctx": [
+   "screen_room.gd:552: var night_label := \"夜の川べりへ\" if not fest else \"大すくい祭りへ\""
+  ]
+ },
+ "光る玉を、ポイですくおう": {
+  "ctx": [
+   "screen_room.gd:557: card_body.text = \"光る玉を、ポイですくおう\""
+  ]
+ },
+ "すくいに行く": {
+  "ctx": [
+   "screen_room.gd:558: actions.add_child(_button(\"すくいに行く\", night_col, func(): main.go(\"catch\")))"
+  ]
+ },
+ "今日は%sのシフト": {
+  "ctx": [
+   "screen_room.gd:560: card_title.text = \"今日は%sのシフト\" % GameState.ROLE_LABEL[s.role]"
+  ]
+ },
+ "働くと 色のポイ+%d%s": {
+  "ctx": [
+   "screen_room.gd:562: card_body.text = \"働くと 色のポイ+%d%s\" % [GameState.work_poi_count(s.hours), \"・きらきら+1\" if first else \"\"]"
+  ]
+ },
+ "・きらきら+1": {
+  "ctx": [
+   "screen_room.gd:562: card_body.text = \"働くと 色のポイ+%d%s\" % [GameState.work_poi_count(s.hours), \"・きらきら+1\" if first else \"\"]"
+  ]
+ },
+ "シフトに行く": {
+  "ctx": [
+   "screen_room.gd:563: actions.add_child(_button(\"シフトに行く\", Color(\"ff8a5b\"), _do_shift))"
+  ]
+ },
+ "働かずに川へ": {
+  "ctx": [
+   "screen_room.gd:564: var skip := _button(\"働かずに川へ\", Color(1, 1, 1, 1), func(): main.go(\"catch\"), night_col)"
+  ]
+ },
+ "おつかれさま": {
+  "ctx": [
+   "screen_room.gd:570: card_title.text = \"おつかれさま\""
+  ]
+ },
+ "色のポイは、同じ色の玉を寄せる": {
+  "ctx": [
+   "screen_room.gd:571: card_body.text = _got_text if _got_text != \"\" else \"色のポイは、同じ色の玉を寄せる\""
+  ]
+ },
+ "今日はお休み": {
+  "ctx": [
+   "screen_room.gd:573: card_title.text = \"今日はお休み\""
+  ]
+ },
+ "紙のポイで、川へ行ける": {
+  "ctx": [
+   "screen_room.gd:574: card_body.text = \"紙のポイで、川へ行ける\""
+  ]
+ },
+ "今夜は大すくい祭り": {
+  "ctx": [
+   "screen_room.gd:576: card_body.text = \"今夜は大すくい祭り\""
+  ]
+ },
+ "もらった：": {
+  "ctx": [
+   "screen_room.gd:600: _got_text = \"もらった：\" + \"・\".join(parts)"
+  ]
+ },
+ "けさのこと": {
+  "ctx": [
+   "screen_room.gd:656: v.add_child(_text(\"けさのこと\", 14, Color(\"ffe27a\"), font_black))"
+  ]
+ },
+ "タップで閉じる": {
+  "ctx": [
+   "screen_room.gd:662: v.add_child(_text(\"タップで閉じる\", 11, Color(1, 1, 1, 0.45)))",
+   "screen_room.gd:714: v.add_child(_text(\"タップで閉じる\", 11, Color(\"9a8e98\")))"
+  ]
+ },
+ "ポイのもらい方": {
+  "ctx": [
+   "screen_room.gd:704: v.add_child(_text(\"ポイのもらい方\", 19, Color(\"2a2233\"), font_black))"
+  ]
+ },
+ "毎朝": {
+  "ctx": [
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "紙のポイ 2本（働かない日も）": {
+  "ctx": [
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "働いた日": {
+  "ctx": [
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも": {
+  "ctx": [
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "よく寝た朝": {
+  "ctx": [
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）": {
+  "ctx": [
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "かぶったおばけのかけらで、ポイを作る・改良する": {
+  "ctx": [
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "レア": {
+  "ctx": [
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "いろんな働き方・休み方・眠り方、そして虹の玉で出会える": {
+  "ctx": [
+   "screen_room.gd:705: for pair in [[\"毎朝\", \"紙のポイ 2本（働かない日も）\"], [\"働いた日\", \"色のポイ 2本（何時間でも同じ）。はじめての店・仕事なら、きらきらポイも\"], [\"よく寝た朝\", \"ポイが ×1.2 強くなり、玉が★ひとつ育ってかえる（寝すぎは得しない）\"],"
+  ]
+ },
+ "第%d週のおねがい": {
+  "ctx": [
+   "screen_room.gd:740: v.add_child(_text(\"第%d週のおねがい\" % GameState.week_no(), 19, Color(\"2a2233\"), font_black))"
+  ]
+ },
+ "ひとつにつき 虹のかけら・きらきらポイ。3つそろうと、おまけ": {
+  "ctx": [
+   "screen_room.gd:741: var sub := _text(\"ひとつにつき 虹のかけら・きらきらポイ。3つそろうと、おまけ\", 12, Color(\"8a7a88\"))"
+  ]
+ },
+ "受け取りずみ": {
+  "ctx": [
+   "screen_room.gd:771: row.add_child(_text(\"受け取りずみ\", 12, Color(\"b07a3a\")))"
+  ]
+ },
+ "受け取る": {
+  "ctx": [
+   "screen_room.gd:773: var b := _button(\"受け取る\", Color(\"ff8a5b\"), func():",
+   "screen_zukan.gd:377: b.text = \"受け取る\""
+  ]
+ },
+ "青は群れ。まとめてすくえる": {
+  "ctx": [
+   "screen_scoop.gd:91: \"school\": \"青は群れ。まとめてすくえる\","
+  ]
+ },
+ "紫は人見知り。そっと近づく": {
+  "ctx": [
+   "screen_scoop.gd:92: \"shy\": \"紫は人見知り。そっと近づく\","
+  ]
+ },
+ "橙は跳ねる。着水を待とう": {
+  "ctx": [
+   "screen_scoop.gd:93: \"jumper\": \"橙は跳ねる。着水を待とう\","
+  ]
+ },
+ "茶は重い。真ん中ですくう": {
+  "ctx": [
+   "screen_scoop.gd:94: \"heavy\": \"茶は重い。真ん中ですくう\","
+  ]
+ },
+ "虹の玉は、すぐ沈む": {
+  "ctx": [
+   "screen_scoop.gd:95: \"rainbow\": \"虹の玉は、すぐ沈む\","
+  ]
+ },
+ "金の玉は、祭りの玉": {
+  "ctx": [
+   "screen_scoop.gd:96: \"gold\": \"金の玉は、祭りの玉\","
+  ]
+ },
+ "祭りのふるまい：紙のポイ+%d": {
+  "ctx": [
+   "screen_scoop.gd:167: _toast(\"祭りのふるまい：紙のポイ+%d\" % gift)"
+  ]
+ },
+ "泡が…？": {
+  "ctx": [
+   "screen_scoop.gd:672: _banner_small(\"泡が…？\", Color(\"dff4ff\"))"
+  ]
+ },
+ "虹の玉！": {
+  "ctx": [
+   "screen_scoop.gd:683: _banner(\"虹の玉！\", Color(\"fff2a8\"))",
+   "screen_scoop.gd:1369: title = \"虹の玉！\""
+  ]
+ },
+ "きらきらポイなら逃げない": {
+  "ctx": [
+   "screen_scoop.gd:685: _toast(\"きらきらポイなら逃げない\")"
+  ]
+ },
+ "帰る": {
+  "ctx": [
+   "screen_scoop.gd:736: home.text = \"帰る\""
+  ]
+ },
+ "働いた日：色のポイ+%d": {
+  "ctx": [
+   "screen_scoop.gd:810: boost = \"働いた日：色のポイ+%d\" % GameState.WORK_POI_CAP"
+  ]
+ },
+ "よく寝た：ポイ×%.2f": {
+  "ctx": [
+   "screen_scoop.gd:812: boost = \"よく寝た：ポイ×%.2f\" % GameState.strength"
+  ]
+ },
+ "寝不足：ポイ×%.2f": {
+  "ctx": [
+   "screen_scoop.gd:814: boost = \"寝不足：ポイ×%.2f\" % GameState.strength"
+  ]
+ },
+ "ポイの丈夫さ": {
+  "ctx": [
+   "screen_scoop.gd:843: var dl := _text(\"ポイの丈夫さ\", 11, Color(1, 1, 1, 0.7))"
+  ]
+ },
+ "すくった %d": {
+  "ctx": [
+   "screen_scoop.gd:973: count_label.text = \"すくった %d\" % count"
+  ]
+ },
+ "コンボ（5で虹）": {
+  "ctx": [
+   "screen_scoop.gd:978: combo_sub.text = \"コンボ（5で虹）\" if combo < 5 and not rainbow_done_combo else \"コンボ\""
+  ]
+ },
+ "コンボ": {
+  "ctx": [
+   "screen_scoop.gd:978: combo_sub.text = \"コンボ（5で虹）\" if combo < 5 and not rainbow_done_combo else \"コンボ\""
+  ]
+ },
+ "\\n手に": {
+  "ctx": [
+   "screen_scoop.gd:1020: var hand := \"\\n手に\" if (in_hand and pid == selected) else (\"\\n使いかけ\" if parked.has(pid) else \"\")"
+  ]
+ },
+ "\\n使いかけ": {
+  "ctx": [
+   "screen_scoop.gd:1020: var hand := \"\\n手に\" if (in_hand and pid == selected) else (\"\\n使いかけ\" if parked.has(pid) else \"\")"
+  ]
+ },
+ "紙\\n練習": {
+  "ctx": [
+   "screen_scoop.gd:1021: b.text = \"%s\\n×%d%s\" % [GameState.POI[pid].short, n, hand] if not practice else \"紙\\n練習\""
+  ]
+ },
+ "練習（持ち帰れない）": {
+  "ctx": [
+   "screen_scoop.gd:1043: goal_label.text = \"練習（持ち帰れない）\""
+  ]
+ },
+ "おだい：%s  %d/%d%s": {
+  "ctx": [
+   "screen_scoop.gd:1047: goal_label.text = \"おだい：%s  %d/%d%s\" % [goal.text, p, goal.n, \"  達成！\" if goal_done else \"\"]"
+  ]
+ },
+ "  達成！": {
+  "ctx": [
+   "screen_scoop.gd:1047: goal_label.text = \"おだい：%s  %d/%d%s\" % [goal.text, p, goal.n, \"  達成！\" if goal_done else \"\"]"
+  ]
+ },
+ "おだい：%s  達成！": {
+  "ctx": [
+   "screen_scoop.gd:1051: goal_label.text = \"おだい：%s  達成！\" % goal.text"
+  ]
+ },
+ "おだい達成！ ": {
+  "ctx": [
+   "screen_scoop.gd:1053: _float_text(\"おだい達成！ \" + GameState.reward_text(goal.reward), Vector2(180, 400), Color(\"ffe27a\"), 16)"
+  ]
+ },
+ "使いかけは脇に置いた": {
+  "ctx": [
+   "screen_scoop.gd:1084: _toast(\"使いかけは脇に置いた\")"
+  ]
+ },
+ "ポイがない": {
+  "ctx": [
+   "screen_scoop.gd:1181: _banner(\"ポイがない\", Color(\"ffb3a8\"))"
+  ]
+ },
+ "ポイを使い切った": {
+  "ctx": [
+   "screen_scoop.gd:1182: _end_night(\"ポイを使い切った\")",
+   "screen_scoop.gd:1426: _end_night(\"ポイを使い切った\")"
+  ]
+ },
+ "はやすぎ": {
+  "ctx": [
+   "screen_scoop.gd:1216: _toast(\"はやすぎ\")"
+  ]
+ },
+ "からぶり": {
+  "ctx": [
+   "screen_scoop.gd:1274: _toast(\"からぶり\")"
+  ]
+ },
+ "コンボ★": {
+  "ctx": [
+   "screen_scoop.gd:1347: tags.append(\"コンボ★\")"
+  ]
+ },
+ "そっと": {
+  "ctx": [
+   "screen_scoop.gd:1349: tags.append(\"そっと\")"
+  ]
+ },
+ "ど真ん中": {
+  "ctx": [
+   "screen_scoop.gd:1351: tags.append(\"ど真ん中\")"
+  ]
+ },
+ "%dつまとめて！": {
+  "ctx": [
+   "screen_scoop.gd:1354: tags.push_front(\"%dつまとめて！\" % n)"
+  ]
+ },
+ "すくった！": {
+  "ctx": [
+   "screen_scoop.gd:1367: var title := \"すくった！\""
+  ]
+ },
+ "金の玉！": {
+  "ctx": [
+   "screen_scoop.gd:1371: title = \"金の玉！\""
+  ]
+ },
+ "%dコンボ！": {
+  "ctx": [
+   "screen_scoop.gd:1375: var head := title if special else \"%dコンボ！\" % combo"
+  ]
+ },
+ "最高コンボ更新！": {
+  "ctx": [
+   "screen_scoop.gd:1385: _float_text(\"最高コンボ更新！\", Vector2(180, 215), Color(\"ffd23f\"), 20)"
+  ]
+ },
+ "ぎりぎりセーフ！でも紙が…": {
+  "ctx": [
+   "screen_scoop.gd:1403: _toast(\"ぎりぎりセーフ！でも紙が…\")"
+  ]
+ },
+ "できた！そっと動かすと長持ち": {
+  "ctx": [
+   "screen_scoop.gd:1440: hint.text = \"できた！そっと動かすと長持ち\""
+  ]
+ },
+ "5コンボ！虹の気配": {
+  "ctx": [
+   "screen_scoop.gd:1446: _float_text(\"5コンボ！虹の気配\", Vector2(180, 230), Color(\"fff2a8\"))"
+  ]
+ },
+ "名人！": {
+  "ctx": [
+   "screen_scoop.gd:1450: _float_text(\"名人！\", Vector2(180, 245), Color(\"ffd23f\"))"
+  ]
+ },
+ "祭り達成！": {
+  "ctx": [
+   "screen_scoop.gd:1453: _banner(\"祭り達成！\", Color(\"ffb35c\"))"
+  ]
+ },
+ "特賞！": {
+  "ctx": [
+   "screen_scoop.gd:1456: _banner(\"特賞！\", Color(\"ffd23f\"))"
+  ]
+ },
+ "今夜の玉は、ぜんぶすくった": {
+  "ctx": [
+   "screen_scoop.gd:1460: _end_night(\"今夜の玉は、ぜんぶすくった\" if pond_cleared else \"今夜の玉は、もうおしまい\")"
+  ]
+ },
+ "今夜の玉は、もうおしまい": {
+  "ctx": [
+   "screen_scoop.gd:1460: _end_night(\"今夜の玉は、ぜんぶすくった\" if pond_cleared else \"今夜の玉は、もうおしまい\")",
+   "screen_scoop.gd:2305: _end_night(\"今夜の玉は、もうおしまい\")"
+  ]
+ },
+ "池をすくいきった！": {
+  "ctx": [
+   "screen_scoop.gd:1474: _banner(\"池をすくいきった！\", Color(\"b8ffcf\"))",
+   "screen_scoop.gd:2134: extra.append(\"池をすくいきった！\")"
+  ]
+ },
+ "%s あと%d本": {
+  "ctx": [
+   "screen_scoop.gd:1509: var left_txt := \"%s あと%d本\" % [GameState.POI[selected].name, left_n] if selected != \"\" and GameState.POI.has(selected) and not practice else "
+  ]
+ },
+ "やぶれた…": {
+  "ctx": [
+   "screen_scoop.gd:1510: _banner(\"やぶれた…\" if lost < 3 else \"やぶれた…\\n%dコンボ\" % combo, Color(\"ffb3a8\"))"
+  ]
+ },
+ "やぶれた…\\n%dコンボ": {
+  "ctx": [
+   "screen_scoop.gd:1510: _banner(\"やぶれた…\" if lost < 3 else \"やぶれた…\\n%dコンボ\" % combo, Color(\"ffb3a8\"))"
+  ]
+ },
+ "あたらしいポイ": {
+  "ctx": [
+   "screen_scoop.gd:1534: hint.text = \"あたらしいポイ\""
+  ]
+ },
+ "ぎりぎり！すくうと破れる": {
+  "ctx": [
+   "screen_scoop.gd:1614: hint.text = \"ぎりぎり！すくうと破れる\""
+  ]
+ },
+ "重すぎる！やぶれそう": {
+  "ctx": [
+   "screen_scoop.gd:1616: hint.text = \"重すぎる！やぶれそう\""
+  ]
+ },
+ "いま離せば、すくえる": {
+  "ctx": [
+   "screen_scoop.gd:1618: hint.text = \"いま離せば、すくえる\" if over_list.size() == 1 else \"%dつ重なっている！\" % over_list.size()"
+  ]
+ },
+ "%dつ重なっている！": {
+  "ctx": [
+   "screen_scoop.gd:1618: hint.text = \"いま離せば、すくえる\" if over_list.size() == 1 else \"%dつ重なっている！\" % over_list.size()"
+  ]
+ },
+ "虹の玉が沈んだ…": {
+  "ctx": [
+   "screen_scoop.gd:1727: _toast(\"虹の玉が沈んだ…\")"
+  ]
+ },
+ "ピカッ！玉が散った": {
+  "ctx": [
+   "screen_scoop.gd:1778: _toast(\"ピカッ！玉が散った\")"
+  ]
+ },
+ "練習": {
+  "ctx": [
+   "screen_scoop.gd:1883: var t := \"練習\" if practice else (\"大すくい祭り\" if mods.festival else \"%s曜の夜\" % s.day)"
+  ]
+ },
+ "大すくい祭り": {
+  "ctx": [
+   "screen_scoop.gd:1883: var t := \"練習\" if practice else (\"大すくい祭り\" if mods.festival else \"%s曜の夜\" % s.day)",
+   "screen_sleep.gd:166: var fc := \"明日：%s%s\" % [\"大すくい祭り\" if fest else tm.weather, (\"・%sのシフト\" % GameState.ROLE_LABEL[tm.role]) if tm.role != \"\" else \"・お休み\"]"
+  ]
+ },
+ "%s曜の夜": {
+  "ctx": [
+   "screen_scoop.gd:1883: var t := \"練習\" if practice else (\"大すくい祭り\" if mods.festival else \"%s曜の夜\" % s.day)"
+  ]
+ },
+ "・紙のポイ+%d": {
+  "ctx": [
+   "screen_scoop.gd:1892: var sub := _text(\"%s%s%s\" % [s.weather, (\"・\" + s.moon) if s.moon != \"\" else \"\", (\"・紙のポイ+%d\" % night_gift) if night_gift > 0 else \"\"], 16, Co"
+  ]
+ },
+ "帰り道": {
+  "ctx": [
+   "screen_scoop.gd:1914: _end_night(\"帰り道\")",
+   "screen_scoop.gd:1941: for pair in [[\"帰って寝る\", Color(\"8b7bff\"), Color.WHITE, func(): layer.queue_free(); _end_night(\"帰り道\")], [\"もう少しすくう\", Color(1, 1, 1), Color(\"5b6f"
+  ]
+ },
+ "今夜はここまでにする？": {
+  "ctx": [
+   "screen_scoop.gd:1938: v.add_child(_text(\"今夜はここまでにする？\", 19, Color(\"2a2233\"), font_black))"
+  ]
+ },
+ "残りのポイ %d 本は、明日も使える": {
+  "ctx": [
+   "screen_scoop.gd:1939: var sub := _text(\"残りのポイ %d 本は、明日も使える\" % left, 14, Color(\"6a5f70\"))"
+  ]
+ },
+ "帰って寝る": {
+  "ctx": [
+   "screen_scoop.gd:1941: for pair in [[\"帰って寝る\", Color(\"8b7bff\"), Color.WHITE, func(): layer.queue_free(); _end_night(\"帰り道\")], [\"もう少しすくう\", Color(1, 1, 1), Color(\"5b6f"
+  ]
+ },
+ "もう少しすくう": {
+  "ctx": [
+   "screen_scoop.gd:1941: for pair in [[\"帰って寝る\", Color(\"8b7bff\"), Color.WHITE, func(): layer.queue_free(); _end_night(\"帰り道\")], [\"もう少しすくう\", Color(1, 1, 1), Color(\"5b6f"
+  ]
+ },
+ "すくいのコツ": {
+  "ctx": [
+   "screen_scoop.gd:1982: v.add_child(_text(\"すくいのコツ\", 20, Color(\"2a2233\"), font_black))"
+  ]
+ },
+ "押すと水に入る。離すとすくう": {
+  "ctx": [
+   "screen_scoop.gd:1983: for t in [\"押すと水に入る。離すとすくう\", \"そっと動かすほど、ポイは長持ち\", \"玉の真上ではなく、少し手前から入れる\", \"内側の輪が金色のとき離すと★\", \"ゲージの黄色は乗った玉の重さ。赤は危ない\", \"同じ色のポイは、その色の玉を寄せて軽くする\", \"破らず"
+  ]
+ },
+ "そっと動かすほど、ポイは長持ち": {
+  "ctx": [
+   "screen_scoop.gd:1983: for t in [\"押すと水に入る。離すとすくう\", \"そっと動かすほど、ポイは長持ち\", \"玉の真上ではなく、少し手前から入れる\", \"内側の輪が金色のとき離すと★\", \"ゲージの黄色は乗った玉の重さ。赤は危ない\", \"同じ色のポイは、その色の玉を寄せて軽くする\", \"破らず"
+  ]
+ },
+ "玉の真上ではなく、少し手前から入れる": {
+  "ctx": [
+   "screen_scoop.gd:1983: for t in [\"押すと水に入る。離すとすくう\", \"そっと動かすほど、ポイは長持ち\", \"玉の真上ではなく、少し手前から入れる\", \"内側の輪が金色のとき離すと★\", \"ゲージの黄色は乗った玉の重さ。赤は危ない\", \"同じ色のポイは、その色の玉を寄せて軽くする\", \"破らず"
+  ]
+ },
+ "内側の輪が金色のとき離すと★": {
+  "ctx": [
+   "screen_scoop.gd:1983: for t in [\"押すと水に入る。離すとすくう\", \"そっと動かすほど、ポイは長持ち\", \"玉の真上ではなく、少し手前から入れる\", \"内側の輪が金色のとき離すと★\", \"ゲージの黄色は乗った玉の重さ。赤は危ない\", \"同じ色のポイは、その色の玉を寄せて軽くする\", \"破らず"
+  ]
+ },
+ "ゲージの黄色は乗った玉の重さ。赤は危ない": {
+  "ctx": [
+   "screen_scoop.gd:1983: for t in [\"押すと水に入る。離すとすくう\", \"そっと動かすほど、ポイは長持ち\", \"玉の真上ではなく、少し手前から入れる\", \"内側の輪が金色のとき離すと★\", \"ゲージの黄色は乗った玉の重さ。赤は危ない\", \"同じ色のポイは、その色の玉を寄せて軽くする\", \"破らず"
+  ]
+ },
+ "同じ色のポイは、その色の玉を寄せて軽くする": {
+  "ctx": [
+   "screen_scoop.gd:1983: for t in [\"押すと水に入る。離すとすくう\", \"そっと動かすほど、ポイは長持ち\", \"玉の真上ではなく、少し手前から入れる\", \"内側の輪が金色のとき離すと★\", \"ゲージの黄色は乗った玉の重さ。赤は危ない\", \"同じ色のポイは、その色の玉を寄せて軽くする\", \"破らず"
+  ]
+ },
+ "破らずに続けるとコンボ。5コンボで虹の玉、そこからの玉は★がひとつ多い": {
+  "ctx": [
+   "screen_scoop.gd:1983: for t in [\"押すと水に入る。離すとすくう\", \"そっと動かすほど、ポイは長持ち\", \"玉の真上ではなく、少し手前から入れる\", \"内側の輪が金色のとき離すと★\", \"ゲージの黄色は乗った玉の重さ。赤は危ない\", \"同じ色のポイは、その色の玉を寄せて軽くする\", \"破らず"
+  ]
+ },
+ "玉の手前を、押したまま": {
+  "ctx": [
+   "screen_scoop.gd:2007: tut_label.text = [\"玉の手前を、押したまま\", \"そっと玉の下へ\", \"いま離す！\"][clampi(tut_step, 0, 2)]"
+  ]
+ },
+ "そっと玉の下へ": {
+  "ctx": [
+   "screen_scoop.gd:2007: tut_label.text = [\"玉の手前を、押したまま\", \"そっと玉の下へ\", \"いま離す！\"][clampi(tut_step, 0, 2)]"
+  ]
+ },
+ "いま離す！": {
+  "ctx": [
+   "screen_scoop.gd:2007: tut_label.text = [\"玉の手前を、押したまま\", \"そっと玉の下へ\", \"いま離す！\"][clampi(tut_step, 0, 2)]"
+  ]
+ },
+ "練習おしまい": {
+  "ctx": [
+   "screen_scoop.gd:2067: _show_result(\"練習おしまい\", false)"
+  ]
+ },
+ "今夜のすくい": {
+  "ctx": [
+   "screen_scoop.gd:2099: v.add_child(_text(\"今夜のすくい\", 22, Color(\"2a2233\"), font_black))"
+  ]
+ },
+ "%d こ": {
+  "ctx": [
+   "screen_scoop.gd:2100: var big := _text(\"%d こ\" % count, 44, Color(\"5b6fc2\"), font_black)"
+  ]
+ },
+ "練習の最高コンボ %d": {
+  "ctx": [
+   "screen_scoop.gd:2121: lines.append(\"練習の最高コンボ %d\" % GameState.records.get(\"practice_best\", 0))"
+  ]
+ },
+ "朝、おばけにかえる": {
+  "ctx": [
+   "screen_scoop.gd:2123: lines.append(\"朝、おばけにかえる\")"
+  ]
+ },
+ "朝、%d体がかえる": {
+  "ctx": [
+   "screen_scoop.gd:2127: lines.append(\"朝、%d体がかえる\" % n_hatch)"
+  ]
+ },
+ "称号「%s」！": {
+  "ctx": [
+   "screen_scoop.gd:2130: extra.append(\"称号「%s」！\" % GameState.title_name())"
+  ]
+ },
+ "祭りの%s！": {
+  "ctx": [
+   "screen_scoop.gd:2132: extra.append(\"祭りの%s！\" % [\"特賞\" if count >= 20 else \"景品\"])"
+  ]
+ },
+ "特賞": {
+  "ctx": [
+   "screen_scoop.gd:2132: extra.append(\"祭りの%s！\" % [\"特賞\" if count >= 20 else \"景品\"])"
+  ]
+ },
+ "景品": {
+  "ctx": [
+   "screen_scoop.gd:2132: extra.append(\"祭りの%s！\" % [\"特賞\" if count >= 20 else \"景品\"])"
+  ]
+ },
+ "おだい達成！": {
+  "ctx": [
+   "screen_scoop.gd:2136: extra.append(\"おだい達成！\")"
+  ]
+ },
+ "最高コンボ %d 新記録！": {
+  "ctx": [
+   "screen_scoop.gd:2138: extra.append(\"最高コンボ %d 新記録！\" % best_combo)"
+  ]
+ },
+ "虹の玉 %d": {
+  "ctx": [
+   "screen_scoop.gd:2140: extra.append(\"虹の玉 %d\" % rainbow_count)"
+  ]
+ },
+ "練習ですくう": {
+  "ctx": [
+   "screen_scoop.gd:2162: pr.text = \"練習ですくう\""
+  ]
+ },
+ "虹の玉": {
+  "ctx": [
+   "screen_scoop.gd:2183: if c is Label and c.text.begins_with(\"虹の玉\"):",
+   "screen_zukan.gd:299: for pair in [[\"すくった玉\", r.total], [\"最高コンボ\", r.best_combo], [\"虹の玉\", r.rainbow], [\"夜\", r.nights]]:"
+  ]
+ },
+ "？×%d": {
+  "ctx": [
+   "screen_scoop.gd:2226: parts.append(\"？×%d\" % mystery)"
+  ]
+ },
+ "朝かえる：": {
+  "ctx": [
+   "screen_scoop.gd:2227: var t := \"朝かえる：\" + \"・\".join(parts)"
+  ]
+ },
+ "（青の群れは2つでひとり）": {
+  "ctx": [
+   "screen_scoop.gd:2229: t += \"（青の群れは2つでひとり）\""
+  ]
+ },
+ "\\n%sがLv%dになりそう": {
+  "ctx": [
+   "screen_scoop.gd:2235: t += \"\\n%sがLv%dになりそう\" % [GameState.info(sid).name, own.level + 1]"
+  ]
+ },
+ "今夜は見るだけ。明日はきっと": {
+  "ctx": [
+   "screen_scoop.gd:2255: return \"今夜は見るだけ。明日はきっと\""
+  ]
+ },
+ "すくい名人の手つき": {
+  "ctx": [
+   "screen_scoop.gd:2257: return \"すくい名人の手つき\""
+  ]
+ },
+ "水面が、あなたを覚えはじめた": {
+  "ctx": [
+   "screen_scoop.gd:2259: return \"水面が、あなたを覚えはじめた\""
+  ]
+ },
+ "いい夜だった": {
+  "ctx": [
+   "screen_scoop.gd:2261: return \"いい夜だった\""
+  ]
+ },
+ "はじめの一歩": {
+  "ctx": [
+   "screen_scoop.gd:2262: return \"はじめの一歩\""
+  ]
+ },
+ "おやすみの前に": {
+  "ctx": [
+   "screen_sleep.gd:48: var title := _text(\"おやすみの前に\", 24, Color(\"f3eeff\"), font_black)"
+  ]
+ },
+ "選ぶと、すぐ朝になる": {
+  "ctx": [
+   "screen_sleep.gd:52: var note := _text(\"選ぶと、すぐ朝になる\", 12, Color(1, 1, 1, 0.55))"
+  ]
+ },
+ "＋": {
+  "ctx": [
+   "screen_sleep.gd:67: row.add_child(_round(\"＋\", func(): _set_hours(hours + 1)))"
+  ]
+ },
+ "眠って朝へ": {
+  "ctx": [
+   "screen_sleep.gd:79: go.text = \"眠って朝へ\""
+  ]
+ },
+ "%d時間": {
+  "ctx": [
+   "screen_sleep.gd:147: big.text = \"%d時間\" % hours"
+  ]
+ },
+ "玉が★ひとつ育ってかえる": {
+  "ctx": [
+   "screen_sleep.gd:157: lines.append([\"玉が★ひとつ育ってかえる\", Color(\"b8ffcf\")])"
+  ]
+ },
+ "寝不足：ポイが弱くなる": {
+  "ctx": [
+   "screen_sleep.gd:159: lines.append([\"寝不足：ポイが弱くなる\", Color(\"ffb3a8\")])"
+  ]
+ },
+ "玉は、ふつうにかえる": {
+  "ctx": [
+   "screen_sleep.gd:161: lines.append([\"玉は、ふつうにかえる\", Color(\"e8e2ff\")])"
+  ]
+ },
+ "明日のポイ ×%.2f": {
+  "ctx": [
+   "screen_sleep.gd:162: lines.append([\"明日のポイ ×%.2f\" % strength, Color(\"ffe27a\") if strength > 1.0 else Color(\"e8e2ff\")])"
+  ]
+ },
+ "明日：%s%s": {
+  "ctx": [
+   "screen_sleep.gd:166: var fc := \"明日：%s%s\" % [\"大すくい祭り\" if fest else tm.weather, (\"・%sのシフト\" % GameState.ROLE_LABEL[tm.role]) if tm.role != \"\" else \"・お休み\"]"
+  ]
+ },
+ "・%sのシフト": {
+  "ctx": [
+   "screen_sleep.gd:166: var fc := \"明日：%s%s\" % [\"大すくい祭り\" if fest else tm.weather, (\"・%sのシフト\" % GameState.ROLE_LABEL[tm.role]) if tm.role != \"\" else \"・お休み\"]"
+  ]
+ },
+ "・お休み": {
+  "ctx": [
+   "screen_sleep.gd:166: var fc := \"明日：%s%s\" % [\"大すくい祭り\" if fest else tm.weather, (\"・%sのシフト\" % GameState.ROLE_LABEL[tm.role]) if tm.role != \"\" else \"・お休み\"]"
+  ]
+ },
+ "猫おばけを、すくってあつめる": {
+  "ctx": [
+   "screen_title.gd:24: var sub := _text(\"猫おばけを、すくってあつめる\", 16, Color(\"ffe7a8\"))"
+  ]
+ },
+ "図鑑 %d/%d ・ %s": {
+  "ctx": [
+   "screen_title.gd:36: var info := _text(\"図鑑 %d/%d ・ %s\" % [GameState.seen.size(), GameState.ALL.size(), GameState.title_name()], 13, Color(1, 1, 1, 0.75))"
+  ]
+ },
+ "つづきから（第%d週 %s曜）": {
+  "ctx": [
+   "screen_title.gd:38: v.add_child(_button(\"つづきから（第%d週 %s曜）\" % [GameState.week_no(), GameState.dow()], Color(\"ff8a5b\"), _continue))"
+  ]
+ },
+ "はじめから": {
+  "ctx": [
+   "screen_title.gd:39: v.add_child(_button(\"はじめから\", Color(1, 1, 1, 0.9), _ask_reset, Color(\"5b6fc2\")))"
+  ]
+ },
+ "音：%s": {
+  "ctx": [
+   "screen_title.gd:44: mute.text = \"音：%s\" % (\"OFF\" if AudioServer.is_bus_mute(0) else \"ON\")",
+   "screen_title.gd:57: mute.text = \"音：%s\" % (\"OFF\" if AudioServer.is_bus_mute(0) else \"ON\"))"
+  ]
+ },
+ "デモ（3週間後から）": {
+  "ctx": [
+   "screen_title.gd:59: var demo := _button(\"デモ（3週間後から）\", Color(1, 1, 1, 0.1), _demo, Color(1, 1, 1, 0.6))"
+  ]
+ },
+ "図鑑もポイも、最初からになる": {
+  "ctx": [
+   "screen_title.gd:227: v.add_child(_text(\"図鑑もポイも、最初からになる\", 15, Color(\"2a2233\")))"
+  ]
+ },
+ "はじめからにする": {
+  "ctx": [
+   "screen_title.gd:228: v.add_child(_button(\"はじめからにする\", Color(\"e85a4f\"), func():"
+  ]
+ },
+ "やめる": {
+  "ctx": [
+   "screen_title.gd:231: v.add_child(_button(\"やめる\", Color(1, 1, 1), func():"
+  ]
+ },
+ "ポイ工房": {
+  "ctx": [
+   "screen_workshop.gd:31: head.add_child(_text(\"ポイ工房\", 26, Color(\"2a2233\"), font_black))"
+  ]
+ },
+ "もどる": {
+  "ctx": [
+   "screen_workshop.gd:35: var back := _button(\"もどる\", Color.WHITE, func(): main.go(\"room\"), Color(\"2a2233\"))",
+   "screen_zukan.gd:40: back.text = \"もどる\""
+  ]
+ },
+ "かけら（かぶったおばけから出る）": {
+  "ctx": [
+   "screen_workshop.gd:69: col.add_child(_section(\"かけら（かぶったおばけから出る）\"))"
+  ]
+ },
+ "ポイの改良（ずっと効く）": {
+  "ctx": [
+   "screen_workshop.gd:77: col.add_child(_section(\"ポイの改良（ずっと効く）\"))"
+  ]
+ },
+ "特別なポイ（1本ずつ使い切り）": {
+  "ctx": [
+   "screen_workshop.gd:83: col.add_child(_section(\"特別なポイ（1本ずつ使い切り）\"))"
+  ]
+ },
+ "色のポイ（その色の玉を寄せて、軽くすくえる）": {
+  "ctx": [
+   "screen_workshop.gd:88: col.add_child(_section(\"色のポイ（その色の玉を寄せて、軽くすくえる）\"))"
+  ]
+ },
+ "休憩室のかざり（見た目だけ）": {
+  "ctx": [
+   "screen_workshop.gd:94: col.add_child(_section(\"休憩室のかざり（見た目だけ）\"))"
+  ]
+ },
+ "相棒（池のほとりで手伝う）": {
+  "ctx": [
+   "screen_workshop.gd:101: col.add_child(_section(\"相棒（池のほとりで手伝う）\"))"
+  ]
+ },
+ "おすそわけ（%sさんへ）": {
+  "ctx": [
+   "screen_workshop.gd:106: col.add_child(_section(\"おすそわけ（%sさんへ）\" % GameState.gift_target()))"
+  ]
+ },
+ "%s を1体": {
+  "ctx": [
+   "screen_workshop.gd:111: var b := _button(\"%s を1体\" % GameState.info(id).name, Color(\"5fc4a8\"), _gift.bind(id))"
+  ]
+ },
+ "あと": {
+  "ctx": [
+   "screen_workshop.gd:224: h.add_child(_text(\"あと\", 12, Color(\"e85a4f\")))"
+  ]
+ },
+ "  改良 %d/3": {
+  "ctx": [
+   "screen_workshop.gd:249: t.add_child(_text(\"  改良 %d/3\" % lv, 13, Color(\"ff8a5b\")))"
+  ]
+ },
+ "作る": {
+  "ctx": [
+   "screen_workshop.gd:257: var b := _button(\"作る\", Color(\"ff8a5b\"), _do_upgrade.bind(key))",
+   "screen_workshop.gd:294: var b := _button(\"作る\", Color(\"5b6fc2\"), _do_craft.bind(pid))"
+  ]
+ },
+ "これ以上は改良できない": {
+  "ctx": [
+   "screen_workshop.gd:262: v.add_child(_text(\"これ以上は改良できない\", 12, Color(\"8a7a88\")))"
+  ]
+ },
+ "紙のポイの束（3本）": {
+  "ctx": [
+   "screen_workshop.gd:287: var title: String = (\"紙のポイの束（3本）\" if pid == \"paper\" else info.name)"
+  ]
+ },
+ "余ったかけらで、今夜すくう数をふやす": {
+  "ctx": [
+   "screen_workshop.gd:289: var d := _text(\"余ったかけらで、今夜すくう数をふやす\" if pid == \"paper\" else info.desc.replace(\"工房製。\", \"\"), 12, Color(\"6a5f70\"))"
+  ]
+ },
+ "工房製。": {
+  "ctx": [
+   "screen_workshop.gd:289: var d := _text(\"余ったかけらで、今夜すくう数をふやす\" if pid == \"paper\" else info.desc.replace(\"工房製。\", \"\"), 12, Color(\"6a5f70\"))"
+  ]
+ },
+ "休憩室にかざってある": {
+  "ctx": [
+   "screen_workshop.gd:313: v.add_child(_text(\"休憩室にかざってある\", 12, Color(\"b07a3a\")))"
+  ]
+ },
+ "かざる": {
+  "ctx": [
+   "screen_workshop.gd:319: var b := _button(\"かざる\", Color(\"5fb07a\"), _do_decor.bind(key))"
+  ]
+ },
+ "%sを休憩室にかざった": {
+  "ctx": [
+   "screen_workshop.gd:329: _toast(\"%sを休憩室にかざった\" % GameState.DECOR[key].name)"
+  ]
+ },
+ "（Lvで強くなる）": {
+  "ctx": [
+   "screen_workshop.gd:379: var sk := _text(GameState.PARTNER_SKILL[GameState.partner_skill()] + \"（Lvで強くなる）\", 13, Color(\"6a5f70\"))"
+  ]
+ },
+ "次のLvまで %d": {
+  "ctx": [
+   "screen_workshop.gd:384: tv.add_child(_text(\"次のLvまで %d\" % (GameState.xp_to_next(pl) - o.xp), 12, Color(\"8b7bff\")))"
+  ]
+ },
+ "マイ猫": {
+  "ctx": [
+   "screen_workshop.gd:395: var mb := _button(\"マイ猫\", Color(\"8b7bff\") if sel else Color(\"efe7f7\"), _set_partner.bind(id), Color.WHITE if sel else Color(\"5b4a9e\"))"
+  ]
+ },
+ "%s：Lv%d になった": {
+  "ctx": [
+   "screen_workshop.gd:424: _toast(\"%s：Lv%d になった\" % [GameState.UPGRADES[key].name, GameState.upgrades[key]])"
+  ]
+ },
+ "%sができた": {
+  "ctx": [
+   "screen_workshop.gd:431: _toast(\"%sができた\" % GameState.POI[pid].name)"
+  ]
+ },
+ "ふつうのおばけ": {
+  "ctx": [
+   "screen_zukan.gd:65: col.add_child(_group_head(\"ふつう\", \"ふつうのおばけ\"))"
+  ]
+ },
+ "レア ・ ": {
+  "ctx": [
+   "screen_zukan.gd:68: col.add_child(_group_head(g, \"レア ・ \" + g))",
+   "screen_zukan.gd:575: var g := _text(\"レア ・ \" + r.group, 13, Color(r.look.c2).darkened(0.2))"
+  ]
+ },
+ "診断をやりなおす": {
+  "ctx": [
+   "screen_zukan.gd:83: redo.text = \"診断をやりなおす\""
+  ]
+ },
+ "？？？": {
+  "ctx": [
+   "screen_zukan.gd:187: var l := _text((\"%s\\nLv%d\" % [GameState.info(id).name, GameState.level_of(id)]) if GameState.seen.has(id) else \"？？？\", 11, Color(\"6a5f70\"))",
+   "screen_zukan.gd:520: var name_l := _text(r.name if found else \"？？？\", 13, Color(\"2a2233\") if found else Color(\"9a8e98\"), font_black)"
+  ]
+ },
+ "名前をタップで くわしく": {
+  "ctx": [
+   "screen_zukan.gd:197: var tip := _text(\"名前をタップで くわしく\", 11, Color(\"9a8e98\"))"
+  ]
+ },
+ "次のLvまで あと %d（ていねいな玉ほど育つ）": {
+  "ctx": [
+   "screen_zukan.gd:269: lines.append(\"次のLvまで あと %d（ていねいな玉ほど育つ）\" % (GameState.xp_to_next(own.level) - own.xp))"
+  ]
+ },
+ "Lv5（王冠）。かぶると、かけらになる": {
+  "ctx": [
+   "screen_zukan.gd:271: lines.append(\"Lv5（王冠）。かぶると、かけらになる\")"
+  ]
+ },
+ "これまでに %d 体": {
+  "ctx": [
+   "screen_zukan.gd:272: lines.append(\"これまでに %d 体\" % own.count)"
+  ]
+ },
+ "相棒にすると：": {
+  "ctx": [
+   "screen_zukan.gd:275: lines.append(\"相棒にすると：\" + GameState.PARTNER_SKILL[id])"
+  ]
+ },
+ "すくった玉": {
+  "ctx": [
+   "screen_zukan.gd:299: for pair in [[\"すくった玉\", r.total], [\"最高コンボ\", r.best_combo], [\"虹の玉\", r.rainbow], [\"夜\", r.nights]]:"
+  ]
+ },
+ "最高コンボ": {
+  "ctx": [
+   "screen_zukan.gd:299: for pair in [[\"すくった玉\", r.total], [\"最高コンボ\", r.best_combo], [\"虹の玉\", r.rainbow], [\"夜\", r.nights]]:"
+  ]
+ },
+ "称号：": {
+  "ctx": [
+   "screen_zukan.gd:311: var tl := _text(\"称号：\" + GameState.title_name(), 15, Color(\"e8603c\"), font_black)"
+  ]
+ },
+ "「%s」をそろえた": {
+  "ctx": [
+   "screen_zukan.gd:359: var label: String = (\"「%s」をそろえた\" % key.substr(2)) if key.begins_with(\"g:\") else (\"%s種類に出会った\" % key.substr(2))"
+  ]
+ },
+ "%s種類に出会った": {
+  "ctx": [
+   "screen_zukan.gd:359: var label: String = (\"「%s」をそろえた\" % key.substr(2)) if key.begins_with(\"g:\") else (\"%s種類に出会った\" % key.substr(2))"
+  ]
+ },
+ "受け取った": {
+  "ctx": [
+   "screen_zukan.gd:392: b.text = \"受け取った\""
+  ]
+ },
+ "つぎのごほうびまで あと %d 種類": {
+  "ctx": [
+   "screen_zukan.gd:412: var t := \"つぎのごほうびまで あと %d 種類\" % (next - n) if next > 0 else \"すべての節目のごほうびを受け取った\""
+  ]
+ },
+ "すべての節目のごほうびを受け取った": {
+  "ctx": [
+   "screen_zukan.gd:412: var t := \"つぎのごほうびまで あと %d 種類\" % (next - n) if next > 0 else \"すべての節目のごほうびを受け取った\""
+  ]
+ },
+ "ヒント：": {
+  "ctx": [
+   "screen_zukan.gd:578: var d := _text(r.desc if found else \"ヒント：\" + r.hint, 15, Color(\"4a3f52\"))"
+  ]
+ }
+}
