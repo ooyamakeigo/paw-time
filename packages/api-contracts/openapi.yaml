@@ -466,4 +466,4 @@ components:
             anon_issue_sent は本人がお店への匿名伝達に同意したときだけ送る。
         props:
           type: object
-          description: 種別ごとの許可プロパティ（enum・整数範囲・真偽値のみ）。全種別で demo_session:boolean を許可。
+          description: 種別ごとの許可props（enum・整数範囲・真偽値のみ）。全種別で demo_session:boolean を許可。
