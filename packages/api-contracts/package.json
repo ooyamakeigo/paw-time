@@ -5,6 +5,8 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./letters": "./src/letters.ts",
+    "./shop-island": "./src/shop-island.ts",
     "./areas": "./src/areas.ts",
     "./skins": "./src/skins.ts"
   },

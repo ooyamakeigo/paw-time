@@ -1,0 +1,12 @@
+{
+  "$schema": "../schemas/world.schema.json",
+  "version": 1,
+  "id": "employer_island",
+  "name": "お店の島",
+  "levels": [
+    { "level": 1, "requiredExperience": 0, "unlocks": ["island_signboard"] },
+    { "level": 2, "requiredExperience": 150, "unlocks": ["island_bench"] },
+    { "level": 3, "requiredExperience": 250, "unlocks": ["island_lanterns"] },
+    { "level": 4, "requiredExperience": 500, "unlocks": ["island_pier"] }
+  ]
+}

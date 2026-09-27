@@ -13,13 +13,16 @@
   "dependencies": {
     "@hono/node-server": "^1.19.1",
     "@paw-time/api-contracts": "workspace:*",
+    "@paw-time/game-catalog": "workspace:*",
     "@vercel/blob": "^2.8.0",
     "hono": "^4.9.8",
+    "pg": "^8.23.0",
     "zod": "^4.1.11"
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.8",
     "@types/node": "^20.17.57",
+    "@types/pg": "^8.23.1",
     "tsup": "^8.5.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"

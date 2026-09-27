@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./employer-house": "./worlds/employer-house.json",
+    "./employer-island": "./worlds/employer-island.json",
     "./worker-island": "./worlds/worker-island.json",
     "./reward-events": "./rewards/reward-events.json"
   }

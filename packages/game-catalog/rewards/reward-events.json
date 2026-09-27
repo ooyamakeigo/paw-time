@@ -7,6 +7,9 @@
     { "code": "job_published", "audience": "employer", "experience": 5 },
     { "code": "application_decided_in_time", "audience": "employer", "experience": 10 },
     { "code": "attendance_confirmed", "audience": "employer", "experience": 20 },
-    { "code": "evaluation_submitted", "audience": "employer", "experience": 5 }
+    { "code": "evaluation_submitted", "audience": "employer", "experience": 5 },
+    { "code": "letter_sent", "audience": "employer", "experience": 5 },
+    { "code": "shop_reviewed", "audience": "employer", "experience": 5 },
+    { "code": "worker_returned", "audience": "employer", "experience": 10 }
   ]
 }

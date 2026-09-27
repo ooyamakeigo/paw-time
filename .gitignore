@@ -11,4 +11,5 @@ dist/
 .env.local
 coverage/
 *.tsbuildinfo
+apps/employer/public/obake/
 .vercel
