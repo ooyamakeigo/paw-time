@@ -30,6 +30,18 @@ paths:
       responses:
         "200":
           description: ワーカーの確定シフト
+  /v1/worker/letters:
+    get:
+      operationId: listWorkerLetters
+      responses:
+        "200":
+          description: ワーカーに届いた手紙
+  /v1/business/stores:
+    get:
+      operationId: listOrganizationStores
+      responses:
+        "200":
+          description: 企業の店舗一覧
   /v1/business/jobs:
     get:
       operationId: listOrganizationJobs
@@ -40,7 +52,39 @@ paths:
       operationId: createJob
       responses:
         "201":
-          description: 求人を作成
+          description: 求人を作成（下書きまたは公開）
+        "400":
+          description: 店舗が見つからない、または終了時刻が開始時刻より前
+        "409":
+          description: 作成時に終了状態は指定できない
+  /v1/business/jobs/{jobId}/publish:
+    post:
+      operationId: publishJob
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 下書きの求人を公開
+        "409":
+          description: 下書き以外は公開できない
+  /v1/business/jobs/{jobId}/close:
+    post:
+      operationId: closeJob
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 公開中の求人を終了
+        "409":
+          description: 公開中以外は終了できない
   /v1/business/applications:
     get:
       operationId: listOrganizationApplications
@@ -65,6 +109,8 @@ paths:
       responses:
         "200":
           description: 採用または不採用を記録
+        "409":
+          description: 選考済み、求人が公開中でない、または定員に達している
   /v1/business/shifts/{shiftId}/attendance:
     post:
       operationId: recordAttendance
@@ -76,7 +122,59 @@ paths:
             type: string
       responses:
         "201":
-          description: 追記型の出退勤イベントを記録
+          description: 追記型の打刻を記録（出勤・退勤・休憩開始・休憩終了）
+        "400":
+          description: 退勤時刻が出勤時刻より前
+        "409":
+          description: シフトの状態と合わない
+  /v1/business/shifts/{shiftId}/attendance/corrections:
+    post:
+      operationId: correctAttendance
+      parameters:
+        - name: shiftId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: 理由つきで打刻時刻を修正する。元の打刻は残る
+        "400":
+          description: 前後の打刻と順序が合わない
+  /v1/business/workers:
+    get:
+      operationId: listWorkerHistories
+      responses:
+        "200":
+          description: 応募または勤務したワーカーごとの、この企業での勤務履歴
+  /v1/business/shifts/{shiftId}/confirm:
+    post:
+      operationId: confirmShift
+      parameters:
+        - name: shiftId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 退勤済みのシフトの勤怠を確定
+        "409":
+          description: 退勤済み以外は確定できない
+  /v1/business/shifts/{shiftId}/no-show:
+    post:
+      operationId: markShiftNoShow
+      parameters:
+        - name: shiftId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 開始時刻を過ぎても出勤のないシフトを欠勤にする
+        "409":
+          description: 勤務前でない、または開始時刻前
   /v1/business/shifts/{shiftId}/attendance-summary:
     get:
       operationId: getAttendanceSummary
@@ -89,18 +187,175 @@ paths:
       responses:
         "200":
           description: 予定時刻と実績から算出した遅刻・出退勤情報
+  /v1/business/attendance-summaries:
+    get:
+      operationId: listAttendanceSummaries
+      responses:
+        "200":
+          description: 企業のすべてのシフトの勤怠サマリー
+  /v1/business/me:
+    get:
+      operationId: getMe
+      responses:
+        "200":
+          description: 操作者、組織のメンバー一覧、店舗一覧
+  /v1/business/stores/{storeId}:
+    put:
+      operationId: updateStore
+      responses:
+        "200":
+          description: 島の見た目（ロゴ・看板の色・ひとこと）を更新（店長のみ）
+  /v1/business/stores/{storeId}/settings:
+    get:
+      operationId: getStoreSettings
+      responses:
+        "200":
+          description: 店ごとの休憩ルール・割増率・丸め単位・締め日
+    put:
+      operationId: updateStoreSettings
+      responses:
+        "200":
+          description: 設定を更新（店長のみ）
+  /v1/business/shifts/{shiftId}/urgent-job:
+    post:
+      operationId: createUrgentJob
+      responses:
+        "201":
+          description: 欠勤・キャンセルの枠を【急募】として公開（店長のみ）
+  /v1/business/invitations:
+    get:
+      operationId: listInvitations
+      responses:
+        "200":
+          description: 声をかけた記録
+    post:
+      operationId: createInvitation
+      responses:
+        "201":
+          description: 過去に働いた人に声をかける（店長のみ）
+  /v1/business/closed-periods:
+    get:
+      operationId: listClosedPeriods
+      responses:
+        "200":
+          description: 締めた月
+    post:
+      operationId: closePeriod
+      responses:
+        "201":
+          description: 月を締める（店長のみ）
+  /v1/business/closed-periods/{periodId}:
+    delete:
+      operationId: reopenPeriod
+      responses:
+        "200":
+          description: 締めを解除（店長のみ）
+  /v1/business/shop-feedback/summary:
+    get:
+      operationId: shopFeedbackSummary
+      responses:
+        "200":
+          description: ワーカーの評価のタグ票数と、票数で育つ島の目印。5人以上そろった店だけ
+  /v1/business/insights:
+    get:
+      operationId: insights
+      responses:
+        "200":
+          description: 働いたあとの信号と求人ごとのKPI（店長のみ）
+  /v1/business/audit-logs:
+    get:
+      operationId: listAuditLogs
+      responses:
+        "200":
+          description: 監査ログ（店長のみ）
+  /v1/worker/shifts/{shiftId}/attendance:
+    post:
+      operationId: recordOwnAttendance
+      responses:
+        "201":
+          description: ワーカー本人の打刻
+  /v1/worker/applications/{applicationId}/withdraw:
+    post:
+      operationId: withdrawApplication
+      responses:
+        "200":
+          description: 辞退。作成済みのシフトはキャンセルになる
+  /v1/worker/invitations:
+    get:
+      operationId: listWorkerInvitations
+      responses:
+        "200":
+          description: 届いた声かけ
+  /v1/worker/invitations/{invitationId}/respond:
+    post:
+      operationId: respondToInvitation
+      responses:
+        "200":
+          description: 受ける（そのまま採用）か断る
+  /v1/worker/letters/{letterId}/reply:
+    post:
+      operationId: replyToLetter
+      responses:
+        "200":
+          description: 手紙にスタンプで返事
+  /v1/worker/shop-feedback:
+    post:
+      operationId: createShopFeedback
+      responses:
+        "201":
+          description: お店への匿名の答え
+  /v1/worker/activity:
+    post:
+      operationId: recordWorkerActivity
+      responses:
+        "201":
+          description: アプリを開いた、島を訪ねた
+  /v1/business/attendance-events:
+    get:
+      operationId: listAttendanceEvents
+      responses:
+        "200":
+          description: 企業のすべての打刻（修正前の記録も含む）を古い順に
   /v1/business/evaluations:
+    get:
+      operationId: listEvaluations
+      responses:
+        "200":
+          description: 企業が登録した評価の一覧
     post:
       operationId: createEvaluation
       responses:
         "201":
-          description: 評価を登録
+          description: 勤怠確定済みのシフトについてワーカーの評価を登録
+        "409":
+          description: 勤怠が確定していない
+  /v1/business/letters:
+    get:
+      operationId: listLetters
+      responses:
+        "200":
+          description: 企業が送った手紙の一覧
+    post:
+      operationId: sendLetter
+      responses:
+        "201":
+          description: 勤務を終えたワーカーに手紙を送る（定型文または自由文）
+        "400":
+          description: 自由文が空
+        "409":
+          description: シフトがまだ終わっていない
   /v1/business/world:
     get:
       operationId: getEmployerWorld
       responses:
         "200":
           description: 企業の家と所持品を取得
+  /v1/business/world/rewards:
+    get:
+      operationId: listEmployerRewards
+      responses:
+        "200":
+          description: 企業の家への最近の報酬付与履歴
   /v1/telemetry/events:
     post:
       operationId: postTelemetryEvents
@@ -211,4 +466,4 @@ components:
             anon_issue_sent は本人がお店への匿名伝達に同意したときだけ送る。
         props:
           type: object
-          description: 種別ごとの許可props（enum・整数範囲・真偽値のみ）。全種別で demo_session:boolean を許可。
+          description: 種別ごとの許可プロパティ（enum・整数範囲・真偽値のみ）。全種別で demo_session:boolean を許可。
