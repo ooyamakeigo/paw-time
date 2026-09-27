@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336 110" role="img" aria-label="Placeholder logo">
+  <!-- Placeholder logo for the demo shop: a cup with a paw and a generic wordmark. Replace with the company's own logo in Settings → 島の見た目. -->
+  <rect width="336" height="110" rx="26" fill="#5fb7a8"/>
+  <g transform="translate(14 12) scale(0.72)">
+    <path d="M30 44h50a4 4 0 0 1 4 4v14c0 14-12 26-29 26S30 76 30 62Z" fill="#fdf7ee"/>
+    <path d="M84 52h8a9 9 0 0 1 0 18h-8" fill="none" stroke="#fdf7ee" stroke-width="6" stroke-linecap="round"/>
+    <rect x="36" y="94" width="42" height="7" rx="3.5" fill="#fdf7ee"/>
+    <g fill="#5fb7a8">
+      <ellipse cx="55" cy="68" rx="7" ry="6"/>
+      <circle cx="45" cy="59" r="3.2"/>
+      <circle cx="52" cy="55" r="3.2"/>
+      <circle cx="60" cy="55" r="3.2"/>
+      <circle cx="66" cy="59" r="3.2"/>
+    </g>
+    <g stroke="#fdf7ee" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".9">
+      <path d="M46 24c3 4 3 8 0 12"/>
+      <path d="M56 20c3 5 3 10 0 15"/>
+      <path d="M66 24c3 4 3 8 0 12"/>
+    </g>
+  </g>
+  <text x="112" y="68" fill="#fdf7ee" font-family="'Zen Maru Gothic','Hiragino Maru Gothic ProN','Yu Gothic','Noto Sans JP',sans-serif" font-size="40" font-weight="900" letter-spacing="2">社内カフェ</text>
+</svg>
