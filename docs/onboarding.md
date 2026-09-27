@@ -21,7 +21,7 @@
 - 売りは行動データ。応募の前（興味）、勤務中（働けるか）、勤務後（合っていたか、また来るか）を、求人アプリが見えない形で見られる。
 - 守ること: 長く働いても得をしない。賃金には触らない。課金は見た目の買い切りだけ。お店に個人の点数を渡さない（5人以上の集計だけ）。チャットの文は端末から出さない。
 
-ピッチ原稿は [docs/pitch.md](pitch.md)、数字の出典は [docs/pitch-evidence.md](pitch-evidence.md)、ゲームの仕样は [apps/worker/README.md](../apps/worker/README.md)。
+ピッチ原稿は [docs/pitch.md](pitch.md)、数字の出典は [docs/pitch-evidence.md](pitch-evidence.md)、ゲームの仕様は [apps/worker/README.md](../apps/worker/README.md)。
 
 ## 3. リポジトリの地図
 
@@ -32,7 +32,7 @@
 | `apps/employer` | お店向け管理画面 | Next.js 15 |
 | `apps/insights` | リクルート向け画面 | TypeScript + Chart.js |
 | `apps/marketing` | 紹介ページ | 静的HTML |
-| `packages/` | API契約・お店コンスールのルールなど | TypeScript |
+| `packages/` | API契約・お店コンソールのルールなど | TypeScript |
 
 ## 4. 手元で動かす
 
@@ -66,5 +66,5 @@ pnpm test && pnpm typecheck
 
 ## 6. 困ったら
 
-- 仕样や決まったことの経緯: [apps/worker/README.md](../apps/worker/README.md)、[docs/architecture/monorepo.md](architecture/monorepo.md)
+- 仕様や決まったことの経緯: [apps/worker/README.md](../apps/worker/README.md)、[docs/architecture/monorepo.md](architecture/monorepo.md)
 - 分からないことはチームの Slack で聞く。
