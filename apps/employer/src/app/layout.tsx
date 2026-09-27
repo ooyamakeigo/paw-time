@@ -1,36 +1,35 @@
-import type { Metadata } from "next";
-import { Zen_Maru_Gothic } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Toaster } from "@/components/Toaster";
-import { LocaleProvider } from "@/lib/i18n/client";
-import { getMessages } from "@/lib/i18n/server";
-import { getSession } from "@/lib/session";
+import { Shell, ShellFallback } from "../components/Shell";
+import { ConsoleProvider } from "../lib/console";
 import "./globals.css";
 
-export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "Paw Time for Shops",
+  description: "Shop console for Paw Time: shifts, applicants, attendance, chat, reviews and invites. Runs on sample data.",
+};
 
-const zenMaruGothic = Zen_Maru_Gothic({
-  weight: ["500", "700", "900"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-zen-maru",
-});
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f7f9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1115" },
+  ],
+};
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { m } = await getMessages();
-  return { title: m.app.title, description: m.app.description };
-}
-
-export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  const [{ locale }, session] = await Promise.all([getMessages(), getSession()]);
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    // Browser extensions (Grammarly, Dark Reader, translators) add attributes to <html> and <body> before React
-    // hydrates; those differences are theirs, not ours, so React is told not to report them.
-    <html className={zenMaruGothic.variable} data-theme={session.theme === "auto" ? undefined : session.theme} lang={locale} suppressHydrationWarning>
-      <body suppressHydrationWarning>
-        <LocaleProvider locale={locale}>
-          <Toaster>{children}</Toaster>
-        </LocaleProvider>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap" />
+      </head>
+      <body>
+        <ConsoleProvider fallback={<ShellFallback />}>
+          <Shell>{children}</Shell>
+        </ConsoleProvider>
       </body>
     </html>
   );
