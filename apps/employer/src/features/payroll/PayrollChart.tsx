@@ -1,60 +1,48 @@
-import type { Formatters } from "@/lib/format";
-import { fill, type Messages } from "@/lib/i18n/messages";
-import { niceScale, type PayrollDay } from "@/lib/payroll";
+"use client";
 
-type PayrollChartProps = {
-  days: PayrollDay[];
-  m: Messages;
-  f: Formatters;
-};
+import { niceScale } from "@paw-time/shop-console";
+import type { PayrollDay } from "@paw-time/shop-console";
+import type { Dict } from "../../lib/i18n";
 
 /**
- * Stacked columns per day: confirmed pay on the baseline, the projection on
- * top. One y axis with clean ticks, a legend for the two series, and a
- * per-column tooltip on hover and keyboard focus. Colors are the launch
- * page's orange and lavender, which pass the color-vision checks together.
+ * Stacked columns per day: confirmed pay on the baseline, the rest of the projection on top.
+ * One y axis with clean ticks, a legend, and a readout per column on hover and keyboard focus.
  */
-export function PayrollChart({ days, m, f }: PayrollChartProps) {
-  const max = Math.max(0, ...days.map((day) => day.total));
+export function PayrollChart({ days, t, money }: { days: PayrollDay[]; t: Dict; money: (v: number) => string }) {
+  const max = Math.max(0, ...days.map((d) => d.total));
   const { ceiling, ticks } = niceScale(max);
-  const p = m.payroll;
+  const p = t.payroll;
   return (
-    <figure className="payChart">
-      <figcaption className="payLegend">
-        <span><i className="swatch swatch-confirmed" />{p.legendConfirmed}</span>
-        <span><i className="swatch swatch-projected" />{p.legendForecast}</span>
+    <figure className="pay-chart">
+      <figcaption className="pay-legend">
+        <span><i className="swatch confirmed" />{p.legendConfirmed}</span>
+        <span><i className="swatch projected" />{p.legendProjected}</span>
       </figcaption>
-      <div className="payPlot">
-        <div aria-hidden="true" className="payAxis">
-          {[...ticks].reverse().map((tick) => <span key={tick}>{f.formatYen(tick)}</span>)}
+      <div className="pay-plot">
+        <div className="pay-axis" aria-hidden="true">
+          {[...ticks].reverse().map((tick) => <span key={tick}>{money(tick)}</span>)}
         </div>
-        <div className="payArea">
-          <div aria-hidden="true" className="payGrid">
+        <div className="pay-area">
+          <div className="pay-grid" aria-hidden="true">
             {ticks.map((tick) => <span key={tick} />)}
           </div>
-          <ol className="payColumns" role="list">
-            {days.map((day) => {
-              const label = fill(p.dayLabel, { day: day.day });
-              const readout = `${label}: ${p.legendConfirmed} ${f.formatYen(day.confirmed)}, ${p.legendForecast} ${f.formatYen(day.projected)}, ${p.tooltipTotal} ${f.formatYen(day.total)}`;
+          <ol className="pay-cols">
+            {days.map((d) => {
+              const label = p.day(d.day);
+              const readout = `${label}: ${p.legendConfirmed} ${money(d.confirmed)}, ${p.legendProjected} ${money(d.projected)}, ${p.chartTotal} ${money(d.total)}`;
               return (
-                <li className={day.total > 0 ? "payColumn" : "payColumn payColumn-empty"} key={day.day}>
-                  <button aria-label={readout} className="payHit" type="button">
-                    <span className="payStack">
-                      {day.projected > 0 ? (
-                        <span className="paySegment paySegment-projected" style={{ height: `${(day.projected / ceiling) * 100}%` }} />
-                      ) : null}
-                      {day.confirmed > 0 ? (
-                        <span className="paySegment paySegment-confirmed" style={{ height: `${(day.confirmed / ceiling) * 100}%` }} />
-                      ) : null}
+                <li key={d.day} className={d.total > 0 ? "pay-col" : "pay-col pay-col-empty"}>
+                  <button type="button" className="pay-hit" aria-label={readout} title={readout}>
+                    <span className="pay-stack">
+                      {d.projected > 0 ? <span className="seg-bar projected" style={{ height: `${(d.projected / ceiling) * 100}%` }} /> : null}
+                      {d.confirmed > 0 ? <span className="seg-bar confirmed" style={{ height: `${(d.confirmed / ceiling) * 100}%` }} /> : null}
                     </span>
-                    <span aria-hidden="true" className="payTooltip" role="tooltip">
-                      <strong>{f.formatYen(day.total)}</strong>
+                    <span className="pay-tip" aria-hidden="true">
+                      <strong>{money(d.total)}</strong>
                       <span>{label}</span>
-                      <span><i className="swatch swatch-confirmed" />{f.formatYen(day.confirmed)} <small>{p.legendConfirmed}</small></span>
-                      <span><i className="swatch swatch-projected" />{f.formatYen(day.projected)} <small>{p.legendForecast}</small></span>
                     </span>
                   </button>
-                  <span aria-hidden="true" className="payDay">{day.day}</span>
+                  <span className="pay-day" aria-hidden="true">{d.day}</span>
                 </li>
               );
             })}
