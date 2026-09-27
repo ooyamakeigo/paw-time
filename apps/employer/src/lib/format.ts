@@ -1,105 +1,160 @@
-import { zonedParts } from "@paw-time/shop-console";
-import type { AggregateCount, Currency, Locale } from "@paw-time/shop-console";
-import type { Dict } from "./i18n";
+import type { Locale } from "./i18n/messages";
 
-/**
- * The one money formatter: "$22.00", "$1,240", "¥1,300". Hourly wages always show cents in USD;
- * yen never has decimals and always uses the half-width "¥".
- */
-export function fmtMoney(v: number, currency: Currency, opts: { cents?: boolean; perHour?: string } = {}): string {
-  if (!Number.isFinite(v)) return "—";
-  const neg = v < 0 ? "−" : "";
-  const abs = Math.abs(v);
-  let body: string;
-  if (currency === "JPY") body = new Intl.NumberFormat("ja-JP", { maximumFractionDigits: 0 }).format(Math.round(abs));
-  else {
-    const cents = opts.cents ?? Math.round(abs * 100) % 100 !== 0;
-    body = new Intl.NumberFormat("en-US", { minimumFractionDigits: cents ? 2 : 0, maximumFractionDigits: 2 }).format(abs);
-  }
-  return `${neg}${currency === "USD" ? "$" : "¥"}${body}${opts.perHour ?? ""}`;
+export const TIME_ZONE = "Asia/Tokyo";
+
+const MINUTE = 60_000;
+export const HOUR = 60 * MINUTE;
+export const DAY = 24 * HOUR;
+
+const dateKeyFormat = new Intl.DateTimeFormat("en-CA", {
+  timeZone: TIME_ZONE,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+
+/** 2026-09-27 in Japan time. */
+export function dateKey(value: string | Date): string {
+  return dateKeyFormat.format(new Date(value));
 }
 
-const intlLocale = (l: Locale) => (l === "ja" ? "ja-JP" : "en-US");
+export function todayKey(now: Date = new Date()): string {
+  return dateKey(now);
+}
 
-/** "Sat, Oct 3" / "10月3日(土)" for a calendar date. */
-export function fmtDate(date: string, locale: Locale, opts: { weekday?: boolean; long?: boolean } = {}): string {
-  const d = new Date(`${date}T12:00:00Z`);
-  const f = new Intl.DateTimeFormat(intlLocale(locale), {
-    timeZone: "UTC",
-    month: opts.long ? "long" : "short",
-    day: "numeric",
-    ...(opts.weekday === false ? {} : { weekday: opts.long ? "long" : "short" }),
+/** Adds days to a YYYY-MM-DD key. */
+export function shiftDateKey(key: string, days: number): string {
+  const [year, month, day] = key.split("-").map(Number);
+  const shifted = new Date(Date.UTC(year ?? 1970, (month ?? 1) - 1, (day ?? 1) + days));
+  return shifted.toISOString().slice(0, 10);
+}
+
+/** Builds an ISO timestamp in Japan time from form date and time values. */
+export function toJstTimestamp(date: string, time: string): string {
+  return `${date}T${time}:00+09:00`;
+}
+
+/** 2026-09 in Japan time. */
+export function monthKey(value: string | Date): string {
+  return dateKey(value).slice(0, 7);
+}
+
+export function isMonthKey(value: string | undefined): value is string {
+  return typeof value === "string" && /^\d{4}-(0[1-9]|1[0-2])$/.test(value);
+}
+
+/** Adds months to a YYYY-MM key. */
+export function shiftMonthKey(key: string, months: number): string {
+  const [year, month] = key.split("-").map(Number);
+  const shifted = new Date(Date.UTC(year ?? 1970, (month ?? 1) - 1 + months, 1));
+  return shifted.toISOString().slice(0, 7);
+}
+
+export function daysInMonth(key: string): number {
+  const [year, month] = key.split("-").map(Number);
+  return new Date(Date.UTC(year ?? 1970, month ?? 1, 0)).getUTCDate();
+}
+
+/** The day of the month (1–31) in Japan time. */
+export function dayOfMonth(value: string | Date): number {
+  return Number(dateKey(value).slice(8, 10));
+}
+
+/** The Monday (JST) that starts the week holding the given day key. */
+export function weekStartKey(key: string): string {
+  const [year, month, day] = key.split("-").map(Number);
+  const date = new Date(Date.UTC(year ?? 1970, (month ?? 1) - 1, day ?? 1));
+  const weekday = (date.getUTCDay() + 6) % 7; // Monday = 0
+  return shiftDateKey(key, -weekday);
+}
+
+export function isDateKey(value: string | undefined): value is string {
+  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value);
+}
+
+export type Formatters = ReturnType<typeof createFormatters>;
+
+/** Date and time display for one language, always in Japan time. */
+export function createFormatters(locale: Locale) {
+  const tag = locale === "ja" ? "ja-JP" : "en-US";
+  const dateFormat = new Intl.DateTimeFormat(
+    tag,
+    locale === "ja"
+      ? { timeZone: TIME_ZONE, month: "long", day: "numeric", weekday: "short" }
+      : { timeZone: TIME_ZONE, weekday: "short", month: "short", day: "numeric" },
+  );
+  const timeFormat = new Intl.DateTimeFormat(tag, {
+    timeZone: TIME_ZONE,
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
   });
-  return f.format(d);
-}
 
-export function fmtWeekday(date: string, locale: Locale, style: "short" | "long" = "short"): string {
-  return new Intl.DateTimeFormat(intlLocale(locale), { timeZone: "UTC", weekday: style }).format(new Date(`${date}T12:00:00Z`));
-}
+  /** 9月27日(日) / Sun, Sep 27 */
+  const formatDate = (value: string | Date): string => dateFormat.format(new Date(value));
+  /** 10:05 */
+  const formatTime = (value: string | Date): string => timeFormat.format(new Date(value));
+  const formatDateTime = (value: string | Date): string => `${formatDate(value)} ${formatTime(value)}`;
 
-/** "5:00 PM" / "17:00" for a wall-clock "HH:MM". */
-export function fmtTime(time: string, locale: Locale): string {
-  if (locale === "ja") return time;
-  const [h = 0, m = 0] = time.split(":").map(Number);
-  const hour12 = h % 12 === 0 ? 12 : h % 12;
-  return `${hour12}:${String(m).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`;
-}
+  /** 10:00–15:00, marking the end when a shift runs past midnight. */
+  const formatTimeRange = (start: string, end: string): string => {
+    const sameDay = dateKey(start) === dateKey(end);
+    const endLabel = sameDay
+      ? formatTime(end)
+      : locale === "ja"
+        ? `翌${formatTime(end)}`
+        : `${formatTime(end)} (+1)`;
+    return `${formatTime(start)}–${endLabel}`;
+  };
 
-export function fmtRange(start: string, end: string, locale: Locale): string {
-  if (locale === "ja") return `${start}〜${end}`;
-  const s = fmtTime(start, locale);
-  const e = fmtTime(end, locale);
-  // "5:00–9:00 PM" when both are in the same half of the day.
-  if (s.slice(-2) === e.slice(-2)) return `${s.slice(0, -3)}–${e}`;
-  return `${s} – ${e}`;
-}
+  const formatElapsed = (value: string, now: Date = new Date()): string => {
+    const elapsed = Math.max(0, now.getTime() - Date.parse(value));
+    if (elapsed < HOUR) {
+      const minutes = Math.max(1, Math.floor(elapsed / MINUTE));
+      return locale === "ja" ? `${minutes}分前` : `${minutes} min ago`;
+    }
+    if (elapsed < DAY) {
+      const hours = Math.floor(elapsed / HOUR);
+      return locale === "ja" ? `${hours}時間前` : `${hours} h ago`;
+    }
+    const days = Math.floor(elapsed / DAY);
+    return locale === "ja" ? `${days}日前` : `${days} d ago`;
+  };
 
-/** Local wall time of an instant in the shop's time zone. */
-export function instantTime(iso: string, timeZone: string, locale: Locale): string {
-  const p = zonedParts(new Date(iso), timeZone);
-  return fmtTime(`${String(p.hour).padStart(2, "0")}:${String(p.minute).padStart(2, "0")}`, locale);
-}
+  const formatYen = (value: number): string => `¥${value.toLocaleString(tag)}`;
 
-export function instantDate(iso: string, timeZone: string): string {
-  return zonedParts(new Date(iso), timeZone).date;
-}
+  /** 2026年9月 / September 2026 */
+  const formatMonth = (key: string): string => {
+    const [year, month] = key.split("-").map(Number);
+    const date = new Date(Date.UTC(year ?? 1970, (month ?? 1) - 1, 1, 12));
+    return new Intl.DateTimeFormat(tag, { timeZone: "UTC", year: "numeric", month: "long" }).format(date);
+  };
 
-/** "Today 2:05 PM", "Yesterday 9:40 PM", "Sep 24, 4:31 PM". */
-export function fmtInstant(iso: string, timeZone: string, locale: Locale, today: string, t: Dict): string {
-  const date = instantDate(iso, timeZone);
-  const time = instantTime(iso, timeZone, locale);
-  const y = new Date(`${today}T12:00:00Z`);
-  y.setUTCDate(y.getUTCDate() - 1);
-  const yesterday = y.toISOString().slice(0, 10);
-  const dayLabel = date === today ? t.time.today : date === yesterday ? t.time.yesterday : fmtDate(date, locale, { weekday: false });
-  return locale === "ja" ? `${dayLabel} ${time}` : `${dayLabel}, ${time}`;
-}
+  /** 5時間30分 / 5h 30m; whole hours drop the minutes. */
+  const formatMinutes = (minutes: number): string => {
+    const hours = Math.floor(minutes / 60);
+    const rest = minutes % 60;
+    if (hours === 0) return locale === "ja" ? `${rest}分` : `${rest} min`;
+    if (rest === 0) return locale === "ja" ? `${hours}時間` : `${hours}h`;
+    return locale === "ja" ? `${hours}時間${rest}分` : `${hours}h ${rest}m`;
+  };
 
-export function fmtAgo(iso: string, now: Date, t: Dict): string {
-  const mins = Math.max(0, Math.round((now.getTime() - Date.parse(iso)) / 60_000));
-  if (mins < 1) return t.time.justNow;
-  if (mins < 60) return t.time.ago(mins, "m");
-  const hours = Math.round(mins / 60);
-  if (hours < 24) return t.time.ago(hours, "h");
-  return t.time.ago(Math.round(hours / 24), "d");
-}
+  /** 9/28（月） / Mon 9/28: compact, for calendar columns. */
+  const formatShortDate = (value: string | Date): string =>
+    new Intl.DateTimeFormat(tag, { timeZone: TIME_ZONE, month: "numeric", day: "numeric", weekday: "short" }).format(new Date(value));
 
-/** "Saturday evening" / "土曜の夕方" for alerts. */
-export function fmtWhen(date: string, start: string, today: string, locale: Locale, t: Dict): string {
-  const h = Number(start.slice(0, 2));
-  const part = h >= 17 ? t.time.evening : h >= 12 ? t.time.afternoon : t.time.morning;
-  const tomorrow = new Date(`${today}T12:00:00Z`);
-  tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
-  const day = date === today ? t.time.today : date === tomorrow.toISOString().slice(0, 10) ? t.time.tomorrow : fmtWeekday(date, locale, "long");
-  if (locale === "ja") return `${day}の${part}`;
-  return `${day} ${part}`;
-}
+  const formatPercent = (ratio: number | null): string => (ratio === null ? "—" : `${Math.round(ratio * 100)}%`);
 
-export function fmtCount(n: AggregateCount, t: Dict): string {
-  return n === null ? t.common.fewerThan5 : new Intl.NumberFormat("en-US").format(n);
-}
-
-/** "September 2026" / "2026年9月" for a "YYYY-MM" month. */
-export function fmtMonth(month: string, locale: Locale): string {
-  return new Intl.DateTimeFormat(intlLocale(locale), { timeZone: "UTC", year: "numeric", month: "long" }).format(new Date(`${month}-15T12:00:00Z`));
+  return {
+    formatDate,
+    formatShortDate,
+    formatTime,
+    formatDateTime,
+    formatTimeRange,
+    formatElapsed,
+    formatYen,
+    formatMonth,
+    formatMinutes,
+    formatPercent,
+  };
 }
