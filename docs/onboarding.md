@@ -10,7 +10,7 @@
 | 3分デモ | タイトル画面の「3-minute demo」 | 審査員向けの通しの流れ。最後はリクルート向け画面へつながる |
 | 見本の切り替え | https://paw-time-play.vercel.app/?demo=1 | 勤務中・勤務後などの状態をボタンで切り替えられる |
 | リクルート向け画面 | https://paw-time-insights.vercel.app | 行動データのデータベース型ビュー（数字は合成データ） |
-| お店向け管理画面 | https://paw-time-employer.vercel.app | 求人・応募者・シフト・チャット・レビューと島（見本データ） |
+| お店向け管理画面 | https://paw-time-employer.vercel.app | 求人・応募者・勤怠・人件費・評価と手紙・お店の島。API のデモデータで動く（`pnpm dev` で手元でも） |
 | 紹介ページ | https://paw-time-launch.vercel.app（[日本語](https://paw-time-launch.vercel.app/ja/)） | プロダクトの1枚紹介 |
 | API | https://paw-time-api.vercel.app/health | 動いているかの確認 |
 

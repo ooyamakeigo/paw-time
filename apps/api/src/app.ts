@@ -17,3 +17,11 @@ app.route("/v1/telemetry", telemetryRoutes);
 app.route("/v1/insights", insightsRoutes);
 
 app.notFound((context) => context.json({ error: "not_found" }, 404));
+
+app.onError((error, context) => {
+  if (error instanceof SyntaxError) {
+    return context.json({ error: "invalid_request", message: "JSONを読み取れません。" }, 400);
+  }
+  console.error(error);
+  return context.json({ error: "internal_error" }, 500);
+});
