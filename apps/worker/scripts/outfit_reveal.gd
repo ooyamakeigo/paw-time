@@ -33,6 +33,7 @@ func _ready() -> void:
 	dim.color = Color(0.12, 0.09, 0.2, 0.82)
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(dim)
+	Kit.center_tall(self, dim) # 縦に長い島では、上下のまんなかに（暗幕は画面いっぱい）
 	var box := SubViewportContainer.new()
 	box.stretch = true
 	box.position = Vector2(30, 90)
@@ -94,13 +95,13 @@ func _ready() -> void:
 
 
 func _play() -> void:
-	Kit.play(self, "sparkle")
+	Sfx.hatch_build(self, 0.72)
 	var tw := create_tween()
 	for i in 3:
 		tw.tween_property(orb, "scale", Vector3.ONE * (1.0 + 0.08 * (i + 1)), 0.12)
 		tw.tween_property(orb, "scale", Vector3.ONE, 0.12)
 	await tw.finished
-	Kit.play(self, "hatch")
+	Sfx.hatch_release(self)
 	orb.queue_free()
 	var o := Wardrobe.outfit_of(who).duplicate()
 	o[WardrobeData.item(item_id).slot] = item_id
@@ -110,7 +111,7 @@ func _play() -> void:
 	var tw2 := create_tween().set_parallel()
 	tw2.tween_property(ob, "scale", Vector3.ONE * (1.0 if not Rares.is_rare(who) else 0.85), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tw2.tween_property(card, "modulate:a", 1.0, 0.3).set_delay(0.3)
-	Kit.play(self, "chime")
+	Sfx.reveal(self)
 
 
 func _process(delta: float) -> void:
@@ -125,6 +126,7 @@ func _wear() -> void:
 	Wardrobe.set_outfit(who, o)
 	Wardrobe.fresh.erase(item_id)
 	Wardrobe.save()
+	Sfx.equip(self)
 	_close()
 
 

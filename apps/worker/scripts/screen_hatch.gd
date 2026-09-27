@@ -36,7 +36,7 @@ func _ready() -> void:
 	font_black = load("res://assets/fonts/ZenMaruGothic-Black.ttf")
 	_build_world()
 	_build_ui()
-	for n in ["hatch", "sparkle", "chime"]:
+	for n in ["sparkle"]:
 		var p := AudioStreamPlayer.new()
 		p.stream = load("res://assets/sfx/%s.wav" % n)
 		add_child(p)
@@ -47,6 +47,11 @@ func _ready() -> void:
 	GameState.hatched = featured + quick
 	var only_cat_dupe: bool = quick.size() == 1 and not quick[0].has("kind")
 	batch_from = featured.size() if not quick.is_empty() and not only_cat_dupe else GameState.hatched.size()
+	# 特別な子（はじめての夜・3 分デモ）がいる朝は、材料からひとつずつあけて、特別な子をいちばん最後に（大きな見せ場に）
+	if GameState.hatched.any(func(x): return x.get("special", false)):
+		var sp: Array = GameState.hatched.filter(func(x): return x.get("special", false))
+		GameState.hatched = GameState.hatched.filter(func(x): return not x.get("special", false)) + sp
+		batch_from = GameState.hatched.size()
 	var n_orbs: int = GameState.hatched.size()
 	for i in n_orbs:
 		var h: Dictionary = GameState.hatched[i]
@@ -131,8 +136,9 @@ func _build_world() -> void:
 	var rig := Look.apply(world, "hatch", Color("2a2233"), false, true)
 	var env: Environment = rig.env
 	env.glow_enabled = true
-	env.glow_intensity = 0.5
-	env.glow_hdr_threshold = 1.2
+	# 壁が #FFFB9B・座布団が #FF4E37 に飛んでいた：グローは明るいところだけ・弱く
+	env.glow_intensity = 0.3
+	env.glow_hdr_threshold = 1.6
 
 	cam = Camera3D.new()
 	cam.position = Vector3(0, 1.35, 3.1)
@@ -196,14 +202,14 @@ func _build_world() -> void:
 	cm.size = Vector3(1.9, 0.16, 1.1)
 	cushion.mesh = cm
 	cushion.position = Vector3(0, 0.08, 0.2)
-	cushion.material_override = Obake3D.toon(Color("c9454a"), 0.2)
+	cushion.material_override = Obake3D.toon(Color("b04a55"), 0.2) # 座布団は飛ばない赤（前は #FF4E37 に飽和）
 	world.add_child(cushion)
 	var cushion2 := MeshInstance3D.new()
 	var cm2 := BoxMesh.new()
 	cm2.size = Vector3(1.8, 0.04, 1.0)
 	cushion2.mesh = cm2
 	cushion2.position = Vector3(0, 0.18, 0.2)
-	cushion2.material_override = Obake3D.toon(Color("dd5a5e"), 0.2)
+	cushion2.material_override = Obake3D.toon(Color("c45c64"), 0.2)
 	world.add_child(cushion2)
 
 	burst = CPUParticles3D.new()
@@ -238,7 +244,7 @@ func _pill(bg: Color, radius := 20) -> StyleBoxFlat:
 	s.content_margin_right = 16
 	s.content_margin_top = 10
 	s.content_margin_bottom = 10
-	s.shadow_color = Color(0, 0, 0, 0.25)
+	s.shadow_color = Color(Tokens.SHADOW, 0.25)
 	s.shadow_size = 10
 	s.shadow_offset = Vector2(0, 4)
 	return s
@@ -258,8 +264,11 @@ func _text(t: String, size: int, color := Color("2a2233"), font: FontFile = null
 func _build_ui() -> void:
 	header = _text("", 20, Color("fff6e8"), font_black)
 	header.autowrap_mode = TextServer.AUTOWRAP_OFF
-	header.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.4))
-	header.add_theme_constant_override("outline_size", 6)
+	# 黒い縁取りではなく、やわらかい影（墨色）
+	header.add_theme_color_override("font_shadow_color", Color(Tokens.SHADOW, 0.45))
+	header.add_theme_constant_override("shadow_offset_x", 0)
+	header.add_theme_constant_override("shadow_offset_y", 2)
+	header.add_theme_constant_override("shadow_outline_size", 6)
 	header.position = Vector2(0, 30)
 	header.size = Vector2(360, 40)
 	add_child(header)
@@ -273,7 +282,7 @@ func _build_ui() -> void:
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 2)
 	card.add_child(v)
-	badge = _text("NEW", 13, Color("ffffff"), font_black)
+	badge = _text(tr("R3_NEW"), 13, Color("ffffff"), font_black)
 	badge.autowrap_mode = TextServer.AUTOWRAP_OFF
 	var bp := PanelContainer.new()
 	bp.add_theme_stylebox_override("panel", _pill(Color("ff6b5b"), 10))
@@ -335,7 +344,9 @@ func _build_ui() -> void:
 
 func _refresh_buttons() -> void:
 	var left := orbs.size() - index
-	all_btn.visible = left >= 2 and index < batch_from
+	# 特別な子がまだ残っている朝は「ぜんぶ」を出さない（特別な子は、ひとつだけで大きく見せる）
+	var special_left: bool = GameState.hatched.slice(index).any(func(x): return x.get("special", false))
+	all_btn.visible = left >= 2 and index < batch_from and not special_left
 	# 真ん中の主ボタンは、「ぜんぶ」があるときは少し左へ
 	next_btn.position.x = 30 if all_btn.visible else 80
 
@@ -393,6 +404,9 @@ func _next() -> void:
 	# おばネコはいまレアなので、ひと震え多く（震えるたびに光が強くなる）。材料と服は、ぽんと。待たせないよう短く
 	var is_cat: bool = not h.has("kind")
 	var shakes := 2 if is_cat else 1
+	# 音：震えてから割れるまで「ためる」音をのせ、割れる瞬間に頂点がくるように（いつもの 0・レア 1・特別なレア 2）
+	var tier := 0 if not is_cat else (2 if SpecialReveal.has_clip(h.id) and h.is_new else (1 if Rares.is_rare(h.id) or h.get("big", false) else 0))
+	Sfx.hatch_build(self, shakes * 0.2 + (0.34 if is_cat else 0.12), tier)
 	for i in shakes:
 		var amp := 0.03 + i * 0.035
 		var tw2 := create_tween()
@@ -410,7 +424,7 @@ func _next() -> void:
 	_flash(0.18 if is_cat else 0.1)
 	if is_cat:
 		_light_burst(orb.position)
-	sfx["hatch"].play()
+	Sfx.hatch_release(self, tier)
 	if h.id == "kirari":
 		sfx["sparkle"].play()
 	Input.vibrate_handheld(60)
@@ -433,10 +447,9 @@ func _next() -> void:
 	var tw3 := create_tween()
 	tw3.tween_property(current_obake, "scale", Vector3.ONE * 0.5, 0.4).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	await tw3.finished
-	sfx["chime"].play()
+	Sfx.reveal(self, tier)
 	if Rares.is_rare(h.id):
 		Kit.shake(cam, 0.07, 0.4)
-		sfx["sparkle"].play()
 	var sp: Dictionary = GameState.info(h.id)
 	card_title.text = sp.name
 	badge.get_parent().visible = h.is_new
@@ -475,7 +488,7 @@ func _open_batch() -> void:
 		await tw2.finished
 		await get_tree().create_timer(0.04).timeout
 	_flash(0.3)
-	sfx["hatch"].play()
+	Sfx.pops(self, orbs.size() - index)
 	var counts := {}
 	var levels := {}
 	var n_items := 0
@@ -500,7 +513,7 @@ func _open_batch() -> void:
 	burst.restart()
 	burst.emitting = true
 	await get_tree().create_timer(0.5).timeout
-	sfx["chime"].play()
+	Sfx.reveal(self)
 	var lines: Array = []
 	var names := {}
 	for i in rest.size():
@@ -617,7 +630,7 @@ func _reveal_item(h: Dictionary) -> void:
 	tw3.tween_property(current_obake, "scale", Vector3.ONE * 0.55, 0.4).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 	tw3.tween_property(current_obake, "rotation:y", TAU, 0.7).set_trans(Tween.TRANS_SINE)
 	await tw3.finished
-	sfx["chime"].play()
+	Sfx.reveal(self)
 	card_title.text = tr(Drops.info(c).get("name", ""))
 	badge.get_parent().visible = h.is_new
 	card_sub.text = tr({"material": "島の材料", "cloth": "服", "vehicle": "乗り物"}.get(c.kind, "島の材料"))
@@ -631,3 +644,20 @@ func _reveal_item(h: Dictionary) -> void:
 	next_btn.disabled = false
 	busy = false
 	_refresh_buttons()
+
+
+## 玉がまわりを照らす光は、合わせて ORB_LIGHT_MAX まで（玉が 3 つ光っても、壁と座布団が白く飛ばないように）
+const ORB_LIGHT_MAX := 1.2
+
+
+func _process(_delta: float) -> void:
+	process_priority = 100 # 玉（Orb3D）が光を決めたあとで、合計を抑える
+	var total := 0.0
+	var ls: Array = []
+	for o in orbs:
+		if is_instance_valid(o) and o.model and o.model.light and o.model.light.is_visible_in_tree():
+			ls.append(o.model.light)
+			total += o.model.light.light_energy
+	if total > ORB_LIGHT_MAX:
+		for l in ls:
+			l.light_energy *= ORB_LIGHT_MAX / total

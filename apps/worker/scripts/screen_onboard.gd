@@ -373,6 +373,7 @@ func _end_mock(coins: int) -> void:
 	GameState.nets["bubble"] = GameState.nets.get("bubble", 0) + MOCK_NETS
 	GameState.save()
 	Kit.play(self, "sparkle")
+	Sfx.coins(self, coins_earned, 0.2)
 	var dim := ColorRect.new()
 	dim.color = Color(0.1, 0.08, 0.15, 0.4)
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -395,7 +396,7 @@ func _end_mock(coins: int) -> void:
 		var sb := StyleBoxFlat.new()
 		sb.set_corner_radius_all(11)
 		sb.bg_color = GameState.TYPE_COLOR.dish
-		sb.border_color = Color(0, 0, 0, 0.2)
+		sb.border_color = Color(Tokens.SHADOW, 0.2)
 		sb.set_border_width_all(2)
 		dot.add_theme_stylebox_override("panel", sb)
 		row.add_child(dot)

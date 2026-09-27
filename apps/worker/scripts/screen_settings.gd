@@ -33,6 +33,7 @@ var chips := {} # "lang:en" / "chat:true" / "tm:false" … → Button
 var confirm: Control
 var lang_changed := false
 var music_slider: HSlider
+var sfx_slider: HSlider
 
 
 ## いまの画面の上にマイページを重ねる。section = "privacy" でプライバシーの項目から
@@ -75,8 +76,9 @@ func _build() -> void:
 
 	scroll = ScrollContainer.new()
 	scroll.position = Vector2(0, 66)
-	scroll.size = Vector2(360, 574)
+	scroll.size = Vector2(360, maxf(574.0, size.y - 66.0))
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	TouchScroll.enable(scroll)
 	add_child(scroll)
 	add_child(head)
 	var pad := MarginContainer.new()
@@ -138,7 +140,7 @@ func _chip(key: String, t: String, cb: Callable) -> Button:
 	b.add_theme_font_override("font", Kit.black())
 	b.add_theme_font_size_override("font_size", 13)
 	b.pressed.connect(func():
-		Kit.play(self, "tap", 1.1)
+		Kit.play(self, "toggle")
 		cb.call())
 	chips[key] = b
 	return b
@@ -235,10 +237,10 @@ func set_lang(lang: String) -> void:
 	_build()
 
 
-## 音楽：鳴らす／消す と音量（scripts/music.gd。settings.cfg の [audio] に残る）
+## 音楽：鳴らす／消す と音量（scripts/music.gd）。その下に効果音の音量（scripts/sfx.gd）。どちらも settings.cfg の [audio] に残る
 func _music_section() -> void:
 	Music.load_prefs()
-	var v := _section("Music" if Kit.is_en() else "音楽")
+	var v := _section(tr("R3_MUSIC"))
 	v.add_child(_row([
 		_chip("music:true", tr("PREFS_SUGGEST_ON"), func(): set_music_on(true)),
 		_chip("music:false", tr("PREFS_SUGGEST_OFF"), func(): set_music_on(false)),
@@ -252,6 +254,17 @@ func _music_section() -> void:
 	music_slider.focus_mode = Control.FOCUS_NONE
 	music_slider.value_changed.connect(set_music_volume)
 	v.add_child(music_slider)
+	Sfx.load_prefs()
+	v.add_child(Kit.text("Sound effects" if Kit.is_en() else "効果音", 13, SUB, true))
+	sfx_slider = HSlider.new()
+	sfx_slider.min_value = 0.0
+	sfx_slider.max_value = 1.0
+	sfx_slider.step = 0.05
+	sfx_slider.value = Sfx.volume
+	sfx_slider.custom_minimum_size = Vector2(0, 32)
+	sfx_slider.focus_mode = Control.FOCUS_NONE
+	sfx_slider.value_changed.connect(set_sfx_volume)
+	v.add_child(sfx_slider)
 
 
 func set_music_on(on: bool) -> void:
@@ -265,6 +278,12 @@ func set_music_volume(x: float) -> void:
 	if Music.muted and x > 0.0:
 		Music.set_muted(false)
 		_refresh()
+
+
+## 効果音の大きさ。動かしたら、その大きさで 1 つ鳴らして聞かせる（連打は Kit.play が間引く）
+func set_sfx_volume(x: float) -> void:
+	Sfx.set_volume(x)
+	Kit.play(self, "tap")
 
 
 func _chat_section() -> void:
@@ -357,7 +376,7 @@ func ask_reset() -> void:
 		confirm = null, SUB))
 	Kit.keep_fit(p, func():
 		p.size.y = 0
-		p.position.y = (640.0 - p.size.y) / 2.0)
+		p.position.y = (size.y - p.size.y) / 2.0)
 
 
 ## この端末のゲームの記録を消して、はじめから（診断から）。利用データの ID・送る設定・言語は残す

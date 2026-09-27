@@ -50,6 +50,7 @@ func _ready() -> void:
 	scroll.position = Vector2(0, 66)
 	scroll.size = Vector2(360, 574)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	TouchScroll.enable(scroll)
 	add_child(scroll)
 	var col := VBoxContainer.new()
 	col.custom_minimum_size = Vector2(360, 0)
@@ -98,7 +99,7 @@ func _pill(bg: Color, radius := 16) -> StyleBoxFlat:
 	s.content_margin_right = 12
 	s.content_margin_top = 6
 	s.content_margin_bottom = 6
-	s.shadow_color = Color(0, 0, 0, 0.08)
+	s.shadow_color = Color(Tokens.SHADOW, 0.08)
 	s.shadow_size = 6
 	s.shadow_offset = Vector2(0, 2)
 	return s
@@ -278,14 +279,19 @@ func _card(r: Dictionary) -> Control:
 	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	hint.custom_minimum_size = Vector2(84, 0)
 	v.add_child(hint)
+	# 指を離したときに開く（なぞってスクロールしただけなら開かない）
 	p.gui_input.connect(func(e):
-		if e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT:
-			_show_detail(r))
+		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT:
+			if e.pressed:
+				p.set_meta("press_at", e.global_position)
+			elif p.has_meta("press_at") and (e.global_position - p.get_meta("press_at")).length() < 14.0:
+				p.remove_meta("press_at")
+				_show_detail(r))
 	return p
 
 
 func _show_detail(r: Dictionary) -> void:
-	Kit.play(self, "tap", 1.1)
+	Kit.play(self, "open")
 	if not GameState.seen.has(r.id):
 		GameState.goal("zukan")
 	if detail:
